@@ -16,3 +16,6 @@ web/node_modules/
 web/dist/
 
 .DS_Store
+
+# LLM response cache
+.cache/

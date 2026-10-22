@@ -40,3 +40,17 @@ generate in seconds and render in the app.
 **Mostly Australian.** Firmable's market. Sydney / Melbourne / Brisbane / Perth
 offices, ANZ and APAC regional roles, a minority of global firms with overseas
 offices.
+
+**Title vocabulary from Gemini, validated before use.** 268 canonical titles,
+3,556 real-world spellings (`orgchart/generator/vocab.json`, committed so the
+dataset rebuilds without an API key). LLM output can quietly change meaning, so
+every variant is checked: it may not add a seniority word the canonical lacks
+(EVP for VP, Lead for Manager), may not equal another canonical title (Chief Data
+Officer for Head of Data), and a spelling offered for two levels is dropped for
+both. ~10% were rejected; rejections are kept in the file for review. Head and
+Director are treated as the same level, since real data swaps them freely.
+
+**Free-tier Gemini, cheap models first.** Calls walk a fallback chain (Flash Lite
+models first, bigger Flash models as backup) with a 90s timeout per call, because
+the free tier often returns 503 "high demand" or hangs. Every response is cached on
+disk, so reruns are free and deterministic.

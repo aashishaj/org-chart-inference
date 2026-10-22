@@ -1,0 +1,6034 @@
+{
+ "models": [
+  "gemini-2.5-flash",
+  "gemini-3.5-flash"
+ ],
+ "generated": "2026-10-22",
+ "missing": [],
+ "titles": {
+  "Chief Executive Officer": [
+   "CEO",
+   "MD & CEO",
+   "Chief Executive Officer (CEO)",
+   "Chief Executive",
+   "Group Chief Executive Officer",
+   "Chief Executive Officer & MD",
+   "Chief Executive Officer (Group)"
+  ],
+  "Co-Founder & CEO": [
+   "CEO & Co-Founder",
+   "Chief Executive Officer & Co-Founder",
+   "Co-Founder & Chief Executive Officer",
+   "Co-Founder, CEO",
+   "CEO, Co-Founder",
+   "Chief Executive Officer, Co-Founder",
+   "Co-Founder / Chief Executive Officer"
+  ],
+  "Managing Director": [
+   "MD",
+   "Director, Managing",
+   "Executive Director",
+   "Director, Executive",
+   "President",
+   "Company Director",
+   "Head of Company",
+   "Company President"
+  ],
+  "Group CEO": [
+   "CEO, Group",
+   "Group Chief Executive Officer",
+   "Chief Executive Officer, Group",
+   "CEO",
+   "Group Chief Exec",
+   "Chief Exec Officer, Group",
+   "GCEO",
+   "Chief Executive",
+   "CEO, Group Companies",
+   "Group President & CEO",
+   "CEO of the Group",
+   "MD, Group"
+  ],
+  "Managing Partner": [
+   "Partner, Managing",
+   "MP",
+   "Executive Partner",
+   "Founding Partner",
+   "Partner in Charge",
+   "Firm Managing Partner",
+   "Global Managing Partner",
+   "Practice Managing Partner",
+   "Executive Managing Partner",
+   "Divisional Managing Partner"
+  ],
+  "Vice-Chancellor": [
+   "VC",
+   "V-C",
+   "Vice Chancellor (VC)",
+   "Vice-Chancellor (V-C)",
+   "University Vice-Chancellor",
+   "Vice-Chancellor & President",
+   "President & Vice-Chancellor"
+  ],
+  "Principal": [
+   "The Principal",
+   "Executive Principal",
+   "Founding Principal",
+   "Managing Principal",
+   "Principal Executive Officer",
+   "Principal Officer",
+   "Global Principal",
+   "Group Principal",
+   "Principal Advisor"
+  ],
+  "Chief of Staff": [
+   "CoS",
+   "Chief of Staff (CoS)",
+   "Chief of Stf",
+   "Chf of Staff",
+   "Chief, Staff",
+   "Staff, Chief",
+   "Officer Chief of Staff",
+   "The Chief of Staff",
+   "Chief of Staff Professional",
+   "Chief of Staffing (Admin)",
+   "Chief of Staff, Executive Support",
+   "Chf. Staff Officer",
+   "Officer of Staff, Chief",
+   "Chief of Staffing Operations"
+  ],
+  "Executive Assistant to the CEO": [
+   "Executive Assistant - CEO",
+   "EA to CEO",
+   "Executive Assistant to Chief Executive Officer",
+   "CEO Executive Assistant",
+   "EA to the CEO",
+   "Executive Assistant / EA to CEO",
+   "Executive Assistant to CEO & Board",
+   "Executive Assistant to the Chief Executive Officer",
+   "CEO EA"
+  ],
+  "Executive Assistant": [
+   "EA",
+   "Exec Assistant",
+   "Executive Assistant (EA)",
+   "Assistant, Executive",
+   "Executive Admin Assistant",
+   "Executive Administrative Assistant",
+   "Executive Support Assistant",
+   "Executive EA / Admin",
+   "Executive Business Assistant",
+   "EA / Executive Assistant",
+   "Executive Personal Assistant",
+   "Exec Admin Assistant"
+  ],
+  "Chief Technology Officer": [
+   "CTO",
+   "Chief Tech Officer",
+   "Chief Technology Offr",
+   "Technology Officer, Chief",
+   "Chief Officer, Technology",
+   "Tech Officer, Chief",
+   "Chief Technology Officer (CTO)",
+   "Chf Technology Officer",
+   "Chf Tech Officer",
+   "Officer, Chief Technology",
+   "Technology Chief Officer",
+   "The Chief Technology Officer",
+   "Chief Technology O."
+  ],
+  "VP Engineering": [
+   "Vice President, Engineering",
+   "VP, Software Engineering",
+   "VP of Engineering",
+   "VP Software Development",
+   "VP Platform Engineering",
+   "VP Infrastructure Engineering",
+   "VP Tech",
+   "VP Technology",
+   "VP Engineering & Architecture",
+   "VP Product Engineering"
+  ],
+  "Head of Engineering": [
+   "Engineering Head",
+   "Director of Engineering",
+   "Engineering Director",
+   "Head, Engineering",
+   "Head of Software Engineering",
+   "Software Engineering Head",
+   "Group Head of Engineering",
+   "Head of Technology & Engineering",
+   "Tech & Engineering Head",
+   "Director, Engineering",
+   "Leadership, Engineering"
+  ],
+  "Senior Engineering Manager": [
+   "Manager, Senior Engineering",
+   "Senior Manager, Engineering",
+   "Engineering Manager, Senior",
+   "Senior Manager, Software Engineering",
+   "Senior Software Engineering Manager",
+   "Manager, Senior Software Engineering",
+   "Senior Manager, Development",
+   "Senior Development Manager",
+   "Senior Manager, Technical",
+   "Senior Manager of Engineering",
+   "Senior Manager, Software Development",
+   "Engineering Senior Manager",
+   "Senior Manager, Engineering & Architecture",
+   "Senior Manager, Systems Engineering"
+  ],
+  "Engineering Manager": [
+   "Manager - Engineering",
+   "Engineering Mgmt",
+   "Engineering Mgr",
+   "Software Engineering Manager",
+   "Manager of Engineering",
+   "Systems Engineering Manager",
+   "Technical Engineering Manager",
+   "Engineering & Delivery Manager",
+   "Engineering Operations Manager",
+   "Engineering Team Manager",
+   "Development Engineering Manager"
+  ],
+  "Software Engineer": [
+   "Software Eng",
+   "Eng, Software",
+   "S/W Engineer",
+   "Engineer, Software",
+   "SWE",
+   "Software Dev Engineer",
+   "Developer, Software",
+   "Software Developer",
+   "Application Engineer",
+   "Systems Software Engineer",
+   "Engineer, Systems Software",
+   "Programmer",
+   "Computer Programmer",
+   "Software Development Engineer",
+   "Software Engineering Specialist",
+   "Software Engineering"
+  ],
+  "Frontend Engineer": [
+   "Front End Engineer",
+   "Engineer, Front-End",
+   "Frontend Dev",
+   "Front End Dev",
+   "Front End Developer",
+   "Frontend Developer",
+   "Engineer, Frontend",
+   "UI Engineer",
+   "User Interface Engineer",
+   "Web Frontend Engineer",
+   "Frontend Software Engineer",
+   "Software Engineer, Frontend",
+   "Front End Software Developer"
+  ],
+  "Backend Engineer": [
+   "Back End Engineer",
+   "Backend Dev",
+   "Backend Developer",
+   "Back End Developer",
+   "Engineer - Backend",
+   "Engineer - Back End",
+   "Software Engineer - Backend",
+   "Backend Software Engineer",
+   "Back-End Software Engineer"
+  ],
+  "QA Engineer": [
+   "QA Eng",
+   "Quality Assurance Engineer",
+   "Engineer - QA",
+   "Test Engineer",
+   "Software QA Engineer",
+   "SQA Engineer",
+   "Automation QA Engineer",
+   "QA Tester",
+   "Software Tester",
+   "Quality Assurance Analyst",
+   "QA Specialist",
+   "Manual QA Engineer",
+   "SDET",
+   "Quality Engineer, QA",
+   "Software Quality Engineer",
+   "Technical QA Engineer",
+   "Quality Assurance Tester"
+  ],
+  "DevOps Engineer": [
+   "Engineer - DevOps",
+   "DevOps Specialist",
+   "Dev Ops Engineer",
+   "Cloud DevOps Engineer",
+   "Site Reliability & DevOps Engineer",
+   "Infrastructure & DevOps Engineer",
+   "Systems & DevOps Engineer",
+   "DevOps / Cloud Engineer",
+   "Cloud & DevOps Engineer",
+   "Build & Release / DevOps Engineer",
+   "Platform & DevOps Engineer"
+  ],
+  "Mobile Engineer": [
+   "Engineer - Mobile",
+   "iOS Engineer",
+   "Android Engineer",
+   "Mobile Developer",
+   "Developer - Mobile",
+   "Mobile App Engineer",
+   "Mobile Software Engineer",
+   "Software Engineer (Mobile)",
+   "Mobile Platform Engineer",
+   "Frontend Mobile Engineer",
+   "Mobile Application Developer",
+   "Native Mobile Engineer",
+   "Mobile Dev",
+   "Mobile Eng"
+  ],
+  "Chief Product Officer": [
+   "CPO",
+   "Chief Prod Officer",
+   "Chief Product Offr",
+   "Product Officer, Chief",
+   "Chief Officer, Product",
+   "Prod Officer, Chief",
+   "Chief Product Officer (CPO)",
+   "Chf Product Officer",
+   "Chf Prod Officer",
+   "Officer, Chief Product",
+   "Product Chief Officer",
+   "The Chief Product Officer",
+   "Chief Product O."
+  ],
+  "VP Product": [
+   "Vice President, Product",
+   "VP, Product Management",
+   "VP of Product",
+   "VP Product Strategy",
+   "VP Product Development",
+   "VP Digital Product",
+   "VP Platform Product",
+   "VP Product & Innovation",
+   "VP Product Portfolio",
+   "Vice President of Product"
+  ],
+  "Head of Product": [
+   "Product Head",
+   "Director of Product",
+   "Product Director",
+   "Head, Product",
+   "Head of Product Management",
+   "Product Management Head",
+   "Group Head of Product",
+   "Head of Digital Product",
+   "Digital Product Head",
+   "Director, Product",
+   "Leadership, Product"
+  ],
+  "Group Product Manager": [
+   "Product Manager, Group",
+   "Group PM",
+   "Product Mgr, Group",
+   "Product Manager, Group Level",
+   "Group Product Portfolio Manager",
+   "Portfolio Product Manager",
+   "Product Group Manager",
+   "Manager, Group Product",
+   "Product Manager, Multiple Products",
+   "Manager, Product (Group)",
+   "Manager, Product Portfolio",
+   "Product Manager, Strategic Group"
+  ],
+  "Lead Product Manager": [
+   "Product Manager, Lead",
+   "Lead PM",
+   "Product Lead",
+   "Product Management Lead",
+   "Product Strategy Lead",
+   "Technical Product Lead",
+   "Product Portfolio Lead",
+   "Lead, Product Management",
+   "Product Innovation Lead",
+   "Product Owner Lead",
+   "Lead, Product",
+   "Product Architecture Lead",
+   "Lead Product Specialist",
+   "Product Program Lead",
+   "Lead, Product Strategy"
+  ],
+  "Product Manager": [
+   "Product Mgr",
+   "Manager - Product",
+   "Digital Product Manager",
+   "Technical Product Manager",
+   "TPM",
+   "Platform Product Manager",
+   "Growth Product Manager",
+   "Product Strategy Manager",
+   "Product Specialist",
+   "Product Consultant",
+   "Solution Product Manager",
+   "Agile Product Manager",
+   "Product Development Manager",
+   "Enterprise Product Manager",
+   "Market Product Manager"
+  ],
+  "Product Owner": [
+   "PO",
+   "Prod Owner",
+   "Owner - Product",
+   "Agile Product Owner",
+   "Digital Product Owner",
+   "Technical Product Owner",
+   "Product Owner - Agile",
+   "Business Product Owner",
+   "Scrum Product Owner",
+   "SAFe Product Owner",
+   "Solution Product Owner",
+   "Enterprise Product Owner",
+   "Platform Product Owner",
+   "Product Champion",
+   "Application Product Owner",
+   "CX Product Owner",
+   "Digital PO"
+  ],
+  "Business Analyst": [
+   "BA",
+   "Business Analyst - Product",
+   "BA - Product",
+   "Product BA",
+   "Product Business Analyst",
+   "Analyst - Business",
+   "Business Systems Analyst - Product",
+   "Business / Product Analyst",
+   "Product & Business Analyst"
+  ],
+  "VP Design": [
+   "Vice President, Design",
+   "VP, Product Design",
+   "VP of Design",
+   "VP, User Experience Design",
+   "VP UX/UI Design",
+   "VP Creative",
+   "VP Digital Design",
+   "VP Experience Design",
+   "VP Brand Design",
+   "VP Design & Research"
+  ],
+  "Head of Design": [
+   "Design Head",
+   "Director of Design",
+   "Design Director",
+   "Head, Design",
+   "Head of Product Design",
+   "Product Design Head",
+   "Head of UX Design",
+   "UX Design Head",
+   "Group Head of Design",
+   "Director, Design",
+   "Leadership, Design"
+  ],
+  "Design Manager": [
+   "Manager - Design",
+   "Design Mgmt",
+   "Design Mgr",
+   "Product Design Manager",
+   "Creative Design Manager",
+   "UI/UX Design Manager",
+   "Digital Design Manager",
+   "Brand & Design Manager",
+   "Design & UX Manager",
+   "Design Operations Manager",
+   "Manager of Design"
+  ],
+  "Product Designer": [
+   "Prod Designer",
+   "Designer - Product",
+   "UX Product Designer",
+   "UI Product Designer",
+   "Product UX Designer",
+   "Product UI Designer",
+   "Digital Product Designer",
+   "Product Experience Designer",
+   "User Experience Designer",
+   "UX/UI Product Designer",
+   "Product Design Specialist",
+   "Product Interaction Designer",
+   "Product Visual Designer",
+   "Product & UX Designer",
+   "UI/UX Designer",
+   "Human-Centred Designer",
+   "CX Product Designer"
+  ],
+  "UX Designer": [
+   "User Experience Designer",
+   "UX Design Specialist",
+   "Experience Designer",
+   "Product Experience Designer",
+   "Digital Experience Designer",
+   "Web UX Designer",
+   "Mobile UX Designer",
+   "User-Centric Designer",
+   "Interaction Designer",
+   "Information Architect",
+   "Usability Designer",
+   "User Flow Designer",
+   "Journey Designer",
+   "CX Designer",
+   "UX Creator"
+  ],
+  "UX Researcher": [
+   "User Experience Researcher",
+   "UX Research Specialist",
+   "Experience Researcher",
+   "User Researcher",
+   "Usability Researcher",
+   "Product UX Researcher",
+   "Digital Experience Researcher",
+   "Human Factors Researcher",
+   "User Insights Researcher",
+   "Customer Experience Researcher",
+   "Interaction Researcher",
+   "Qualitative Researcher",
+   "Quantitative Researcher",
+   "UX Analyst"
+  ],
+  "UI Designer": [
+   "User Interface Designer",
+   "UI Design Specialist",
+   "Interface Designer",
+   "UI Artist",
+   "Digital Interface Designer",
+   "Web UI Designer",
+   "Mobile UI Designer",
+   "Product UI Designer",
+   "Visual UI Designer",
+   "UI/UX Designer",
+   "User Interface Specialist",
+   "Frontend Designer",
+   "Graphical Interface Designer",
+   "Application Interface Designer"
+  ],
+  "Chief Data Officer": [
+   "CDO",
+   "Chief Data & Analytics Officer",
+   "CDAO",
+   "Chief Data Officer (CDO)",
+   "Chief Officer - Data",
+   "Chief Data & Insights Officer",
+   "Chief Data Officer - Data & Analytics",
+   "CDO - Chief Data Officer",
+   "Chief Data and AI Officer",
+   "Chief Analytics & Data Officer"
+  ],
+  "VP Data": [
+   "Vice President, Data",
+   "VP Data & Analytics",
+   "VP, Data Science",
+   "VP of Data",
+   "VP of Data & Insights",
+   "VP Data Strategy",
+   "VP Data Management",
+   "VP, Analytics",
+   "Vice President, Data & AI",
+   "VP Data Platforms"
+  ],
+  "Head of Data": [
+   "Data Head",
+   "Director of Data",
+   "Data Director",
+   "Head, Data",
+   "Head of Data & Analytics",
+   "Data & Analytics Head",
+   "Head of Data Science",
+   "Data Science Head",
+   "Group Head of Data",
+   "Director, Data",
+   "Leadership, Data"
+  ],
+  "Senior Manager, Data & Analytics": [
+   "Manager, Senior, Data & Analytics",
+   "Senior Data & Analytics Manager",
+   "Data & Analytics Senior Manager",
+   "Senior Manager of Data & Analytics",
+   "Senior Manager, Data Analytics",
+   "Senior Data Analytics Manager",
+   "Senior Manager, Analytics",
+   "Senior Analytics Manager",
+   "Manager, Senior, Analytics",
+   "Senior Manager, Business Intelligence",
+   "Senior BI Manager",
+   "Senior Manager, Insights & Analytics",
+   "Senior Insights Manager",
+   "Senior Manager, Enterprise Data & Analytics"
+  ],
+  "Analytics Manager": [
+   "Manager - Analytics",
+   "Analytics Mgr",
+   "Data & Analytics Manager",
+   "Analytics & Data Manager",
+   "Data Analytics Manager",
+   "Manager - Data & Analytics",
+   "Analytics & Insights Manager",
+   "Manager, Data Analytics",
+   "Analytics Team Manager",
+   "Analytics & BI Manager",
+   "Manager - Analytics & Insights",
+   "Analytics Mgr - Data"
+  ],
+  "Data Analyst": [
+   "Analyst - Data",
+   "Data & Analytics Analyst",
+   "Data Analyst / Specialist",
+   "Data Analytics Specialist",
+   "Data & Reporting Analyst",
+   "Data / BI Analyst",
+   "Insights & Data Analyst",
+   "Data & Insights Analyst",
+   "BI & Data Analyst",
+   "Data Specialist / Analyst",
+   "Analytics & Data Analyst"
+  ],
+  "Data Scientist": [
+   "Scientist - Data",
+   "Data Science Specialist",
+   "Data Scientist / ML Specialist",
+   "Machine Learning Data Scientist",
+   "Applied Data Scientist",
+   "Data Science Analyst",
+   "Quantitative Data Scientist",
+   "Data Scientist - Analytics & ML",
+   "ML Data Scientist",
+   "Advanced Analytics Data Scientist",
+   "Data Scientist & AI Specialist"
+  ],
+  "Data Engineer": [
+   "Engineer - Data",
+   "Data Engineering Specialist",
+   "Data & Analytics Engineer",
+   "Data Platform Engineer",
+   "Data Infrastructure Engineer",
+   "Data Pipeline Engineer",
+   "Data Systems Engineer",
+   "Data / Analytics Engineer",
+   "Data Architect & Engineer",
+   "Data Solutions Engineer"
+  ],
+  "Analytics Engineer": [
+   "Engineer - Analytics",
+   "Analytics Eng",
+   "Analytics & Data Engineer",
+   "Data Analytics Engineer",
+   "Analytics & Insights Engineer",
+   "Analytics / Data Engineer",
+   "Analytics Engineer (Data)",
+   "Analytics Engineering Specialist",
+   "Data & Analytics Engineer",
+   "Analytics & BI Engineer"
+  ],
+  "BI Developer": [
+   "Business Intelligence Developer",
+   "BI Dev",
+   "Power BI Developer",
+   "Business Intelligence (BI) Developer",
+   "Developer - BI",
+   "BI / Data Developer",
+   "BI & Analytics Developer",
+   "Business Intelligence Dev",
+   "BI Developer & Analyst",
+   "Developer - Business Intelligence",
+   "BI Reporting Developer",
+   "Business Intelligence & Analytics Developer"
+  ],
+  "Head of Information Security": [
+   "Information Security Head",
+   "Director of Information Security",
+   "Information Security Director",
+   "Head, Information Security",
+   "Head of Cyber Security",
+   "Cyber Security Head",
+   "Head of Infosec",
+   "Infosec Head",
+   "Group Head of Information Security",
+   "Head Security",
+   "Director, Information Security",
+   "Leadership, Information Security"
+  ],
+  "Senior Security Manager": [
+   "Sr. Security Manager",
+   "Security Manager, Senior",
+   "Senior SM",
+   "SM (Senior)",
+   "Senior Security Mgr",
+   "Security Manager, Sr.",
+   "Senior Manager, Security",
+   "Manager, Senior Security",
+   "Senior Information Security Manager",
+   "Information Security Manager, Senior",
+   "Senior Cyber Security Manager",
+   "Cyber Security Manager, Senior",
+   "Senior Manager, Information Security",
+   "Senior IT Security Manager",
+   "IT Security Manager, Senior",
+   "Senior Security Management Professional"
+  ],
+  "Security Manager": [
+   "Manager, Security",
+   "Cyber Security Manager",
+   "InfoSec Manager",
+   "Information Security Manager",
+   "Cybersecurity Manager",
+   "Manager, Information Security",
+   "IT Security Manager",
+   "Security Operations Manager",
+   "Manager, Cyber Security",
+   "Security Program Manager",
+   "Manager, Security Governance",
+   "Manager, Security Risk & Compliance",
+   "Security Architecture Manager",
+   "Manager, Cybersecurity Operations",
+   "Security Services Manager",
+   "Manager, Digital Security",
+   "Security & Compliance Manager",
+   "Manager, Information Assurance"
+  ],
+  "Chief Information Security Officer": [
+   "CISO",
+   "Chief Info Security Officer",
+   "Chief Information Security Offr",
+   "Information Security Officer, Chief",
+   "Chief Officer, Information Security",
+   "Info Security Officer, Chief",
+   "Chief Information Security Officer (CISO)",
+   "Chf Information Security Officer",
+   "Chf Info Security Officer",
+   "Officer, Chief Information Security",
+   "Information Security Chief Officer",
+   "The Chief Information Security Officer",
+   "Chief Info Sec Officer",
+   "Chief Information Sec. Officer"
+  ],
+  "Security Engineer": [
+   "Engineer, Security",
+   "Cyber Security Engineer",
+   "InfoSec Engineer",
+   "Information Security Engineer",
+   "Cybersecurity Engineer",
+   "Security Systems Engineer",
+   "IT Security Engineer",
+   "Security Software Engineer",
+   "Cloud Security Engineer",
+   "Security DevOps Engineer",
+   "Security Infrastructure Engineer",
+   "Engineer, Information Security",
+   "Security Automation Engineer",
+   "Security Development Engineer",
+   "Security Platform Engineer",
+   "Engineer, Cyber Security",
+   "Security Solutions Engineer",
+   "Security Assurance Engineer"
+  ],
+  "Security Analyst": [
+   "Analyst, Security",
+   "Cyber Security Analyst",
+   "InfoSec Analyst",
+   "Information Security Analyst",
+   "Cybersecurity Analyst",
+   "Security Operations Analyst",
+   "Security Specialist",
+   "Analyst, Information Security",
+   "IT Security Analyst",
+   "Analyst, Cyber Security",
+   "Security Threat Analyst",
+   "Security Consultant",
+   "Security Intelligence Analyst",
+   "Digital Security Analyst",
+   "Security Vulnerability Analyst",
+   "Security Data Analyst"
+  ],
+  "GRC Analyst": [
+   "Governance, Risk & Compliance Analyst",
+   "Analyst, GRC",
+   "GRC Specialist",
+   "Analyst, Governance Risk & Compliance",
+   "Security GRC Analyst",
+   "Information Security GRC Analyst",
+   "Analyst, G.R.C.",
+   "GRC Security Analyst",
+   "Governance, Risk & Compliance Specialist",
+   "GRC Compliance Analyst",
+   "Risk & Compliance Analyst (GRC)",
+   "GRC Security Specialist",
+   "IT GRC Analyst",
+   "Analyst, Regulatory Compliance & Risk"
+  ],
+  "SOC Analyst": [
+   "Security Operations Centre Analyst",
+   "Security Operations Center Analyst",
+   "Analyst, SOC",
+   "SOC Security Analyst",
+   "Security Operations Analyst",
+   "Cyber SOC Analyst",
+   "Cyber Security Operations Analyst",
+   "Threat Detection Analyst",
+   "Security Incident Analyst",
+   "Security Operations Specialist",
+   "Cybersecurity SOC Analyst",
+   "Security Ops Analyst",
+   "InfoSec SOC Analyst",
+   "Sec Ops Analyst",
+   "Cyber Defence Analyst",
+   "Security Monitoring Analyst",
+   "Analyst, Security Operations"
+  ],
+  "Chief Information Officer": [
+   "CIO",
+   "Chief Info Officer",
+   "Chief Information Offr",
+   "Information Officer, Chief",
+   "Chief Officer, Information",
+   "Info Officer, Chief",
+   "Chief Information Officer (CIO)",
+   "Chf Information Officer",
+   "Chf Info Officer",
+   "Officer, Chief Information",
+   "Information Chief Officer",
+   "The Chief Information Officer",
+   "Chief Information O."
+  ],
+  "General Manager, Technology": [
+   "GM Technology",
+   "General Mgr Technology",
+   "Technology General Manager",
+   "GM of Technology",
+   "General Manager, IT",
+   "IT General Manager",
+   "General Manager, Digital Technology",
+   "Digital Technology GM",
+   "GM, Digital & Technology",
+   "General Manager, Information Technology",
+   "IT & Technology GM"
+  ],
+  "Head of IT": [
+   "IT Head",
+   "Director of IT",
+   "IT Director",
+   "Head, IT",
+   "Head of Information Technology",
+   "Information Technology Head",
+   "Head of Technology",
+   "Technology Head",
+   "Group Head of IT",
+   "Head of ICT",
+   "ICT Head",
+   "Director, Information Technology"
+  ],
+  "IT Manager": [
+   "Manager, IT",
+   "Information Technology Manager",
+   "Manager, Information Technology",
+   "IT Mgr",
+   "Mgr, IT",
+   "IT Operations Manager",
+   "Manager, IT Operations",
+   "Manager of IT",
+   "IT Services Manager",
+   "Manager, IT Services",
+   "IT Systems Manager",
+   "Systems Manager, IT",
+   "Manager, Information Systems",
+   "Information Systems Manager",
+   "Manager, Technology",
+   "Technology Manager",
+   "ICT Manager",
+   "Manager, ICT",
+   "IT Infrastructure Manager",
+   "IT Solutions Manager"
+  ],
+  "Systems Administrator": [
+   "Systems Admin",
+   "Admin, Systems",
+   "Sys Admin",
+   "Admin, Sys",
+   "System Administrator",
+   "Administrator, System",
+   "IT Systems Administrator",
+   "Administrator, IT Systems",
+   "Server Administrator",
+   "Network Administrator",
+   "Infrastructure Administrator",
+   "Administrator, Infrastructure",
+   "Systems Operations Administrator",
+   "Administrator, Systems Operations",
+   "Computer Systems Administrator",
+   "Administrator, Computer Systems",
+   "Systems Admin Professional",
+   "IT Administrator"
+  ],
+  "IT Support Analyst": [
+   "IT Support Specialist",
+   "IT Service Analyst",
+   "IT Service Desk Analyst",
+   "Technical Support Analyst",
+   "Technical Support Specialist",
+   "Help Desk Analyst",
+   "Helpdesk Analyst",
+   "Support Analyst",
+   "IT Analyst",
+   "ICT Support Analyst",
+   "ICT Support Specialist",
+   "Desktop Support Analyst",
+   "Desktop Support Specialist",
+   "IT Support Officer",
+   "Support Officer, IT",
+   "IT Support Technician",
+   "Computer Support Analyst",
+   "User Support Analyst",
+   "IT Helpdesk Analyst"
+  ],
+  "Service Desk Analyst": [
+   "Svc Desk Analyst",
+   "Analyst, Service Desk",
+   "Service Desk Support Analyst",
+   "IT Service Desk Analyst",
+   "Help Desk Analyst",
+   "Analyst, Help Desk",
+   "IT Help Desk Analyst",
+   "Support Analyst, Service Desk",
+   "Service Desk Officer",
+   "Technical Support Analyst",
+   "End User Support Analyst",
+   "Desktop Support Analyst",
+   "Service Desk Technician",
+   "IT Service Desk Technician",
+   "Help Desk Technician",
+   "Support Desk Analyst",
+   "Service Centre Analyst"
+  ],
+  "Network Engineer": [
+   "Engineer - Network",
+   "Net Engineer",
+   "Network Specialist",
+   "Networking Engineer",
+   "Network & Systems Engineer",
+   "Infrastructure Engineer (Networking)",
+   "IT Network Engineer",
+   "Network Operations Engineer",
+   "Data Network Engineer",
+   "Wireless Network Engineer",
+   "Cloud Network Engineer",
+   "Network Administrator",
+   "Net Eng"
+  ],
+  "Chief Revenue Officer": [
+   "CRO",
+   "Chief Rev Officer",
+   "Chief Revenue Offr",
+   "Revenue Officer, Chief",
+   "Chief Officer, Revenue",
+   "Rev Officer, Chief",
+   "Chief Revenue Officer (CRO)",
+   "Chf Revenue Officer",
+   "Chf Rev Officer",
+   "Officer, Chief Revenue",
+   "Revenue Chief Officer",
+   "The Chief Revenue Officer",
+   "Chief Revenue O."
+  ],
+  "VP Sales": [
+   "Vice President, Sales",
+   "VP, Global Sales",
+   "VP of Sales",
+   "VP Revenue",
+   "VP Commercial",
+   "VP Business Development & Sales",
+   "VP Sales & Marketing",
+   "VP Enterprise Sales",
+   "VP Channel Sales",
+   "VP Sales Strategy",
+   "VP Field Sales"
+  ],
+  "Head of Sales": [
+   "Sales Head",
+   "Head, Sales",
+   "Head of Commercial Sales",
+   "Commercial Sales Head",
+   "Group Head of Sales",
+   "Head of Revenue",
+   "Revenue Head",
+   "Leadership, Sales"
+  ],
+  "Sales Director": [
+   "Sales Dir",
+   "Commercial Director",
+   "Director, Commercial",
+   "Director, Sales & Business Development",
+   "Sales Leadership Director",
+   "Director, Business Development",
+   "Director of Sales Excellence",
+   "Sales Performance Director",
+   "Director of Sales Strategy"
+  ],
+  "Sales Manager": [
+   "Manager, Sales",
+   "Sales Mngr",
+   "Business Development Manager",
+   "BDM",
+   "Manager, Business Development",
+   "Commercial Manager",
+   "Manager, Commercial",
+   "Manager of Sales",
+   "Retail Sales Manager",
+   "Manager, Retail Sales",
+   "Sales Consultant Manager",
+   "Customer Sales Manager",
+   "Sales Performance Manager",
+   "Sales Group Manager",
+   "Sales & Service Manager"
+  ],
+  "Account Executive": [
+   "AE",
+   "Account Exec",
+   "Acc Executive",
+   "Sales AE",
+   "Account Executive - Sales",
+   "Sales Account Executive",
+   "Acc Exec",
+   "AE - Sales",
+   "Sales Account Exec",
+   "Corporate Account Executive",
+   "Commercial Account Executive",
+   "Client Account Executive"
+  ],
+  "Account Manager": [
+   "AM",
+   "Sales Account Manager",
+   "Account Mgr",
+   "Acc Manager",
+   "Acc Mgr",
+   "AM - Sales",
+   "Account Manager, Sales",
+   "Sales AM",
+   "Corporate Account Manager",
+   "Commercial Account Manager",
+   "Client Account Manager",
+   "Manager, Accounts",
+   "AM - Client Management"
+  ],
+  "Business Development Representative": [
+   "BDR",
+   "Business Development Rep",
+   "Bus Dev Rep",
+   "Bus Dev Representative",
+   "BDR - Business Development Representative",
+   "Business Development Representative (BDR)",
+   "Rep - Business Development",
+   "BDR - Sales",
+   "Sales Business Development Representative",
+   "Business Development Representative - Sales",
+   "Business Dev Rep",
+   "Sales BDR"
+  ],
+  "Sales Development Representative": [
+   "SDR",
+   "Sales Dev Representative",
+   "Representative, Sales Development",
+   "BDR",
+   "Sales Development Rep",
+   "Sales Development Executive",
+   "Outbound Sales Representative",
+   "LDR",
+   "Sales Prospecting Representative",
+   "Market Development Representative",
+   "MDR",
+   "Sales Outreach Representative",
+   "New Business Development Representative",
+   "Sales Development Specialist",
+   "Sales Dev Rep",
+   "Representative, Business Development"
+  ],
+  "Chief Marketing Officer": [
+   "CMO",
+   "Chief Mktg Officer",
+   "Chief Marketing Offr",
+   "Marketing Officer, Chief",
+   "Chief Officer, Marketing",
+   "Mktg Officer, Chief",
+   "Chief Marketing Officer (CMO)",
+   "Chf Marketing Officer",
+   "Chf Mktg Officer",
+   "Officer, Chief Marketing",
+   "Marketing Chief Officer",
+   "The Chief Marketing Officer",
+   "Chief Marketing O."
+  ],
+  "VP Marketing": [
+   "Vice President, Marketing",
+   "VP, Marketing & Communications",
+   "VP of Marketing",
+   "VP Growth Marketing",
+   "VP Brand & Marketing",
+   "VP Digital Marketing",
+   "VP Product Marketing",
+   "VP Marketing Strategy",
+   "VP Demand Generation",
+   "VP Integrated Marketing",
+   "VP Mktg"
+  ],
+  "Head of Marketing": [
+   "Marketing Head",
+   "Director of Marketing",
+   "Marketing Director",
+   "Head, Marketing",
+   "Head of Brand & Marketing",
+   "Brand & Marketing Head",
+   "Group Head of Marketing",
+   "Head of Digital Marketing",
+   "Digital Marketing Head",
+   "Director, Marketing",
+   "Head of Mktg"
+  ],
+  "Marketing Manager": [
+   "Manager, Marketing",
+   "Marketing Mgr",
+   "Mgr, Marketing",
+   "Manager of Marketing",
+   "Digital Marketing Manager",
+   "Campaigns Manager",
+   "Marketing Communications Manager",
+   "MarComms Manager",
+   "Social Media Marketing Manager",
+   "Trade Marketing Manager",
+   "Channel Marketing Manager",
+   "Marketing & Communications Manager",
+   "Manager, Marketing & Communications",
+   "Events Marketing Manager",
+   "Growth Marketing Manager",
+   "Performance Marketing Manager",
+   "Marketing Strategist"
+  ],
+  "Marketing Specialist": [
+   "Mktg Specialist",
+   "Specialist, Marketing",
+   "Marketing & Communications Specialist",
+   "Marketing Ops Specialist",
+   "Marketing Professional",
+   "Marketing Consultant",
+   "Marcomms Specialist",
+   "Marketing Exec",
+   "Marketing Executive",
+   "Marketing Advisor",
+   "Brand Marketing Specialist",
+   "Product Marketing Specialist",
+   "Marketing Analytics Specialist",
+   "Growth Marketing Specialist",
+   "Online Marketing Specialist"
+  ],
+  "Digital Marketing Specialist": [
+   "Specialist - Digital Marketing",
+   "Digital Specialist - Marketing",
+   "Digital Mktg Specialist",
+   "Digital Marketing Officer",
+   "Marketing Specialist - Digital",
+   "Digital Marketing & Content Specialist",
+   "Online Marketing Specialist",
+   "Digital Growth Marketing Specialist",
+   "Digital & Performance Marketing Specialist",
+   "Digital Media Marketing Specialist",
+   "Digital & Social Marketing Specialist"
+  ],
+  "Marketing Coordinator": [
+   "Coordinator, Marketing",
+   "Marketing Officer",
+   "Marketing Administrator",
+   "Marketing Support Coordinator",
+   "Digital Marketing Coordinator",
+   "Campaign Coordinator",
+   "Marketing Communications Coordinator",
+   "MarComms Coordinator",
+   "Events & Marketing Coordinator",
+   "Content Marketing Coordinator",
+   "Social Media Coordinator",
+   "Marketing Executive",
+   "Marketing & Communications Coordinator",
+   "Brand Marketing Coordinator",
+   "Coordinator, Digital Marketing",
+   "Marketing Campaigns Coordinator"
+  ],
+  "Product Marketing Manager": [
+   "PMM",
+   "Prod Marketing Manager",
+   "Prod Mktg Manager",
+   "Product Mktg Mgr",
+   "Mgr, Product Marketing",
+   "Marketing Manager, Product",
+   "Product & Marketing Manager",
+   "Digital Product Marketing Manager",
+   "Growth Product Marketing Manager",
+   "Go-to-Market Manager",
+   "GTM Manager, Product",
+   "Product Launch Manager",
+   "Lifecycle Product Marketing Manager",
+   "Product Marketing Specialist",
+   "Brand & Product Marketing Manager",
+   "Commercial Product Marketing Manager",
+   "Global PMM",
+   "Product GTM Manager"
+  ],
+  "Brand Manager": [
+   "Brand Mgr",
+   "Manager - Brand",
+   "Brand Marketing Manager",
+   "Marketing Brand Manager",
+   "Brand Manager - Marketing",
+   "Brand & Marketing Manager",
+   "Brand Experience Manager",
+   "Brand Communications Manager",
+   "Brand Mgr - Marketing",
+   "Manager - Brand Marketing",
+   "Brand Strategy Manager"
+  ],
+  "Content Marketing Manager": [
+   "Content Mktg Manager",
+   "Content Marketing Mngr",
+   "Content Mktg Mngr",
+   "Manager, Content Marketing",
+   "Mngr, Content Marketing",
+   "Content & Marketing Manager",
+   "Marketing Manager, Content",
+   "Content Marketing Professional",
+   "Content Marketing Mgr.",
+   "Content & Marketing Mngr",
+   "Marketing Content Manager",
+   "Manager of Content Marketing",
+   "Content & Mktg Manager",
+   "Marketing Content Mngr",
+   "Content Marketing Specialist Manager"
+  ],
+  "VP Customer Success": [
+   "Vice President, Customer Success",
+   "VP Customer Experience",
+   "VP Client Success",
+   "VP Account Management",
+   "Vice President of Customer Success",
+   "VP, Client Experience",
+   "VP of Client Relations",
+   "VP Customer Success & Operations",
+   "VP CS"
+  ],
+  "Head of Customer Success": [
+   "Customer Success Head",
+   "Director of Customer Success",
+   "Customer Success Director",
+   "Head, Customer Success",
+   "Head of Client Success",
+   "Client Success Head",
+   "Group Head of Customer Success",
+   "Head of Success",
+   "Success Head",
+   "Director, Customer Success",
+   "Leadership, Customer Success"
+  ],
+  "Senior Manager, Customer Success": [
+   "Manager, Senior, Customer Success",
+   "Senior Customer Success Manager",
+   "Customer Success Senior Manager",
+   "Senior Manager of Customer Success",
+   "Senior Customer Experience Manager",
+   "Senior Manager, Client Success",
+   "Senior Client Success Manager",
+   "Senior Manager, CX",
+   "Senior Manager, Client Engagement",
+   "Senior Manager, Success & Retention",
+   "Senior Manager, Customer Outcomes",
+   "Senior Manager, Client Partnership",
+   "Senior Success Manager",
+   "Senior Manager, Client Value"
+  ],
+  "Customer Success Team Lead": [
+   "Customer Success Team Leader",
+   "Team Lead - Customer Success",
+   "Customer Success Lead",
+   "Team Leader - Customer Success",
+   "CS Team Lead",
+   "CS Team Leader",
+   "Customer Success Lead / Team Leader",
+   "Client Success Team Lead",
+   "Client Success Team Leader",
+   "CS Lead / Team Leader",
+   "Lead - Customer Success"
+  ],
+  "Customer Success Manager": [
+   "CSM",
+   "Customer Success Mgmt",
+   "Customer Success Mgr",
+   "Manager - Customer Success",
+   "Customer Success & Account Manager",
+   "Customer Success Manager (CSM)",
+   "Customer Success Relationship Manager",
+   "Client Success Mgmt",
+   "Manager - Client Success",
+   "Customer Success Specialist / Manager"
+  ],
+  "Onboarding Specialist": [
+   "Specialist - Onboarding",
+   "Customer Onboarding Specialist",
+   "Client Onboarding Specialist",
+   "Implementation Specialist (Onboarding)",
+   "Onboarding Consultant",
+   "Customer Success Onboarding Specialist",
+   "New Client Onboarding Specialist",
+   "User Onboarding Specialist",
+   "Professional Services Consultant (Onboarding)",
+   "Solutions Onboarding Specialist",
+   "Onboarding Professional",
+   "Product Onboarding Specialist",
+   "Client Success Specialist (Onboarding)"
+  ],
+  "Implementation Consultant": [
+   "Consultant, Implementation",
+   "Client Implementation Consultant",
+   "Technical Implementation Consultant",
+   "Software Implementation Consultant",
+   "Solutions Implementation Consultant",
+   "Project Implementation Consultant",
+   "Implementation Specialist",
+   "Solutions Consultant",
+   "Consultant, Solutions",
+   "Professional Services Consultant",
+   "Consultant, Professional Services",
+   "Deployment Consultant",
+   "Systems Implementation Consultant",
+   "Customer Implementation Consultant",
+   "Product Implementation Consultant",
+   "Applications Implementation Consultant",
+   "Consultant, Systems Deployment",
+   "Onboarding Consultant",
+   "Post-Sales Consultant",
+   "Integration Consultant"
+  ],
+  "Head of Customer Support": [
+   "Customer Support Head",
+   "Director of Customer Support",
+   "Customer Support Director",
+   "Head, Customer Support",
+   "Head of Support",
+   "Support Head",
+   "Head of Customer Service",
+   "Customer Service Head",
+   "Group Head of Customer Support",
+   "Director, Customer Support",
+   "Leadership, Customer Support"
+  ],
+  "Contact Centre Manager": [
+   "Call Centre Manager",
+   "Contact Centre Mgr",
+   "Call Centre Mgr",
+   "Manager, Contact Centre",
+   "Manager, Call Centre",
+   "Contact Ctr Manager",
+   "Call Ctr Manager",
+   "Manager, Contact Ctr",
+   "Manager, Call Ctr",
+   "Contact Centre Mngr",
+   "Call Centre Mngr",
+   "Mngr, Contact Centre",
+   "Mngr, Call Centre",
+   "Customer Contact Centre Manager",
+   "Call Centre Manager (Contact)",
+   "Manager, Customer Contact Centre",
+   "Contact Centre Management Professional"
+  ],
+  "Support Team Lead": [
+   "Team Lead, Support",
+   "Lead, Support Team",
+   "Support Lead",
+   "Lead, Support",
+   "Customer Support Team Lead",
+   "Team Lead, Customer Support",
+   "Customer Support Lead",
+   "Technical Support Team Lead",
+   "Team Lead, Technical Support",
+   "Technical Support Lead",
+   "Support Team Leader",
+   "Team Leader, Support",
+   "Lead Customer Support"
+  ],
+  "Customer Support Specialist": [
+   "Support Specialist - Customer",
+   "Customer Support Officer",
+   "Customer Support Rep",
+   "Customer Support Specialist (Tier 2)",
+   "Specialist, Customer Support",
+   "Customer Care Specialist",
+   "CS Specialist - Customer Support",
+   "Customer Experience Specialist",
+   "Customer Service Support Specialist",
+   "CX Support Specialist",
+   "Support & Service Specialist",
+   "Customer Support & Service Specialist"
+  ],
+  "Support Engineer": [
+   "Support Eng",
+   "Eng, Support",
+   "Technical Support Engineer",
+   "Engineer, Technical Support",
+   "Customer Support Engineer",
+   "Engineer, Customer Support",
+   "Support Engr",
+   "Engineer (Support)",
+   "Client Support Engineer",
+   "Engineer, Client Support",
+   "Technical Support Specialist",
+   "Support Specialist",
+   "Customer Service Engineer",
+   "Engineer, Support Services",
+   "IT Support Engineer",
+   "Support Engineer (Technical)",
+   "Product Support Engineer",
+   "Systems Support Engineer",
+   "End User Support Engineer"
+  ],
+  "Customer Service Representative": [
+   "Customer Service Rep",
+   "Customer Service Agent",
+   "Customer Service Officer",
+   "Customer Service Specialist",
+   "Service Representative - Customer",
+   "CSR - Customer Service Representative",
+   "Customer Care Representative",
+   "Customer Care Rep",
+   "Customer Care Officer",
+   "Customer Service Representative (CSR)",
+   "CSR",
+   "Customer Service Support Representative",
+   "Representative, Customer Service",
+   "Customer Experience Representative"
+  ],
+  "Chief Financial Officer": [
+   "CFO",
+   "Chief Fin Officer",
+   "Chief Financial Offr",
+   "Financial Officer, Chief",
+   "Chief Officer, Financial",
+   "Fin Officer, Chief",
+   "Chief Financial Officer (CFO)",
+   "Chf Financial Officer",
+   "Chf Fin Officer",
+   "Officer, Chief Financial",
+   "Financial Chief Officer",
+   "The Chief Financial Officer",
+   "Chief Financial Off.",
+   "Chief Financial O."
+  ],
+  "Financial Controller": [
+   "Controller, Financial",
+   "Finance Controller",
+   "Controller of Finance",
+   "Financial Control",
+   "Controller, Fin",
+   "Group Financial Controller",
+   "Company Controller",
+   "Controller",
+   "Financial Operations Controller",
+   "Controller, Corporate Finance",
+   "Corporate Controller",
+   "Controller, Accounting & Finance",
+   "Divisional Financial Controller"
+  ],
+  "Senior Finance Manager": [
+   "Manager, Senior Finance",
+   "Senior Manager, Finance",
+   "Finance Manager, Senior",
+   "Senior Financial Manager",
+   "Manager, Senior Financial",
+   "Senior Manager, Commercial Finance",
+   "Senior Manager, Financial Planning & Analysis",
+   "Senior FP&A Manager",
+   "Senior Corporate Finance Manager",
+   "Senior Manager of Finance",
+   "Finance Senior Manager",
+   "Senior Manager, Financial Operations",
+   "Senior Manager, Group Finance",
+   "Senior Financial Planning Manager",
+   "Senior Manager, Financial Strategy",
+   "Senior Finance Operations Manager"
+  ],
+  "Finance Manager": [
+   "Fin Manager",
+   "Manager, Finance",
+   "Finance Mgr",
+   "Financial Manager",
+   "Manager, Financial",
+   "Manager of Finance",
+   "Manager, Financial Operations",
+   "Financial Admin Manager",
+   "Manager, Finance & Accounts",
+   "Business Finance Manager",
+   "Corporate Finance Manager",
+   "Manager - Financial Services",
+   "Finance Manager, Reporting"
+  ],
+  "Accountant": [
+   "Financial Accountant",
+   "Corporate Accountant",
+   "Commercial Accountant",
+   "Company Accountant",
+   "General Accountant",
+   "Accountant - Finance",
+   "Finance Accountant",
+   "Financial & Management Accountant",
+   "Management Accountant",
+   "Acct",
+   "Financial Acct",
+   "Accountant - Financial"
+  ],
+  "Financial Analyst": [
+   "Fin Analyst",
+   "Analyst, Financial",
+   "Finance Analyst",
+   "Financial Analyst I",
+   "Financial Reporting Analyst",
+   "Business Financial Analyst",
+   "Analyst, Corporate Finance",
+   "Corporate Financial Analyst",
+   "Financial Planning Analyst",
+   "Analyst, Finance",
+   "Financial Data Analyst",
+   "Financial Markets Analyst",
+   "Finance Data Analyst"
+  ],
+  "Accounts Payable Officer": [
+   "AP Officer",
+   "Accounts Payable Specialist",
+   "Accounts Payable Clerk",
+   "AP Specialist",
+   "Accounts Payable Administrator",
+   "Accounts Payable Admin",
+   "AP Admin",
+   "Officer - Accounts Payable",
+   "AP Clerk",
+   "Accounts Payable / AP Officer",
+   "Accounts Payable Co-ordinator",
+   "Accounts Payable Coordinator",
+   "AP Coordinator"
+  ],
+  "Payroll Officer": [
+   "Officer - Payroll",
+   "Payroll Specialist",
+   "Payroll Administrator",
+   "Payroll Clerk",
+   "Payroll Coordinator",
+   "Payroll Professional",
+   "HR & Payroll Officer",
+   "Payroll Analyst",
+   "Wages Officer",
+   "Remuneration Officer",
+   "Payroll Executive",
+   "Payroll Consultant"
+  ],
+  "FP&A Analyst": [
+   "Financial Planning & Analysis Analyst",
+   "F P & A Analyst",
+   "Analyst, FP&A",
+   "Financial Planning & Analysis Specialist",
+   "Financial Planning Analyst",
+   "Financial Analyst, FP&A",
+   "Analyst, Financial Planning & Analysis",
+   "FP&A Data Analyst"
+  ],
+  "Chief People Officer": [
+   "CPO",
+   "Chief Ppl Officer",
+   "Chief People Offr",
+   "People Officer, Chief",
+   "Chief Officer, People",
+   "Ppl Officer, Chief",
+   "Chief People Officer (CPO)",
+   "Chf People Officer",
+   "Chf Ppl Officer",
+   "Officer, Chief People",
+   "People Chief Officer",
+   "The Chief People Officer",
+   "Chief People O."
+  ],
+  "Head of People": [
+   "People Head",
+   "Director of People",
+   "People Director",
+   "Head, People",
+   "Head of People & Culture",
+   "People & Culture Head",
+   "Head of Human Resources",
+   "Human Resources Head",
+   "Group Head of People",
+   "Director, People",
+   "Leadership, People"
+  ],
+  "HR Manager": [
+   "Human Resources Manager",
+   "HR Mgr",
+   "Human Resources Mgr",
+   "Manager, HR",
+   "Manager, Human Resources",
+   "H.R. Manager",
+   "H.R. Mgr",
+   "People Manager",
+   "P&C Manager",
+   "People & Culture Manager",
+   "Manager of HR",
+   "Manager of Human Resources",
+   "People & Culture Mgr"
+  ],
+  "HR Business Partner": [
+   "Human Resources Business Partner",
+   "HR BP",
+   "Human Resources BP",
+   "HR Bus Partner",
+   "Human Resources Bus Partner",
+   "HR Partner",
+   "Human Resources Partner",
+   "H.R. Business Partner",
+   "H.R. B.P.",
+   "People Partner",
+   "P&C Business Partner",
+   "People & Culture Business Partner",
+   "Business Partner - HR",
+   "People & Culture BP",
+   "Human Resources People Partner"
+  ],
+  "Talent Acquisition Partner": [
+   "Talent Acquisition Ptnr",
+   "Partner, Talent Acquisition",
+   "TA Partner",
+   "Partner, TA",
+   "Talent Partner",
+   "Partner, Talent",
+   "Recruitment Partner",
+   "Partner, Recruitment",
+   "Recruiter, Talent Acquisition",
+   "Talent Recruiter",
+   "Talent Acquisition Specialist",
+   "Specialist, Talent Acquisition",
+   "HR Talent Acquisition Partner",
+   "Talent Acquisition Advisor",
+   "Talent Consultant",
+   "TA Specialist",
+   "Talent Acquisition Professional",
+   "Acquisition Partner (Talent)"
+  ],
+  "Recruiter": [
+   "Talent Recruiter",
+   "Talent Acquisition Recruiter",
+   "TA Recruiter",
+   "Recruitment Specialist",
+   "Talent Acquisition Specialist",
+   "Internal Recruiter",
+   "Agency Recruiter",
+   "Corporate Recruiter",
+   "Recruitment Consultant",
+   "Consultant - Recruitment",
+   "Talent Sourcer",
+   "People Recruiter",
+   "Human Resources Recruiter",
+   "HR Recruiter",
+   "Recruitment Officer",
+   "Recruiter - Talent Acquisition",
+   "Recruitment Advisor"
+  ],
+  "People & Culture Coordinator": [
+   "P&C Coordinator",
+   "Human Resources Coordinator",
+   "HR Coordinator",
+   "Coordinator - People & Culture",
+   "HR & P&C Coordinator",
+   "People Coordinator",
+   "Culture Coordinator",
+   "HR Administrator",
+   "HR Support Officer",
+   "HR Professional (Coordinator)",
+   "Employee Experience Coordinator",
+   "Talent & Culture Coordinator",
+   "HR & Engagement Coordinator"
+  ],
+  "HR Advisor": [
+   "Human Resources Advisor",
+   "Advisor, HR",
+   "HR Adviser",
+   "Human Resources Adviser",
+   "Advisor, Human Resources",
+   "HR Consultant",
+   "People & Culture Advisor",
+   "P&C Advisor",
+   "HR Business Advisor",
+   "HR Officer",
+   "People Advisor",
+   "Human Resources Officer",
+   "HR Specialist",
+   "Advisor, People & Culture",
+   "People & Culture Adviser"
+  ],
+  "General Counsel": [
+   "GC",
+   "Counsel, General",
+   "Company Secretary & General Counsel",
+   "General Legal Counsel",
+   "Executive General Counsel",
+   "Group General Counsel",
+   "GC & Company Secretary"
+  ],
+  "Head of Legal": [
+   "Legal Head",
+   "Director of Legal",
+   "Legal Director",
+   "Head, Legal",
+   "Head of Legal Counsel",
+   "Legal Counsel Head",
+   "Head of Legal Affairs",
+   "Legal Affairs Head",
+   "Group Head of Legal",
+   "Director, Legal",
+   "Leadership, Legal"
+  ],
+  "Senior Legal Counsel": [
+   "Legal Counsel, Senior",
+   "Senior Counsel",
+   "Counsel, Senior Legal",
+   "Senior In-house Counsel",
+   "Senior Corporate Counsel",
+   "Senior Legal Advisor",
+   "Senior Managing Counsel",
+   "Senior Counsel, Legal Affairs",
+   "Senior Counsel, Corporate"
+  ],
+  "Legal Counsel": [
+   "Counsel, Legal",
+   "Corporate Counsel",
+   "In-House Counsel",
+   "Company Counsel",
+   "Legal Advisor",
+   "Legal Consultant",
+   "Counsel",
+   "Legal Officer",
+   "Legal Specialist",
+   "Lawyer",
+   "Attorney",
+   "Legal Professional",
+   "Solicitor",
+   "Legal Counsel, Corporate",
+   "Legal Advisor, In-House",
+   "Legal Counsel (In-House)",
+   "Counsel for Legal Affairs",
+   "Legal Affairs Counsel",
+   "Legal Representative"
+  ],
+  "Paralegal": [
+   "Legal Paralegal",
+   "Legal Officer",
+   "Law Clerk",
+   "Legal Support Officer",
+   "Litigation Paralegal",
+   "Corporate Paralegal",
+   "Commercial Paralegal",
+   "Property Paralegal",
+   "Conveyancing Paralegal",
+   "Legal Executive",
+   "Paralegal Consultant"
+  ],
+  "Company Secretary": [
+   "Co Sec",
+   "Company Sec",
+   "Secretary, Company",
+   "Corporate Secretary",
+   "Corporate Sec",
+   "Sec, Company",
+   "Company Secretary (Co Sec)",
+   "Secretary of the Company",
+   "Secretary, Corporate",
+   "The Company Secretary",
+   "Sec for Company",
+   "Company Secretary Professional",
+   "CoSec",
+   "Officer, Company Secretary",
+   "Company Secretary & Administrator"
+  ],
+  "Chief Operating Officer": [
+   "COO",
+   "Chief Ops Officer",
+   "Chief Operating Offr",
+   "Operating Officer, Chief",
+   "Chief Officer, Operating",
+   "Ops Officer, Chief",
+   "Chief Operating Officer (COO)",
+   "Chf Operating Officer",
+   "Chf Ops Officer",
+   "Officer, Chief Operating",
+   "Operating Chief Officer",
+   "The Chief Operating Officer",
+   "Chief Operating O."
+  ],
+  "VP Operations": [
+   "Vice President, Operations",
+   "VP, Business Operations",
+   "VP of Operations",
+   "VP Strategy & Operations",
+   "VP Operational Excellence",
+   "VP Ops",
+   "VP Supply Chain Operations",
+   "VP Logistics & Operations",
+   "VP Business Systems & Operations",
+   "Vice President of Operations"
+  ],
+  "Head of Operations": [
+   "Operations Head",
+   "Director of Operations",
+   "Operations Director",
+   "Head, Operations",
+   "Head of Ops",
+   "Ops Head",
+   "Group Head of Operations",
+   "Head of Business Operations",
+   "Business Operations Head",
+   "Director, Operations",
+   "Leadership, Operations"
+  ],
+  "Operations Manager": [
+   "Ops Manager",
+   "Manager - Operations",
+   "Business Operations Manager",
+   "General Operations Manager",
+   "Service Operations Manager",
+   "Supply Chain Operations Manager",
+   "Manager, Business Operations",
+   "Operational Manager",
+   "Operations Team Manager",
+   "Workflow Operations Manager"
+  ],
+  "Operations Analyst": [
+   "Ops Analyst",
+   "Analyst - Operations",
+   "Business Operations Analyst",
+   "Operational Analyst",
+   "Process Improvement Analyst (Operations)",
+   "Supply Chain Operations Analyst",
+   "Logistics Operations Analyst",
+   "Data Analyst (Operations)",
+   "Systems Operations Analyst",
+   "Operations Performance Analyst",
+   "Analyst, Operations & Planning",
+   "Operations Insights Analyst",
+   "Business Process Analyst (Operations)",
+   "Operational Efficiency Analyst"
+  ],
+  "Operations Coordinator": [
+   "Ops Coordinator",
+   "Coordinator - Operations",
+   "Business Operations Coordinator",
+   "Operational Coordinator",
+   "Logistics Coordinator (Operations)",
+   "Field Operations Coordinator",
+   "Project Operations Coordinator",
+   "Operations Support Coordinator",
+   "Office Operations Coordinator",
+   "Coordinator, Operations & Admin",
+   "Operations Administrator",
+   "Customer Operations Coordinator",
+   "Service Operations Coordinator",
+   "Warehouse Operations Coordinator"
+  ],
+  "Business Operations Specialist": [
+   "BizOps Specialist",
+   "Business Ops Specialist",
+   "Biz Ops Specialist",
+   "Operations Specialist - Business",
+   "Business Operations Specialist (BizOps)",
+   "Business Operations Officer",
+   "Specialist - Business Operations",
+   "BizOps Specialist - Operations",
+   "Business & Operations Specialist",
+   "Business Operations Analyst & Specialist",
+   "Bus Ops Specialist",
+   "Business Operations Co-ordinator"
+  ],
+  "Procurement Officer": [
+   "Proc Officer",
+   "Purchasing Officer",
+   "Officer - Procurement",
+   "Procurement Ops Officer",
+   "Buying Officer",
+   "Purchasing & Supply Officer",
+   "Supply Officer",
+   "Procurement Administrator",
+   "Procurements Officer",
+   "Sourcing Officer",
+   "Strategic Procurement Officer",
+   "Commercial Procurement Officer",
+   "Purchasing Agent",
+   "Goods & Services Officer"
+  ],
+  "Chief Risk Officer": [
+   "CRO",
+   "Chief Rsk Officer",
+   "Chief Risk Offr",
+   "Risk Officer, Chief",
+   "Chief Officer, Risk",
+   "Rsk Officer, Chief",
+   "Chief Risk Officer (CRO)",
+   "Chf Risk Officer",
+   "Chf Rsk Officer",
+   "Officer, Chief Risk",
+   "Risk Chief Officer",
+   "The Chief Risk Officer",
+   "Chief Risk O."
+  ],
+  "Head of Risk": [
+   "Risk Head",
+   "Director of Risk",
+   "Risk Director",
+   "Head, Risk",
+   "Head of Risk Management",
+   "Risk Management Head",
+   "Head of Enterprise Risk",
+   "Enterprise Risk Head",
+   "Group Head of Risk",
+   "Director, Risk",
+   "Leadership, Risk"
+  ],
+  "Risk Manager": [
+   "Manager, Risk",
+   "Risk Mgmt Manager",
+   "Manager, Risk Management",
+   "Operational Risk Manager",
+   "Enterprise Risk Manager",
+   "Financial Risk Manager",
+   "Credit Risk Manager",
+   "Market Risk Manager",
+   "Risk & Compliance Manager",
+   "Compliance & Risk Manager",
+   "Risk Control Manager",
+   "Risk Governance Manager",
+   "Manager, Operational Risk",
+   "Manager, Financial Risk",
+   "Risk Portfolio Manager",
+   "Manager of Risk",
+   "Risk Assurance Manager"
+  ],
+  "Risk Analyst": [
+   "Analyst, Risk",
+   "Risk Assessment Analyst",
+   "Operational Risk Analyst",
+   "Financial Risk Analyst",
+   "Market Risk Analyst",
+   "Risk Management Analyst",
+   "Risk Specialist",
+   "Enterprise Risk Analyst",
+   "Compliance Risk Analyst",
+   "Risk & Compliance Analyst",
+   "Quant Risk Analyst",
+   "Business Risk Analyst",
+   "Analyst, Enterprise Risk",
+   "Analyst, Operational Risk",
+   "Risk Analytics Specialist"
+  ],
+  "Credit Risk Analyst": [
+   "Analyst - Credit Risk",
+   "Credit & Risk Analyst",
+   "Risk Analyst - Credit",
+   "Credit Analyst - Risk",
+   "Credit Risk Specialist",
+   "Credit & Portfolio Risk Analyst",
+   "Credit Risk / Analytics Analyst",
+   "Credit Risk Assessor",
+   "Credit Risk Officer",
+   "Risk Analyst - Credit Risk"
+  ],
+  "Operational Risk Specialist": [
+   "Op Risk Specialist",
+   "Risk Specialist - Operational",
+   "Specialist, Operational Risk",
+   "Operational Risk Analyst",
+   "Operational Risk Professional",
+   "Enterprise Risk Specialist (Operational)",
+   "Financial Risk Specialist (Operational)",
+   "Compliance & Operational Risk Specialist",
+   "Operational Risk Officer",
+   "Operational Risk Advisor",
+   "Business Risk Specialist",
+   "Risk Management Specialist (Operational)",
+   "Operational Resilience Specialist"
+  ],
+  "Head of Compliance": [
+   "Compliance Head",
+   "Director of Compliance",
+   "Compliance Director",
+   "Head, Compliance",
+   "Head of Regulatory Compliance",
+   "Regulatory Compliance Head",
+   "Group Head of Compliance",
+   "Head of Governance & Compliance",
+   "Governance & Compliance Head",
+   "Director, Compliance"
+  ],
+  "Senior Compliance Manager": [
+   "Manager, Senior Compliance",
+   "Senior Manager, Compliance",
+   "Compliance Manager, Senior",
+   "Senior Regulatory Compliance Manager",
+   "Senior Governance, Risk & Compliance Manager",
+   "Senior GRC Manager",
+   "Manager, Senior Regulatory Compliance",
+   "Senior Compliance & Risk Manager",
+   "Senior Manager, Regulatory Affairs",
+   "Senior Manager, Governance & Compliance",
+   "Senior Assurance Manager",
+   "Senior Manager, Risk & Compliance",
+   "Senior Manager of Compliance",
+   "Senior Policy & Compliance Manager",
+   "Senior Compliance Strategy Manager",
+   "Senior Manager, Compliance Operations"
+  ],
+  "Compliance Manager": [
+   "Comp Manager",
+   "Compliance Mgr",
+   "Manager, Compliance",
+   "Regulatory Compliance Manager",
+   "Manager, Regulatory Compliance",
+   "Compliance Manager, Regulatory",
+   "Compliance Manager Professional",
+   "Manager, Comp",
+   "Regulatory Manager, Compliance",
+   "Compliance Mngr",
+   "Mngr, Compliance",
+   "Manager, Compliance (Regulatory)",
+   "The Compliance Manager",
+   "Compliance & Ethics Manager",
+   "Manager, Compliance & Risk",
+   "Manager of Compliance"
+  ],
+  "Compliance Analyst": [
+   "Comp Analyst",
+   "Compliance Anlst",
+   "Analyst, Compliance",
+   "Regulatory Compliance Analyst",
+   "Analyst, Regulatory Compliance",
+   "Compliance Analyst, Regulatory",
+   "Compliance Analyst Professional",
+   "Analyst, Comp",
+   "Regulatory Analyst, Compliance",
+   "Compliance An.",
+   "Anlst, Compliance",
+   "Analyst, Compliance (Regulatory)",
+   "The Compliance Analyst",
+   "Compliance Analyst (General)",
+   "Analyst, Compliance Officer",
+   "Compliance & Ethics Analyst"
+  ],
+  "AML Analyst": [
+   "Anti-Money Laundering Analyst",
+   "AML / CTF Analyst",
+   "Anti-Money Laundering / Counter Terrorism Financing Analyst",
+   "AML Officer",
+   "AML Compliance Analyst",
+   "AML/CTF Specialist",
+   "Analyst - AML",
+   "AML Specialist",
+   "Anti-Money Laundering Specialist",
+   "Analyst, Anti-Money Laundering",
+   "AML & CTF Analyst",
+   "Analyst - AML & CTF"
+  ],
+  "Compliance Officer": [
+   "Comp Officer",
+   "Compliance Offr",
+   "Officer, Compliance",
+   "Regulatory Compliance Officer",
+   "Officer, Regulatory Compliance",
+   "Compliance Officer, Regulatory",
+   "Compliance Officer Professional",
+   "Officer, Comp",
+   "Regulatory Officer, Compliance",
+   "Compliance O.",
+   "Offr, Compliance",
+   "Officer, Compliance (Regulatory)",
+   "The Compliance Officer",
+   "Compliance & Ethics Officer",
+   "Officer, Compliance & Risk",
+   "Compliance Officer (General)"
+  ],
+  "General Manager, Business Banking": [
+   "GM Business Banking",
+   "General Mgr Business Banking",
+   "Business Banking General Manager",
+   "GM of Business Banking",
+   "General Manager, Commercial Banking",
+   "Commercial Banking General Manager",
+   "General Manager, Corporate & Business Banking",
+   "Business & Commercial Banking GM",
+   "GM, Corporate Banking"
+  ],
+  "Head of Lending": [
+   "Lending Head",
+   "Director of Lending",
+   "Lending Director",
+   "Head, Lending",
+   "Head of Loans",
+   "Loans Head",
+   "Head of Credit & Lending",
+   "Credit & Lending Head",
+   "Group Head of Lending",
+   "Director, Lending",
+   "Leadership, Lending"
+  ],
+  "Senior Lending Manager": [
+   "Manager, Senior Lending",
+   "Senior Manager, Lending",
+   "Lending Manager, Senior",
+   "Senior Manager, Credit & Lending",
+   "Senior Credit Lending Manager",
+   "Manager, Senior Credit",
+   "Senior Manager, Commercial Lending",
+   "Senior Loans Manager",
+   "Senior Credit Manager",
+   "Senior Manager of Lending",
+   "Senior Lending Portfolio Manager",
+   "Senior Lending Solutions Manager",
+   "Senior Manager, Financial Lending",
+   "Senior Finance Lending Manager"
+  ],
+  "Lending Manager": [
+   "Manager, Lending",
+   "Loans Manager",
+   "Manager, Loans",
+   "Credit Lending Manager",
+   "Retail Lending Manager",
+   "Commercial Lending Manager",
+   "Mortgage Lending Manager",
+   "Home Lending Manager",
+   "Personal Lending Manager",
+   "Finance Lending Manager",
+   "Manager, Finance Lending",
+   "Lending & Finance Manager",
+   "Manager, Lending & Finance",
+   "Loan Origination Manager",
+   "Business Lending Manager",
+   "Manager, Business Lending",
+   "Lending Team Manager",
+   "Relationship Manager, Lending"
+  ],
+  "Relationship Manager": [
+   "RM",
+   "Client Relationship Manager",
+   "Customer Relationship Manager",
+   "Business Relationship Manager",
+   "Commercial Relationship Manager",
+   "Relationship Mgr",
+   "Manager - Relationship",
+   "Relationship Banking Manager",
+   "Client Manager",
+   "Account Relationship Manager",
+   "Key Account Relationship Manager",
+   "Manager, Client Relationships",
+   "Lending Relationship Manager",
+   "Banking Relationship Manager",
+   "Private Client Relationship Manager",
+   "Relationship Officer",
+   "Portfolio Relationship Manager",
+   "Corporate Relationship Manager"
+  ],
+  "Credit Analyst": [
+   "Credit Anlst",
+   "Analyst, Credit",
+   "Financial Credit Analyst",
+   "Analyst, Financial Credit",
+   "Credit Analyst, Financial",
+   "Credit Anal.",
+   "The Credit Analyst",
+   "Analyst of Credit",
+   "Credit Analyst Professional",
+   "Anlst, Credit",
+   "Financial Analyst, Credit",
+   "Credit Analyst - Finance",
+   "Analyst, Credit (Finance)",
+   "Credit Professional, Analyst",
+   "Credit Analyst / Underwriter",
+   "Credit Review Analyst"
+  ],
+  "Loan Officer": [
+   "Officer, Loans",
+   "Loans Officer",
+   "Loan Specialist",
+   "Lending Officer",
+   "Officer, Lending",
+   "Mortgage Loan Officer",
+   "Personal Loan Officer",
+   "Business Loan Officer",
+   "Credit Officer",
+   "Loan Advisor",
+   "Lending Advisor",
+   "Credit Advisor",
+   "Loan Consultant",
+   "Lending Consultant",
+   "Credit Consultant",
+   "Finance Officer",
+   "Officer, Finance",
+   "Loan Originator",
+   "Customer Lending Officer",
+   "Retail Lending Officer",
+   "Commercial Loan Officer"
+  ],
+  "Lending Specialist": [
+   "Specialist, Lending",
+   "Loans Specialist",
+   "Credit Specialist",
+   "Mortgage Specialist",
+   "Home Lending Specialist",
+   "Personal Lending Specialist",
+   "Business Lending Specialist",
+   "Finance Specialist, Lending",
+   "Lending Advisor",
+   "Loan Advisor",
+   "Credit Advisor",
+   "Lending Consultant",
+   "Loan Consultant",
+   "Credit Consultant",
+   "Lending Professional",
+   "Loan Professional",
+   "Lending Representative",
+   "Loan Representative",
+   "Client Lending Specialist"
+  ],
+  "Chief Medical Officer": [
+   "CMO",
+   "Chief Med Officer",
+   "Chief Medical Offr",
+   "Medical Officer, Chief",
+   "Chief Officer, Medical",
+   "Med Officer, Chief",
+   "Chief Medical Officer (CMO)",
+   "Chf Medical Officer",
+   "Chf Med Officer",
+   "Officer, Chief Medical",
+   "Medical Chief Officer",
+   "The Chief Medical Officer",
+   "Chief Medical O."
+  ],
+  "Executive Director of Nursing": [
+   "Exec Director of Nursing",
+   "Executive Dir of Nursing",
+   "Executive Director, Nursing",
+   "Exec Dir Nursing",
+   "Director of Nursing, Executive",
+   "Nursing Executive Director",
+   "Director, Executive, Nursing",
+   "Director Nursing (Executive)",
+   "Executive Nursing Director",
+   "Director of Nursing (Exec)",
+   "Executive Director Clinical Nursing",
+   "Executive Clinical Nursing Director",
+   "Nursing Director, Executive",
+   "Director, Clinical Nursing (Executive)"
+  ],
+  "Director of Nursing": [
+   "DON",
+   "Director - Nursing",
+   "Nursing Director",
+   "Director of Nursing Services",
+   "Director - Nursing Services",
+   "Nurse Director",
+   "Director of Nursing & Care",
+   "Director of Clinical & Nursing Services",
+   "Director of Care / Director of Nursing",
+   "DoN - Director of Nursing"
+  ],
+  "Nurse Manager": [
+   "Manager - Nursing",
+   "Nursing Manager",
+   "Clinical Nurse Manager",
+   "Manager of Nursing",
+   "Patient Care Manager",
+   "Clinical Operations Manager",
+   "Nursing Services Manager",
+   "Nurse Administrator",
+   "Health Services Manager (Nursing)"
+  ],
+  "Nurse Unit Manager": [
+   "NUM",
+   "Unit Manager - Nursing",
+   "Clinical Unit Manager",
+   "Manager - Unit (Nursing)",
+   "Registered Nurse Unit Manager",
+   "Nursing Unit Manager",
+   "Manager, Nurse Unit",
+   "Charge Nurse Manager",
+   "Nurse in Charge (NIC) - Manager"
+  ],
+  "Clinical Nurse": [
+   "Clin Nurse",
+   "Clinical Nse",
+   "Nurse, Clinical",
+   "Registered Nurse (Clinical)",
+   "Clinical Registered Nurse",
+   "Clinical Nurse RN",
+   "Nurse, Clin.",
+   "Clinical Nurse Professional",
+   "Registered Clin. Nurse",
+   "RN Clinical Nurse",
+   "Clinical Nurse (Registered)",
+   "Nurse, Registered Clinical",
+   "Clin. Registered Nurse",
+   "Nurse, Clinical Registered",
+   "Professional Clinical Nurse"
+  ],
+  "Registered Nurse": [
+   "RN",
+   "Nurse",
+   "General Registered Nurse",
+   "Division 1 Nurse",
+   "Registered General Nurse (RGN)",
+   "Nurse - Registered",
+   "Practice Nurse",
+   "Hospital Nurse",
+   "Ward Nurse",
+   "Acute Care Nurse",
+   "Community Nurse",
+   "Medical Nurse",
+   "Surgical Nurse",
+   "Specialist Nurse",
+   "RN Division 1"
+  ],
+  "Enrolled Nurse": [
+   "EN",
+   "Enrolled Nurse (EN)",
+   "Endorsed Enrolled Nurse",
+   "Endorsed Enrolled Nurse (EEN)",
+   "EEN",
+   "Enrolled Nurse - Clinical",
+   "Clinical Enrolled Nurse",
+   "Enrolled Nurse / EEN",
+   "Community Enrolled Nurse",
+   "Ward Enrolled Nurse",
+   "Primary Health Enrolled Nurse",
+   "Enrolled Nurse - Acute Care"
+  ],
+  "Senior Physiotherapist": [
+   "Sr. Physiotherapist",
+   "Physiotherapist, Senior",
+   "Senior Physio",
+   "Physio (Senior)",
+   "Sr Physio",
+   "Senior Physiotherapist (Clinical)",
+   "Clinical Physiotherapist, Senior",
+   "Senior Physio Therapist",
+   "Physiotherapist, Sr.",
+   "Senior Registered Physiotherapist",
+   "Registered Senior Physiotherapist",
+   "Senior Physiotherapy Professional",
+   "Physiotherapist, Senior Grade",
+   "Senior Grade Physiotherapist",
+   "Senior Certified Physiotherapist",
+   "Certified Senior Physiotherapist",
+   "Senior Clinical Physio"
+  ],
+  "Physiotherapist": [
+   "Physical Therapist",
+   "PT",
+   "Clinical Physiotherapist",
+   "Sports Physiotherapist",
+   "Musculoskeletal Physiotherapist",
+   "Rehabilitation Physiotherapist",
+   "Community Physiotherapist",
+   "Paediatric Physiotherapist",
+   "Allied Health Professional (Physio)",
+   "Physiotherapy Clinician",
+   "Exercise Physiologist",
+   "Physiotherapy Specialist"
+  ],
+  "Graduate Physiotherapist": [
+   "Grad Physiotherapist",
+   "Physiotherapist, Graduate",
+   "Entry-Level Physiotherapist",
+   "Trainee Physiotherapist",
+   "Physiotherapy Graduate",
+   "Physiotherapy Trainee",
+   "New Graduate Physiotherapist",
+   "Physiotherapist, New Grad",
+   "Qualified Physiotherapist (Graduate)",
+   "Physiotherapist (Entry Level)"
+  ],
+  "Senior Pharmacist": [
+   "Sr. Pharmacist",
+   "Pharmacist, Senior",
+   "Senior Clinical Pharmacist",
+   "Clinical Pharmacist (Senior)",
+   "Sr Clinical Pharmacist",
+   "Pharmacist (Sr)",
+   "Senior Pharmacist, Clinical",
+   "Registered Senior Pharmacist",
+   "Senior Registered Pharmacist",
+   "Senior Pharmacist - Clinical Services",
+   "Pharmacist, Senior Grade",
+   "Senior Grade Pharmacist",
+   "Senior Licensed Pharmacist",
+   "Licensed Senior Pharmacist",
+   "Practising Senior Pharmacist",
+   "Senior Practising Pharmacist",
+   "Senior Pharma Professional"
+  ],
+  "Pharmacist": [
+   "Community Pharmacist",
+   "Hospital Pharmacist",
+   "Clinical Pharmacist",
+   "Registered Pharmacist",
+   "Dispensing Pharmacist",
+   "Compounding Pharmacist",
+   "Retail Pharmacist",
+   "Pharmacist In Charge (PIC)",
+   "Medication Management Pharmacist",
+   "Consultant Pharmacist",
+   "Pharmacy Professional",
+   "Locum Pharmacist",
+   "Clinical Compounding Pharmacist"
+  ],
+  "Intern Pharmacist": [
+   "Pharmacist Intern",
+   "Pharmacy Intern",
+   "Pre-Registration Pharmacist",
+   "Provisional Pharmacist",
+   "Pharmacist Trainee",
+   "Trainee Pharmacist",
+   "Student Pharmacist",
+   "Early Career Pharmacist",
+   "Pharmacist, Provisional",
+   "Pharmacist, Pre-Reg",
+   "Pharmacist, Intern Program",
+   "Pharmacy Resident",
+   "Postgraduate Pharmacist",
+   "Pharmacist in Training",
+   "Clinical Intern Pharmacist",
+   "Provisional Registration Pharmacist",
+   "Pharmacy Placement Student"
+  ],
+  "Senior Medical Officer": [
+   "Medical Officer, Senior",
+   "Senior MO",
+   "Officer, Senior Medical",
+   "Senior Doctor",
+   "Consultant Medical Officer",
+   "Medical Consultant",
+   "Senior Physician",
+   "Specialist Medical Officer",
+   "Senior Clinician",
+   "Senior Medical Practitioner",
+   "Medical Officer, Consultant Grade",
+   "Senior Medical Advisor",
+   "Senior Clinical Officer"
+  ],
+  "Medical Officer": [
+   "MO",
+   "Clinical Officer",
+   "Doctor",
+   "Registrar",
+   "Medical Practitioner",
+   "Clinical Doctor",
+   "Emergency Medical Officer",
+   "GP (General Practitioner)"
+  ],
+  "Resident Medical Officer": [
+   "Medical Officer - Resident",
+   "Resident Doctor",
+   "Provisional Medical Officer",
+   "Doctor - Resident",
+   "Resident Physician",
+   "Clinical Resident",
+   "Medical Resident",
+   "House Officer",
+   "General Resident Medical Officer",
+   "Provisional Registrar",
+   "Medical Registrar"
+  ],
+  "Occupational Therapist": [
+   "OT",
+   "Therapist - Occupational",
+   "Occupational Health Therapist",
+   "Allied Health Professional (OT)",
+   "Community Occupational Therapist",
+   "Paediatric Occupational Therapist",
+   "Mental Health Occupational Therapist",
+   "Rehabilitation Occupational Therapist",
+   "Clinical Occupational Therapist",
+   "Hand Therapist",
+   "OT Practitioner",
+   "Occupational Therapy Clinician"
+  ],
+  "Head of HSE": [
+   "HSE Head",
+   "Director of HSE",
+   "HSE Director",
+   "Head, HSE",
+   "Head of Health, Safety & Environment",
+   "Health, Safety & Environment Head",
+   "Head of HSEQ",
+   "HSEQ Head",
+   "Head of OH&S",
+   "OH&S Head",
+   "Head of WHS",
+   "WHS Head",
+   "Group Head of HSE"
+  ],
+  "Senior HSE Manager": [
+   "Manager, Senior HSE",
+   "Senior Manager, HSE",
+   "HSE Manager, Senior",
+   "Senior Health, Safety & Environment Manager",
+   "Health, Safety & Environment Senior Manager",
+   "Senior Manager, OH&S",
+   "Senior Manager, OHS",
+   "Senior Occupational Health & Safety Manager",
+   "Senior Work Health & Safety Manager",
+   "Senior WHS Manager",
+   "Manager, Senior Health & Safety",
+   "Senior EHS Manager",
+   "Senior Manager, Safety & Environment",
+   "Senior Safety Manager",
+   "Senior Environment, Health & Safety Manager",
+   "Senior Manager of HSE",
+   "Senior HS&E Manager",
+   "Senior Manager, Health, Safety and Environment",
+   "Senior Manager, Safety & Wellbeing"
+  ],
+  "HSE Manager": [
+   "Health, Safety & Environment Manager",
+   "H.S.E. Manager",
+   "HSE Mgr",
+   "Health, Safety & Environment Mgr",
+   "HSEQ Manager",
+   "Health & Safety Manager",
+   "Safety Manager",
+   "Environment Manager",
+   "Safety & Environment Manager",
+   "OHS Manager",
+   "OH&S Manager",
+   "WHS Manager",
+   "Manager, HSE",
+   "Manager, Health, Safety & Environment",
+   "WHS Management"
+  ],
+  "HSE Advisor": [
+   "Health, Safety & Environment Advisor",
+   "H.S.E. Advisor",
+   "HSE Adviser",
+   "Health, Safety & Environment Adviser",
+   "HSEQ Advisor",
+   "Health & Safety Advisor",
+   "Safety Advisor",
+   "Environment Advisor",
+   "Safety & Environment Advisor",
+   "OHS Advisor",
+   "OH&S Advisor",
+   "WHS Advisor",
+   "WHS Adviser",
+   "Health Safety Environment Advisor",
+   "Safety & Environment Adviser"
+  ],
+  "Safety Officer": [
+   "Officer, Safety",
+   "OHS Officer",
+   "Occupational Health & Safety Officer",
+   "HSE Officer",
+   "Health, Safety & Environment Officer",
+   "Workplace Safety Officer",
+   "Safety & Wellbeing Officer",
+   "Safety Specialist",
+   "OH&S Officer",
+   "WHS Officer",
+   "Work Health & Safety Officer",
+   "Safety Professional",
+   "Health and Safety Officer",
+   "Safety Advisor",
+   "Safety & Compliance Officer",
+   "Environmental Safety Officer"
+  ],
+  "Environmental Advisor": [
+   "Advisor - Environmental",
+   "Environment Advisor",
+   "Environmental Officer / Advisor",
+   "Health, Safety & Environmental Advisor",
+   "HSE Environmental Advisor",
+   "Environmental Specialist / Advisor",
+   "Environmental & Sustainability Advisor",
+   "Health Safety & Environment Advisor",
+   "HSE Advisor - Environmental",
+   "Environmental Compliance Advisor",
+   "Site Environmental Advisor"
+  ],
+  "General Manager Operations": [
+   "GM Operations",
+   "General Mgr Operations",
+   "Operations General Manager",
+   "Mining Operations General Manager",
+   "General Manager, Mining Operations",
+   "GM, Mining Operations",
+   "Mining GM Operations",
+   "General Manager, Site Operations",
+   "Site Operations General Manager"
+  ],
+  "Mine Manager": [
+   "Mining Manager",
+   "Manager - Mine",
+   "Mine Site Manager",
+   "Operations Manager - Mine",
+   "General Manager - Mine",
+   "Mine Operations Manager",
+   "Underground Mine Manager",
+   "Open Pit Mine Manager",
+   "Site Manager, Mining",
+   "Manager, Mining Operations",
+   "Quarry Manager",
+   "Mine General Manager"
+  ],
+  "Production Superintendent": [
+   "Prod Superintendent",
+   "Superintendent - Production",
+   "Operations Superintendent - Production",
+   "Mining Production Superintendent",
+   "Site Production Superintendent",
+   "Mine Production Superintendent",
+   "Surface Production Superintendent",
+   "Underground Production Superintendent",
+   "Production Ops Superintendent",
+   "Field Production Superintendent",
+   "General Production Superintendent",
+   "Area Superintendent - Production",
+   "Plant Superintendent",
+   "Operations Superintendent"
+  ],
+  "Shift Supervisor": [
+   "Shft Supervisor",
+   "Supervisor, Shift",
+   "Shift Sup",
+   "Sup, Shift",
+   "Operations Shift Supervisor",
+   "Supervisor, Operations Shift",
+   "Shift Foreman",
+   "Foreman, Shift",
+   "Shift Section Supervisor",
+   "Section Supervisor, Shift",
+   "Shift Boss",
+   "Shift Overseer",
+   "Supervising Officer, Shift",
+   "Shift Foreman (Operations)"
+  ],
+  "Haul Truck Operator": [
+   "Haul Truck Driver",
+   "Truck Operator",
+   "Operator, Haul Truck",
+   "Haulage Truck Operator",
+   "Heavy Haulage Operator",
+   "Dump Truck Operator",
+   "Mine Haul Truck Operator",
+   "Mining Haul Truck Operator",
+   "Heavy Equipment Operator",
+   "Mobile Plant Operator",
+   "Mine Truck Operator",
+   "Production Haul Truck Operator",
+   "Off-Highway Truck Operator",
+   "Articulated Dump Truck Operator",
+   "Rigid Haul Truck Operator",
+   "Large Haul Truck Operator",
+   "Haul Truck Operator - Mining",
+   "Mining Haulage Operator"
+  ],
+  "Drill Operator": [
+   "Driller Operator",
+   "Drilling Rig Operator",
+   "Drilling Operator",
+   "Production Drill Operator",
+   "Operator - Drill",
+   "Heavy Drill Operator",
+   "Rig / Drill Operator",
+   "Blast Hole Drill Operator",
+   "Underground Drill Operator",
+   "Surface Drill Operator",
+   "Mining Drill Operator",
+   "Exploration Drill Operator"
+  ],
+  "Maintenance Fitter": [
+   "Fitter, Maintenance",
+   "Mechanical Fitter",
+   "Fitter, Mechanical",
+   "Diesel Fitter",
+   "Heavy Diesel Fitter",
+   "Mining Fitter",
+   "Mining Maintenance Fitter",
+   "Plant Fitter",
+   "Industrial Fitter",
+   "Trade Qualified Fitter",
+   "Mechanical Maintenance Fitter",
+   "Maintenance Mechanic",
+   "Fitter & Turner",
+   "Boilermaker",
+   "Fabricator Fitter",
+   "Mobile Plant Fitter",
+   "Underground Fitter",
+   "Surface Fitter",
+   "Heavy Vehicle Fitter",
+   "Engineering Fitter"
+  ],
+  "Electrician": [
+   "Sparky",
+   "Licensed Electrician",
+   "Industrial Electrician",
+   "Maintenance Electrician",
+   "Mine Electrician",
+   "Shift Electrician",
+   "Mining Electrician",
+   "Site Electrician",
+   "Electrical Tradesperson",
+   "Electrical Fitter / Electrician",
+   "Qualified Electrician",
+   "Auto Electrician"
+  ],
+  "Geologist": [
+   "Geol.",
+   "Geoscience Professional",
+   "Exploration Geologist",
+   "Mining Geologist",
+   "Resource Geologist",
+   "Field Geologist",
+   "Geologist (Mining)",
+   "Geoscientist",
+   "Geological Consultant",
+   "Project Geologist",
+   "Mine Geologist",
+   "Geological Mapping Specialist"
+  ],
+  "Mining Engineer": [
+   "Engineer - Mining",
+   "Mine Engineer",
+   "Mining Engineering Professional",
+   "Underground Mining Engineer",
+   "Open Pit Mining Engineer",
+   "Mine Planning Engineer",
+   "Production Engineer (Mining)",
+   "Geotechnical Engineer (Mining)",
+   "Resource Mining Engineer",
+   "Ventilation Engineer (Mining)",
+   "Mining Design Engineer",
+   "Mining Project Engineer",
+   "Mining Consultant",
+   "Mining Eng"
+  ],
+  "General Manager Projects": [
+   "GM Projects",
+   "General Mgr Projects",
+   "Projects General Manager",
+   "Project General Manager",
+   "GM of Projects",
+   "Program General Manager",
+   "General Manager, Project Delivery",
+   "Project Delivery GM",
+   "GM, Major Projects"
+  ],
+  "Project Director": [
+   "Project Dir",
+   "Director - Project",
+   "Director of Projects",
+   "Projects Director",
+   "Program Director",
+   "Director, Projects",
+   "Head of Projects",
+   "Project Delivery Director",
+   "Director, Project Delivery",
+   "Enterprise Project Director",
+   "Project Portfolio Director",
+   "Portfolio Director",
+   "Project & Program Director",
+   "Director, Project Management",
+   "Executive Project Director",
+   "Major Projects Director"
+  ],
+  "Senior Project Manager": [
+   "Sr. Project Manager",
+   "Project Manager, Senior",
+   "Senior PM",
+   "PM (Senior)",
+   "Senior Project Mgr",
+   "Project Manager, Sr.",
+   "Senior Projects Manager",
+   "Manager, Senior Projects",
+   "Senior Manager, Projects",
+   "Project Mgr (Sr)",
+   "Senior Project Management Professional",
+   "S. Project Manager",
+   "Senior Project Mngr",
+   "Senior Project Consultant"
+  ],
+  "Project Manager": [
+   "Project Mgr",
+   "Manager - Project",
+   "Projects Manager",
+   "Program Manager",
+   "Project Delivery Manager",
+   "Manager, Project Delivery",
+   "Project Professional",
+   "Agile Project Manager",
+   "Technical Project Manager",
+   "IT Project Manager",
+   "Construction Project Manager",
+   "Project & Program Manager",
+   "Project Coordinator",
+   "Enterprise Project Manager",
+   "Solutions Project Manager",
+   "PMO Project Manager"
+  ],
+  "Site Engineer": [
+   "Site Eng",
+   "Engineer, Site",
+   "Project Site Engineer",
+   "Site Project Engineer",
+   "Field Engineer",
+   "Engineer, Field",
+   "On-Site Engineer",
+   "Engineer, On-Site",
+   "Site Engineering Professional",
+   "Site Engineer - Projects",
+   "Project Engineer",
+   "Site Project Eng.",
+   "Engineering Professional, Site",
+   "Engineering (Site)",
+   "Project Eng, Site",
+   "Site Tech Engineer"
+  ],
+  "Contract Administrator": [
+   "Contracts Administrator",
+   "Contract Admin",
+   "Contracts Admin",
+   "Administrator, Contract",
+   "Administrator, Contracts",
+   "Admin, Contract",
+   "Admin, Contracts",
+   "Contract Admn",
+   "Contracts Admn",
+   "The Contract Administrator",
+   "Contract Administration Professional",
+   "Administrator, Contractual",
+   "Admin for Contracts",
+   "Contract Admin Professional",
+   "Contract Management Administrator"
+  ],
+  "Estimator": [
+   "Cost Estimator",
+   "Project Estimator",
+   "Estimator / Quantity Surveyor",
+   "Estimator - Projects",
+   "Tendering Estimator",
+   "Contracts & Estimating Specialist",
+   "Estimating Specialist",
+   "Project Cost Estimator",
+   "Commercial Estimator",
+   "Estimator - Construction & Projects",
+   "Contracts Estimator",
+   "Tender Estimator"
+  ],
+  "Site Supervisor": [
+   "Site Sup",
+   "Supervisor, Site",
+   "Site Svr",
+   "Project Site Supervisor",
+   "Site Project Supervisor",
+   "Field Supervisor",
+   "Supervisor, Field",
+   "On-Site Supervisor",
+   "Supervisor, On-Site",
+   "Site Operations Supervisor",
+   "Operations Site Supervisor",
+   "Site Supervisor - Projects",
+   "Site Foreman",
+   "Foreman, Site",
+   "Supervisor of Site"
+  ],
+  "General Manager Manufacturing": [
+   "GM Manufacturing",
+   "General Mgr Manufacturing",
+   "Manufacturing General Manager",
+   "Operations General Manager, Manufacturing",
+   "Manufacturing Operations GM",
+   "GM of Manufacturing",
+   "General Manager - Production",
+   "Production General Manager",
+   "Manufacturing Plant General Manager"
+  ],
+  "Plant Manager": [
+   "Manager - Plant",
+   "Production Plant Manager",
+   "Manufacturing Plant Manager",
+   "Factory Manager",
+   "Site Manager (Manufacturing)",
+   "Operations Manager - Plant",
+   "General Manager - Plant",
+   "Manager, Manufacturing Plant",
+   "Manufacturing Site Manager"
+  ],
+  "Production Manager": [
+   "Production Mgr",
+   "Manager - Production",
+   "Operations Production Manager",
+   "Manufacturing Production Manager",
+   "Plant Production Manager",
+   "Factory Production Manager",
+   "General Production Manager",
+   "Workshop Production Manager",
+   "Production Control Manager",
+   "Manufacturing Manager",
+   "Operations Manager - Production",
+   "Production Team Manager",
+   "Area Production Manager"
+  ],
+  "Machine Operator": [
+   "Operator, Machine",
+   "Machinery Operator",
+   "Production Machine Operator",
+   "Manufacturing Machine Operator",
+   "Factory Machine Operator",
+   "Plant Machine Operator",
+   "Machine Operative",
+   "Process Machine Operator",
+   "Operator, Production Machine",
+   "CNC Machine Operator",
+   "Automated Machine Operator",
+   "Industrial Machine Operator",
+   "General Machine Operator",
+   "Heavy Machine Operator",
+   "Equipment Operator",
+   "Production Operative",
+   "Manufacturing Operative",
+   "Operator",
+   "Machine Handler",
+   "Process Operator"
+  ],
+  "Production Worker": [
+   "Prod Worker",
+   "Worker - Production",
+   "Factory Worker",
+   "Manufacturing Worker",
+   "Production Operative",
+   "Assembly Worker",
+   "Process Worker",
+   "General Production Worker",
+   "Production Team Member",
+   "Line Worker",
+   "Labourer - Production",
+   "Operator - Production",
+   "Production Operator",
+   "Shop Floor Worker",
+   "Factory Operative",
+   "Manufacturing Operative"
+  ],
+  "Maintenance Technician": [
+   "Technician, Maintenance",
+   "Industrial Maintenance Technician",
+   "Production Maintenance Technician",
+   "Plant Maintenance Technician",
+   "Mechanical Maintenance Technician",
+   "Electrical Maintenance Technician",
+   "Electromechanical Technician",
+   "Service Technician",
+   "Technical Maintenance Specialist",
+   "Maintenance Specialist",
+   "Maintenance Mechanic",
+   "Facility Maintenance Technician",
+   "Building Maintenance Technician",
+   "Equipment Maintenance Technician",
+   "Maintenance Tradesperson",
+   "Tradesperson, Maintenance",
+   "Preventative Maintenance Technician",
+   "Field Service Technician",
+   "Maintenance Crew Member",
+   "Asset Maintenance Technician"
+  ],
+  "Process Technician": [
+   "Process Tech",
+   "Tech - Process",
+   "Technician - Process",
+   "Process Control Tech",
+   "Production Process Technician",
+   "Manufacturing Process Technician",
+   "Technical Process Officer",
+   "Process Operations Technician",
+   "Process Support Technician",
+   "Manufacturing Tech - Process",
+   "Operations Process Technician",
+   "Process Controller",
+   "Production Tech",
+   "Technical Officer - Process",
+   "Industrial Process Technician",
+   "Process Operator",
+   "Process & Controls Technician"
+  ],
+  "Forklift Operator": [
+   "Fork-lift Operator",
+   "Operator, Forklift",
+   "Licensed Forklift Operator",
+   "Production Forklift Operator",
+   "Factory Forklift Operator",
+   "Machine Operator - Forklift",
+   "FL Operator",
+   "Operator, FL",
+   "Forklift Machine Operator",
+   "Forklift Truck Operator",
+   "Industrial Forklift Operator",
+   "Production Operator (Forklift)"
+  ],
+  "Head of Quality": [
+   "Quality Head",
+   "Director of Quality",
+   "Quality Director",
+   "Head, Quality",
+   "Head of Quality Assurance",
+   "Quality Assurance Head",
+   "Head of QA",
+   "QA Head",
+   "Group Head of Quality",
+   "Director, Quality",
+   "Leadership, Quality"
+  ],
+  "Senior Quality Manager": [
+   "Sr. Quality Manager",
+   "Quality Manager, Senior",
+   "Senior QM",
+   "QM (Senior)",
+   "Senior Quality Mgr",
+   "Quality Manager, Sr.",
+   "Senior Manager, Quality",
+   "Manager, Senior Quality",
+   "Senior Quality Management Professional",
+   "Senior Quality Systems Manager",
+   "Senior Quality Assurance Manager",
+   "Quality Assurance Manager, Senior",
+   "Senior QA Manager",
+   "QA Manager (Senior)",
+   "Sr. QA Manager",
+   "Senior Quality Mngr"
+  ],
+  "Quality Manager": [
+   "Quality Mgr",
+   "Manager - Quality",
+   "QA Manager",
+   "Quality Assurance Manager",
+   "Quality Control Manager",
+   "QC Manager",
+   "Quality Systems Manager",
+   "Manufacturing Quality Manager",
+   "Product Quality Manager",
+   "QMS Manager",
+   "Quality & Compliance Manager",
+   "Manager, Quality & Continuous Improvement",
+   "Operational Quality Manager",
+   "Corporate Quality Manager",
+   "Area Quality Manager",
+   "Plant Quality Manager"
+  ],
+  "Quality Inspector": [
+   "Quality Insp",
+   "Inspector - Quality",
+   "QC Inspector",
+   "Quality Control Inspector",
+   "Manufacturing Quality Inspector",
+   "Product Quality Inspector",
+   "Quality Assurance Inspector",
+   "Production Quality Inspector",
+   "Final Quality Inspector",
+   "In-process Quality Inspector",
+   "Quality Auditor",
+   "Quality Examiner",
+   "Assembly Quality Inspector",
+   "Materials Quality Inspector",
+   "Finished Goods Inspector",
+   "Process Inspector",
+   "Component Quality Inspector"
+  ],
+  "Quality Assurance Officer": [
+   "QA Officer",
+   "Officer - Quality Assurance",
+   "Quality Officer",
+   "Quality Assurance Specialist",
+   "QA Analyst",
+   "Quality Control Officer",
+   "QC Officer",
+   "Officer, Quality",
+   "Quality Assurance Coordinator",
+   "Quality Assurance Representative",
+   "Quality & Compliance Officer",
+   "Regulatory Quality Officer",
+   "Manufacturing Quality Officer",
+   "Quality Process Officer",
+   "Quality System Officer",
+   "Quality Administration Officer",
+   "Assurance Officer"
+  ],
+  "Quality Engineer": [
+   "QE",
+   "Eng - Quality",
+   "Engineer - Quality",
+   "Quality Control Engineer",
+   "Manufacturing Quality Engineer",
+   "Product Quality Engineer",
+   "Supplier Quality Engineer",
+   "SQA Engineer",
+   "Quality Assurance Engineer",
+   "Test Engineer",
+   "Quality Systems Engineer",
+   "Process Quality Engineer",
+   "Production Quality Engineer",
+   "Quality Assurance & Control Engineer",
+   "Hardware Quality Engineer",
+   "Software Quality Engineer",
+   "Reliability Engineer",
+   "Quality Assurance Engineer - QE"
+  ],
+  "Chief Supply Chain Officer": [
+   "CSCO",
+   "Chief SCM Officer",
+   "Chief Supply Chain Offr",
+   "Supply Chain Officer, Chief",
+   "Chief Officer, Supply Chain",
+   "SCM Officer, Chief",
+   "Chief Supply Chain Officer (CSCO)",
+   "Chf Supply Chain Officer",
+   "Chf SCM Officer",
+   "Officer, Chief Supply Chain",
+   "Supply Chain Chief Officer",
+   "The Chief Supply Chain Officer",
+   "Chief Supply Chain O."
+  ],
+  "Head of Supply Chain": [
+   "Supply Chain Head",
+   "Head, Supply Chain",
+   "Director of Supply Chain",
+   "Supply Chain Director",
+   "Director, Supply Chain",
+   "Head of Supply & Logistics",
+   "Director of Supply & Logistics",
+   "Supply & Logistics Head",
+   "Supply Chain & Logistics Director",
+   "Head of Logistics & Supply Chain",
+   "Director of Logistics & Supply Chain",
+   "Head of SCM",
+   "Director of SCM",
+   "SCM Head",
+   "Supply Chain & Operations Head",
+   "Head, Supply Chain Operations",
+   "Director, Supply Chain Operations",
+   "Head of Procurement & Supply Chain",
+   "Supply Chain Executive"
+  ],
+  "Senior Supply Chain Manager": [
+   "Sr. Supply Chain Manager",
+   "Supply Chain Manager, Senior",
+   "Senior SCM",
+   "SCM (Senior)",
+   "Senior Supply Chain Mgr",
+   "Supply Chain Manager, Sr.",
+   "Senior Manager, Supply Chain",
+   "Manager, Senior Supply Chain",
+   "Senior Manager of Supply Chain",
+   "Senior Logistics & Supply Chain Manager",
+   "Senior Supply Chain & Logistics Manager",
+   "Senior Supply Chain Professional",
+   "Senior SC Manager",
+   "SC Manager (Senior)",
+   "Senior Supply Chain Operations Manager",
+   "Senior Manager, Supply Chain Operations",
+   "Supply Chain Manager, Senior Level"
+  ],
+  "Logistics Manager": [
+   "Logistics & Supply Chain Manager",
+   "Supply Chain & Logistics Manager",
+   "Manager, Supply Chain Logistics",
+   "Manager, Distribution Logistics",
+   "Distribution Logistics Manager",
+   "Operations Logistics Manager",
+   "Manager, Logistics Operations",
+   "Freight Logistics Manager",
+   "Transport Logistics Manager",
+   "Manager, Transport & Logistics",
+   "Logistics Mngr",
+   "Mgr, Logistics",
+   "Manager of Logistics",
+   "Logistics Services Manager",
+   "Manager, Logistics Services",
+   "Inbound Logistics Manager",
+   "Outbound Logistics Manager",
+   "Logistics Coordinator Manager"
+  ],
+  "Supply Chain Analyst": [
+   "Supply Chain Anlyst",
+   "Analyst, Supply Chain",
+   "SC Analyst",
+   "Analyst, SC",
+   "SCM Analyst",
+   "Analyst, SCM",
+   "Supply Chain Data Analyst",
+   "Logistics Analyst",
+   "Analyst, Logistics",
+   "Supply Chain Specialist",
+   "Supply Chain & Logistics Analyst",
+   "Analyst, Supply Chain & Logistics",
+   "Inventory Analyst",
+   "Procurement Analyst",
+   "Operations Analyst, Supply Chain",
+   "Supply Chain Professional, Analyst",
+   "Supply Chain Analyst - Logistics",
+   "Supply Chain & Operations Analyst"
+  ],
+  "Demand Planner": [
+   "Planner - Demand",
+   "Demand Planning Specialist",
+   "Supply & Demand Planner",
+   "Demand & Supply Planner",
+   "Demand Planning Officer",
+   "Inventory & Demand Planner",
+   "Demand / Supply Planner",
+   "Demand Planning Analyst",
+   "Forecast & Demand Planner",
+   "Demand Forecast Planner",
+   "Supply Chain Demand Planner"
+  ],
+  "Warehouse Coordinator": [
+   "Warehousing Coordinator",
+   "Logistics Coordinator",
+   "Inventory Coordinator",
+   "Stock Coordinator",
+   "Dispatch Coordinator",
+   "Receiving Coordinator",
+   "Operations Coordinator (Warehouse)",
+   "Supply Chain Coordinator",
+   "Materials Coordinator",
+   "Distribution Coordinator",
+   "Warehouse & Logistics Coordinator",
+   "Warehouse Administrator"
+  ],
+  "Procurement Specialist": [
+   "Proc Specialist",
+   "Specialist - Procurement",
+   "Purchasing Specialist",
+   "Supply Chain Procurement Specialist",
+   "Sourcing Specialist",
+   "Supply Specialist",
+   "Procurement Professional",
+   "Supply Chain Specialist - Procurement",
+   "Commercial Procurement Specialist",
+   "Strategic Procurement Specialist",
+   "Procurement & Sourcing Specialist",
+   "Global Procurement Specialist",
+   "Purchasing & Supply Specialist",
+   "Tactical Procurement Specialist",
+   "Indirect Procurement Specialist",
+   "Direct Procurement Specialist",
+   "Supply Procurement Specialist",
+   "Procurement Consultant"
+  ],
+  "National Warehouse Manager": [
+   "Nat. Warehouse Manager",
+   "National Manager, Warehouse",
+   "Manager - National Warehouse",
+   "National Logistics Manager",
+   "Logistics Manager (National)",
+   "General Manager - National Warehouse",
+   "National Distribution Manager",
+   "Distribution Manager (National)",
+   "National Operations Manager - Warehouse",
+   "Manager, National Warehousing & Logistics",
+   "National Supply Chain Manager",
+   "National Facilities & Warehouse Manager"
+  ],
+  "Site Manager": [
+   "Site Mgr",
+   "Manager, Site",
+   "Site Mngr",
+   "Operations Site Manager",
+   "Warehouse Site Manager",
+   "Manager, Warehouse Site",
+   "General Site Manager",
+   "Site Manager - Operations",
+   "Site Operations Manager",
+   "Manager, Site Operations",
+   "Site Superintendent",
+   "Superintendent, Site",
+   "Manager of Site Operations",
+   "On-Site Manager",
+   "Project Site Manager",
+   "Site Project Manager"
+  ],
+  "Warehouse Supervisor": [
+   "Logistics Supervisor",
+   "Operations Supervisor (Warehouse)",
+   "Distribution Supervisor",
+   "Store Supervisor",
+   "Supervisor - Warehousing",
+   "Stock Supervisor",
+   "Materials Supervisor",
+   "Inventory Supervisor",
+   "Dispatch Supervisor",
+   "Receiving Supervisor"
+  ],
+  "Warehouse Operator": [
+   "Storeperson",
+   "Warehouse Worker",
+   "Logistics Operator",
+   "General Hand",
+   "Materials Handler",
+   "Distribution Operator",
+   "Factory Operator",
+   "Stores Operator",
+   "Loader/Unloader",
+   "Inventory Operator",
+   "Packager/Picker"
+  ],
+  "Forklift Driver": [
+   "Fork-lift Driver",
+   "Driver, Forklift",
+   "Warehouse Forklift Driver",
+   "Stores Forklift Driver",
+   "Licensed Forklift Driver",
+   "Forklift Machine Driver",
+   "Forklift Truck Driver",
+   "Logistics Forklift Driver",
+   "FL Driver",
+   "Driver, FL"
+  ],
+  "Pick Packer": [
+   "Picker Packer",
+   "Pick & Pack",
+   "Warehouse Pick Packer",
+   "Stores Pick Packer",
+   "Order Picker",
+   "Order Packer",
+   "Warehouse Operator (Pick Pack)",
+   "Storeperson (Pick Pack)",
+   "Goods Out Operator",
+   "General Hand (Warehouse)",
+   "Logistics Picker"
+  ],
+  "Inventory Controller": [
+   "Controller, Inventory",
+   "Inventory Control Officer",
+   "Stock Control Officer",
+   "Inventory Specialist",
+   "Stock Specialist",
+   "Warehouse Inventory Controller",
+   "Stores Inventory Controller",
+   "Materials Controller",
+   "Logistics Inventory Controller",
+   "Inventory Coordinator",
+   "Stock Coordinator",
+   "Supply Chain Inventory Controller",
+   "Inventory & Logistics Controller",
+   "Stock & Inventory Controller",
+   "Cycle Count Specialist",
+   "Materials Coordinator",
+   "Goods Inwards Controller",
+   "Warehouse Stock Controller",
+   "Logistics Coordinator"
+  ],
+  "Head of Transport": [
+   "Transport Head",
+   "Head, Transport",
+   "Director of Transport",
+   "Transport Director",
+   "Director, Transport",
+   "Head of Transportation",
+   "Director of Transportation",
+   "Transportation Head",
+   "Transport & Logistics Head",
+   "Head of Transport & Logistics",
+   "Director of Transport & Logistics",
+   "Transport Operations Head",
+   "Head, Transport Operations",
+   "Director, Transport Operations",
+   "Head of Fleet",
+   "Fleet Head",
+   "Director of Fleet",
+   "Fleet Director",
+   "Head of Logistics"
+  ],
+  "Transport Manager": [
+   "Transport Mgr",
+   "Manager, Transport",
+   "Transport Mngr",
+   "Operations Manager, Transport",
+   "Transport Operations Manager",
+   "Manager, Transport Operations",
+   "Transport & Logistics Manager",
+   "Manager of Transport",
+   "Transport Solutions Manager",
+   "Freight Manager",
+   "Manager, Freight"
+  ],
+  "Fleet Manager": [
+   "Mgr, Fleet",
+   "Fleet Mgr",
+   "Transport Fleet Manager",
+   "Fleet Operations Manager",
+   "Manager, Fleet Operations",
+   "Logistics Fleet Manager",
+   "Fleet & Logistics Manager",
+   "Manager, Transport Fleet",
+   "Fleet Administration Manager",
+   "Manager, Fleet Management",
+   "Manager, Vehicle Fleet",
+   "Fleet & Asset Manager",
+   "Fleet Logistics Manager"
+  ],
+  "Truck Driver": [
+   "Heavy Vehicle Driver",
+   "HGV Driver",
+   "Lorry Driver",
+   "Commercial Driver",
+   "Transport Driver",
+   "Logistics Driver",
+   "Freight Driver",
+   "Delivery Driver",
+   "Rigid Truck Driver",
+   "Articulated Truck Driver",
+   "HC Driver",
+   "MC Driver",
+   "Road Train Driver"
+  ],
+  "Linehaul Driver": [
+   "Driver, Linehaul",
+   "Line-Haul Driver",
+   "Linehaul Truck Driver",
+   "Long Haul Driver",
+   "Long Distance Driver",
+   "Heavy Vehicle Driver",
+   "Truck Driver, Linehaul",
+   "Road Train Driver",
+   "Semi-Trailer Driver",
+   "B-Double Driver",
+   "Highway Driver",
+   "Interstate Driver",
+   "Over-the-Road Driver",
+   "Transport Driver, Linehaul",
+   "Heavy Rigid Driver",
+   "MC Driver",
+   "Truckie",
+   "Professional Truck Driver"
+  ],
+  "Dispatcher": [
+   "Transport Dispatcher",
+   "Logistics Dispatcher",
+   "Fleet Dispatcher",
+   "Dispatch Controller",
+   "Transport Coordinator / Dispatcher",
+   "Dispatch Officer",
+   "Freight Dispatcher",
+   "Dispatch Operations Specialist",
+   "Radio Dispatcher",
+   "Transport & Logistics Dispatcher",
+   "Fleet Controller / Dispatcher",
+   "Load Dispatcher"
+  ],
+  "Fleet Coordinator": [
+   "Fleet Co-ordinator",
+   "Co-ordinator, Fleet",
+   "Coordinator, Fleet",
+   "Fleet Admin Coordinator",
+   "Fleet Administrator",
+   "Fleet Ops Coordinator",
+   "Operations Coordinator, Fleet",
+   "Transport Fleet Coordinator",
+   "Coordinator, Transport Fleet",
+   "Fleet Logistics Coordinator",
+   "Logistics Coordinator - Fleet",
+   "Fleet Coordinator, Logistics",
+   "Fleet Planning Coordinator",
+   "Fleet Scheduler"
+  ],
+  "General Manager, Retail": [
+   "GM Retail",
+   "General Mgr Retail",
+   "Retail General Manager",
+   "GM of Retail",
+   "General Manager, Retail Operations",
+   "Retail Operations General Manager",
+   "General Manager, Stores",
+   "Stores General Manager",
+   "GM, Retail Stores"
+  ],
+  "Head of Retail Operations": [
+   "Retail Operations Head",
+   "Director of Retail Operations",
+   "Retail Operations Director",
+   "Head, Retail Operations",
+   "Head of Retail Ops",
+   "Retail Ops Head",
+   "Group Head of Retail Operations",
+   "Head of Store Operations",
+   "Store Operations Head",
+   "Director, Retail Operations",
+   "Leadership, Retail Operations"
+  ],
+  "Area Manager": [
+   "Area Operations Manager",
+   "Area Retail Manager",
+   "Area Mgr",
+   "Manager - Area Operations",
+   "Regional Area Manager",
+   "Area Manager - Retail",
+   "Retail Area Manager",
+   "Area Operations Mgr",
+   "Manager, Area",
+   "Area Manager - Retail Operations",
+   "Retail Operations Area Manager"
+  ],
+  "Store Manager": [
+   "Store Mgr",
+   "Manager, Store",
+   "Store Mngr",
+   "Retail Store Manager",
+   "Manager, Retail Store",
+   "Retail Manager",
+   "Manager, Retail",
+   "Branch Manager",
+   "Manager, Branch",
+   "Retail Operations Manager",
+   "Manager, Retail Operations",
+   "Store Operations Manager",
+   "Manager, Store Operations",
+   "General Store Manager",
+   "Unit Manager",
+   "Manager, Unit",
+   "Shop Manager",
+   "Manager, Shop"
+  ],
+  "Retail Assistant": [
+   "Retail Asst",
+   "Assistant - Retail",
+   "Shop Assistant",
+   "Sales Assistant",
+   "Store Assistant",
+   "Customer Service Assistant",
+   "Retail Sales Assistant",
+   "Retail Team Member",
+   "Store Team Member",
+   "Retail Operative",
+   "Customer Assistant",
+   "Merchandise Assistant",
+   "Retail Support Assistant",
+   "Showroom Assistant",
+   "Front of House Assistant",
+   "Sales & Service Assistant",
+   "Floor Assistant"
+  ],
+  "Sales Associate": [
+   "Associate, Sales",
+   "Sales Assoc.",
+   "Retail Sales Associate",
+   "Store Sales Associate",
+   "Sales & Service Associate",
+   "Sales Consultant",
+   "Retail Associate",
+   "Customer Sales Associate",
+   "Client Sales Associate",
+   "Shop Sales Associate",
+   "Retail Sales Consultant",
+   "Customer Advisor",
+   "Sales Representative",
+   "Representative, Sales"
+  ],
+  "Visual Merchandiser": [
+   "VM",
+   "Visual Merchandising Specialist",
+   "Store Visual Merchandiser",
+   "Retail Visual Merchandiser",
+   "Display Merchandiser",
+   "Creative Merchandiser",
+   "Merchandising Visual",
+   "Window Dresser",
+   "Brand Visual Merchandiser",
+   "In-Store Visual Merchandiser",
+   "Styling Merchandiser",
+   "Product Display Specialist",
+   "Retail Display Artist",
+   "Shop Visual Merchandiser"
+  ],
+  "Stock Controller": [
+   "Stock Cntrlr",
+   "Controller, Stock",
+   "Controller, Inventory",
+   "Stock Control Officer",
+   "Inventory Control Officer",
+   "Stock Management Controller",
+   "Retail Stock Controller",
+   "Controller, Retail Stock",
+   "Materials Controller",
+   "Controller, Materials",
+   "Stockroom Controller",
+   "Controller, Stockroom",
+   "Inventory Management Controller",
+   "Stock Control Specialist",
+   "Specialist, Stock Control",
+   "Stores Controller",
+   "Controller, Stores",
+   "Warehouse Inventory Controller"
+  ],
+  "General Manager Merchandise": [
+   "GM Merchandise",
+   "General Mgr Merchandise",
+   "Merchandise General Manager",
+   "Merchandising General Manager",
+   "GM of Merchandise",
+   "General Manager, Merchandising & Buying",
+   "Merchandise & Buying GM",
+   "General Manager, Buying & Merchandising",
+   "Buying & Merchandising GM"
+  ],
+  "Head of Buying": [
+   "Buying Head",
+   "Director of Buying",
+   "Buying Director",
+   "Head, Buying",
+   "Head of Merchandise Buying",
+   "Merchandise Buying Head",
+   "Group Head of Buying",
+   "Head of Merchandising & Buying",
+   "Merchandise & Buying Head",
+   "Leadership, Buying",
+   "Buying Leadership"
+  ],
+  "Senior Buying Manager": [
+   "Manager, Senior Buying",
+   "Senior Manager, Buying",
+   "Buying Manager, Senior",
+   "Senior Merchandise Manager",
+   "Manager, Senior Merchandising",
+   "Senior Manager, Merchandise",
+   "Senior Merch Manager",
+   "Senior Purchasing Manager",
+   "Senior Manager of Buying",
+   "Senior Manager of Merchandising",
+   "Strategic Buying Manager",
+   "Senior Sourcing Manager",
+   "Senior Manager, Product & Buying"
+  ],
+  "Buying Manager": [
+   "Merchandise Buying Manager",
+   "Manager - Buying",
+   "Buying Mgr",
+   "Retail Buying Manager",
+   "Merchandise Manager - Buying",
+   "Buying & Merchandise Manager",
+   "Manager - Merchandise Buying",
+   "Buying Team Manager",
+   "Category Buying Manager",
+   "Manager - Buying & Procurement",
+   "Buying Manager - Merchandise"
+  ],
+  "Buyer": [
+   "Merchandise Buyer",
+   "Retail Buyer",
+   "Buyer - Merchandise",
+   "Merchandise Buyer / Planner",
+   "Buyer - Retail",
+   "Product Buyer",
+   "Buyer & Allocator",
+   "Category Buyer",
+   "Apparel Buyer",
+   "Retail Merchandise Buyer",
+   "Buyer - Category"
+  ],
+  "Assistant Buyer": [
+   "Asst Buyer",
+   "Assistant Merchandise Buyer",
+   "Merchandise Assistant Buyer",
+   "Asst Merchandise Buyer",
+   "Assistant Buyer - Merchandise",
+   "Buyer Assistant",
+   "Merchandise Buyer Assistant",
+   "Assistant Buyer & Allocator",
+   "Assistant Retail Buyer",
+   "Asst Retail Buyer",
+   "Buying Assistant",
+   "Merchandise Buying Assistant"
+  ],
+  "Merchandise Planner": [
+   "Merch Planner",
+   "Planner - Merchandise",
+   "Merchandising Planner",
+   "Planning Specialist (Merchandise)",
+   "Inventory Planner",
+   "Retail Merchandise Planner",
+   "Stock Planner",
+   "Product Planner",
+   "Demand & Merchandise Planner",
+   "Buying & Merchandising Planner",
+   "Allocation Planner",
+   "Forecasting Planner",
+   "Merchandise Planning Analyst"
+  ],
+  "Allocator": [
+   "Merchandise Allocator",
+   "Stock Allocator",
+   "Inventory Allocator",
+   "Retail Allocator",
+   "Stock & Merchandise Allocator",
+   "Allocator - Merchandise",
+   "Merchandise Allocation Specialist",
+   "Stock Allocation Officer",
+   "Merchandise & Stock Allocator",
+   "Allocator - Retail"
+  ],
+  "Partner": [
+   "Consulting Partner",
+   "Equity Partner",
+   "Firm Partner",
+   "Advisory Partner",
+   "Client Partner",
+   "Engagement Partner",
+   "General Partner",
+   "Business Partner"
+  ],
+  "Director": [
+   "Client Services Director",
+   "Director - Client Services",
+   "Director - Client Relations",
+   "Client Relationship Director",
+   "Director of Client Services",
+   "Client Operations Director",
+   "Director, Client Management",
+   "Director - Client Experience",
+   "Client Engagement Director",
+   "Director - Client Strategy",
+   "Executive Director - Client Services"
+  ],
+  "Senior Manager": [
+   "Manager, Senior",
+   "Advanced Manager",
+   "Experienced Manager",
+   "Manager, Senior Level",
+   "Senior Professional Manager",
+   "Manager, Advanced",
+   "Senior Management Professional",
+   "Senior Manager, Enterprise",
+   "Manager, Senior Professional",
+   "Senior Organisational Manager"
+  ],
+  "Manager": [
+   "Customer Service Manager",
+   "Client Services Manager",
+   "Service Manager",
+   "Customer Relations Manager",
+   "Client Relations Manager",
+   "Team Manager, Client Services",
+   "Manager, Customer Support",
+   "Customer Support Manager",
+   "Manager, Customer Care",
+   "Customer Care Manager",
+   "Manager, Customer Experience",
+   "Customer Experience Manager",
+   "Manager, Customer Operations",
+   "Client Operations Manager",
+   "Manager, Service Delivery",
+   "Service Delivery Manager"
+  ],
+  "Senior Consultant": [
+   "Consultant, Senior",
+   "Senior Advisor",
+   "Specialist Consultant",
+   "Advanced Consultant",
+   "Senior Professional Consultant",
+   "Experienced Consultant",
+   "Consulting Specialist",
+   "Senior Engagement Consultant",
+   "Expert Consultant",
+   "Senior Client Consultant",
+   "Senior Consulting Professional",
+   "Senior Practice Consultant",
+   "Senior Advisory Consultant"
+  ],
+  "Consultant": [
+   "Consulting Professional",
+   "Advisory Consultant",
+   "Consultant, Advisory",
+   "Professional Consultant",
+   "Consulting Advisor",
+   "Consultant / Advisor",
+   "Consulting Practitioner",
+   "Consultant (Professional)",
+   "Advisor, Consulting",
+   "The Consultant",
+   "Advisor / Consultant"
+  ],
+  "Graduate Consultant": [
+   "Grad Consultant",
+   "Consultant, Graduate",
+   "Graduate Consulting Analyst",
+   "Entry-Level Consultant",
+   "Consulting Graduate",
+   "Graduate Professional Services Consultant",
+   "Trainee Consultant",
+   "Consultant Trainee",
+   "Graduate Business Consultant",
+   "Business Consultant (Graduate)"
+  ],
+  "Senior Analyst": [
+   "Analyst, Senior",
+   "Advanced Analyst",
+   "Experienced Analyst",
+   "Expert Analyst",
+   "Senior Level Analyst",
+   "Specialist Analyst",
+   "Senior Professional Analyst",
+   "Senior IC Analyst",
+   "Senior Analytics Specialist"
+  ],
+  "Analyst": [
+   "Client Services Analyst",
+   "Service Analyst",
+   "Analyst - Client Services",
+   "Client Analyst",
+   "Client Support Analyst",
+   "Client Experience Analyst",
+   "Services Analyst",
+   "Client Service Analyst",
+   "Analyst - Client Support",
+   "CS Analyst",
+   "Client Operations Analyst"
+  ],
+  "Associate": [
+   "Client Services Associate",
+   "Client Associate",
+   "Services Associate",
+   "Associate - Client Services",
+   "CS Associate",
+   "Client Support Associate",
+   "Client Experience Associate",
+   "Client Operations Associate",
+   "Associate - Client Experience",
+   "Associate - Client Support",
+   "Service Associate"
+  ],
+  "Provost": [
+   "University Provost",
+   "Academic Provost",
+   "Provost - Academic Affairs",
+   "Provost of the University",
+   "Executive Provost",
+   "Rector"
+  ],
+  "Dean": [
+   "Faculty Dean",
+   "Dean of Faculty",
+   "Executive Dean",
+   "Dean - Academic",
+   "Dean of Division",
+   "University Dean",
+   "Dean of College"
+  ],
+  "Head of School": [
+   "School Head",
+   "Head, School",
+   "HoS",
+   "Director of School",
+   "School Director",
+   "Director, School",
+   "Head, Academic School",
+   "Director, Academic School",
+   "Headmaster",
+   "Headmistress",
+   "Academic Head",
+   "Academic Director",
+   "School Leadership",
+   "Head of Faculty",
+   "Faculty Head"
+  ],
+  "Course Coordinator": [
+   "Course Co-ordinator",
+   "Coordinator, Course",
+   "Co-ordinator, Course",
+   "Academic Course Coordinator",
+   "Coordinator, Academic Course",
+   "Course Coord",
+   "Course Co-ord",
+   "Coordinator for Courses",
+   "Co-ordinator for Courses",
+   "The Course Coordinator",
+   "Course Coordinator (Academic)",
+   "Academic Coordinator, Course",
+   "Coord, Course",
+   "Co-ord, Course",
+   "Course Coordinator Professional",
+   "Course & Program Coordinator",
+   "Academic Course Co-ordinator"
+  ],
+  "Senior Lecturer": [
+   "Lecturer, Senior",
+   "Senior Academic Lecturer",
+   "Senior University Lecturer",
+   "Senior Teaching Fellow",
+   "Lecturer, Advanced",
+   "Senior College Lecturer",
+   "Senior Faculty Lecturer",
+   "Senior Academic Professional"
+  ],
+  "Lecturer": [
+   "University Lecturer",
+   "Academic Lecturer",
+   "College Lecturer",
+   "Sessional Lecturer",
+   "Casual Lecturer",
+   "Teaching Fellow",
+   "Educator",
+   "Course Convenor",
+   "University Educator",
+   "Postdoctoral Fellow",
+   "Instructor",
+   "University Instructor"
+  ],
+  "Associate Lecturer": [
+   "Assoc Lecturer",
+   "Associate Lecturer - Academics",
+   "Associate Lecturer (Higher Education)",
+   "Associate Lecturer / Tutor",
+   "Associate Lecturer in Higher Education",
+   "Academic Associate Lecturer",
+   "Associate Lecturer, Teaching",
+   "Associate Lecturer & Tutor",
+   "Associate Teaching Lecturer",
+   "Associate Academic Lecturer",
+   "Assoc Lecturer - Teaching"
+  ],
+  "Senior Research Fellow": [
+   "Sr. Research Fellow",
+   "Research Fellow, Senior",
+   "Senior Fellow, Research",
+   "Research Fellow (Sr)",
+   "Senior Research Scientist",
+   "Research Scientist, Senior",
+   "Senior Academic Research Fellow",
+   "Research Fellow (Senior Grade)",
+   "Senior Grade Research Fellow",
+   "Senior Research Investigator",
+   "Investigator, Senior Research",
+   "Senior Academic Fellow",
+   "Academic Fellow, Senior",
+   "Senior Researcher",
+   "Researcher (Senior)",
+   "Senior Research Scholar"
+  ],
+  "Research Fellow": [
+   "Fellow - Research",
+   "Academic Research Fellow",
+   "Postdoctoral Research Fellow",
+   "Postdoc Fellow",
+   "University Research Fellow",
+   "Clinical Research Fellow",
+   "Scientific Research Fellow",
+   "Honorary Research Fellow",
+   "ARC Research Fellow",
+   "Postdoctoral Researcher",
+   "Research Scientist",
+   "Project Research Fellow",
+   "Visiting Research Fellow",
+   "Research Scholar"
+  ],
+  "Research Assistant": [
+   "RA",
+   "Asst - Research",
+   "Assistant - Research",
+   "Academic Research Assistant",
+   "Research Support Assistant",
+   "Lab Research Assistant",
+   "Clinical Research Assistant",
+   "Project Research Assistant",
+   "Research Officer",
+   "Student Research Assistant",
+   "Technical Research Assistant",
+   "Research Aid",
+   "Research Technician",
+   "Scientific Assistant"
+  ],
+  "Senior Tutor": [
+   "Sr. Tutor",
+   "Tutor, Senior",
+   "Senior Academic Tutor",
+   "Academic Tutor, Senior",
+   "Senior Instructor",
+   "Instructor, Senior",
+   "Senior Academic Instructor",
+   "Tutor (Sr)",
+   "Senior Learning Facilitator",
+   "Learning Facilitator, Senior",
+   "Senior Tutoring Specialist",
+   "Tutor, Senior Grade",
+   "Senior Grade Tutor",
+   "Senior Academic Coach",
+   "Academic Coach, Senior",
+   "Senior Tutor/Instructor"
+  ],
+  "Tutor": [
+   "Academic Tutor",
+   "Private Tutor",
+   "Study Tutor",
+   "Learning Tutor",
+   "Educational Tutor",
+   "Mentor",
+   "Academic Mentor",
+   "Student Tutor",
+   "Subject Tutor",
+   "Instructor",
+   "Course Instructor",
+   "Peer Tutor",
+   "Coach",
+   "Study Coach"
+  ],
+  "Casual Tutor": [
+   "Tutor (Casual)",
+   "Casual Academic Tutor",
+   "Academic Tutor - Casual",
+   "Casual University Tutor",
+   "Casual Sessional Tutor",
+   "Sessional / Casual Tutor",
+   "Sessional Tutor",
+   "Casual Teaching Tutor",
+   "Casual Subject Tutor"
+  ],
+  "Head of Student Services": [
+   "Student Services Head",
+   "Head, Student Services",
+   "Director of Student Services",
+   "Student Services Director",
+   "Director, Student Services",
+   "Head of Student Support",
+   "Director of Student Support",
+   "Student Support Head",
+   "Student Welfare Head",
+   "Head of Student Welfare",
+   "Director of Student Welfare",
+   "Student Affairs Head",
+   "Head of Student Affairs",
+   "Student Affairs Director",
+   "Head, Student Experience",
+   "Director, Student Experience",
+   "Student Experience Head",
+   "HoSS",
+   "Head of Student Life"
+  ],
+  "Senior Student Services Manager": [
+   "Sr. Student Services Manager",
+   "Student Services Manager, Senior",
+   "Senior SSM",
+   "SSM (Senior)",
+   "Senior Student Services Mgr",
+   "Student Services Manager, Sr.",
+   "Senior Manager, Student Services",
+   "Manager, Senior Student Services",
+   "Senior Manager of Student Services",
+   "Senior Student Support Manager",
+   "Student Support Manager, Senior",
+   "Senior Manager, Student Support",
+   "Senior Student Affairs Manager",
+   "Student Affairs Manager, Senior",
+   "Senior Student Experience Manager",
+   "Student Experience Manager, Senior",
+   "Senior Student Service Manager"
+  ],
+  "Student Services Manager": [
+   "Student Svc Manager",
+   "Manager, Student Services",
+   "Student Services Mgr",
+   "Mgr, Student Services",
+   "Student Affairs Manager",
+   "Manager, Student Affairs",
+   "Student Support Manager",
+   "Manager, Student Support",
+   "Student Experience Manager",
+   "Manager, Student Experience",
+   "Manager of Student Services",
+   "Student Administration Manager",
+   "Student Services Professional, Manager",
+   "Manager, Student Svc",
+   "Student Services Mngr",
+   "Manager, Student Experience & Support",
+   "Student Services Operations Manager"
+  ],
+  "Student Advisor": [
+   "Student Adv",
+   "Advisor, Student",
+   "Student Adviser",
+   "Adviser, Student",
+   "Academic Advisor",
+   "Advisor, Academic",
+   "Student Support Advisor",
+   "Advisor, Student Support",
+   "Student Services Advisor",
+   "Advisor, Student Services",
+   "Student Engagement Advisor",
+   "Advisor, Student Engagement",
+   "Student Success Advisor",
+   "Advisor, Student Success",
+   "Student Experience Advisor",
+   "Advisor, Student Experience",
+   "Student Pathways Advisor",
+   "Pathways Advisor, Student",
+   "Student Retention Advisor"
+  ],
+  "Admissions Officer": [
+   "Student Admissions Officer",
+   "Admissions Specialist",
+   "Admissions Coordinator",
+   "Admissions Co-ordinator",
+   "Officer, Admissions",
+   "Admissions Administrator",
+   "Admissions Admin",
+   "Enrolments Officer",
+   "Enrollment & Admissions Officer",
+   "Enrolments & Admissions Officer",
+   "Student Enrolments Officer",
+   "Admissions & Enrolments Specialist"
+  ],
+  "Enrolment Officer": [
+   "Enrollment Officer",
+   "Enrolments Officer",
+   "Admissions & Enrolment Officer",
+   "Enrolment Specialist",
+   "Student Enrolment Officer",
+   "Officer - Enrolment",
+   "Enrolment Coordinator",
+   "Enrolments & Admissions Officer",
+   "Student Enrolment Specialist",
+   "Enrolment & Registration Officer",
+   "Course Enrolment Officer"
+  ]
+ },
+ "rejected": {
+  "Accountant": [
+   {
+    "variant": "Staff Accountant",
+    "reason": "adds seniority words: staff"
+   }
+  ],
+  "Accounts Payable Officer": [
+   {
+    "variant": "Accounts Payable Assistant",
+    "reason": "adds seniority words: assistant"
+   }
+  ],
+  "Admissions Officer": [
+   {
+    "variant": "Admissions Assistant",
+    "reason": "adds seniority words: assistant"
+   }
+  ],
+  "Allocator": [
+   {
+    "variant": "Merchandise Allocation Assistant",
+    "reason": "adds seniority words: assistant"
+   }
+  ],
+  "Casual Tutor": [
+   {
+    "variant": "Casual Academic Teaching Staff",
+    "reason": "adds seniority words: staff"
+   }
+  ],
+  "Chief Data Officer": [
+   {
+    "variant": "CDO & Head of Data",
+    "reason": "adds seniority words: head_director"
+   }
+  ],
+  "Chief Executive Officer": [
+   {
+    "variant": "Managing Director & CEO",
+    "reason": "adds seniority words: head_director"
+   },
+   {
+    "variant": "CEO & Managing Director",
+    "reason": "adds seniority words: head_director"
+   },
+   {
+    "variant": "Executive Director & CEO",
+    "reason": "adds seniority words: head_director"
+   },
+   {
+    "variant": "Group CEO",
+    "reason": "is another canonical title (Group CEO)"
+   }
+  ],
+  "Content Marketing Manager": [
+   {
+    "variant": "Content Marketing Lead (Manager)",
+    "reason": "adds seniority words: lead"
+   }
+  ],
+  "Customer Success Manager": [
+   {
+    "variant": "Customer Success Partner",
+    "reason": "adds seniority words: partner"
+   },
+   {
+    "variant": "Client Success Manager",
+    "reason": "also offered for Manager at a different level"
+   }
+  ],
+  "Customer Success Team Lead": [
+   {
+    "variant": "Customer Success Supervisor",
+    "reason": "adds seniority words: supervisor"
+   }
+  ],
+  "Data Engineer": [
+   {
+    "variant": "Analytics Engineer",
+    "reason": "is another canonical title (Analytics Engineer)"
+   }
+  ],
+  "Dean": [
+   {
+    "variant": "Dean / Head of School",
+    "reason": "adds seniority words: head_director"
+   },
+   {
+    "variant": "Academic Dean / Head",
+    "reason": "adds seniority words: head_director"
+   },
+   {
+    "variant": "Academic Dean",
+    "reason": "also offered for Provost at a different level"
+   },
+   {
+    "variant": "Dean of School",
+    "reason": "also offered for Head of School at a different level"
+   },
+   {
+    "variant": "School Dean",
+    "reason": "also offered for Head of School at a different level"
+   }
+  ],
+  "Director of Nursing": [
+   {
+    "variant": "Executive Director of Nursing",
+    "reason": "is another canonical title (Executive Director of Nursing)"
+   }
+  ],
+  "Executive Assistant to the CEO": [
+   {
+    "variant": "EA to Managing Director & CEO",
+    "reason": "adds seniority words: head_director"
+   },
+   {
+    "variant": "Executive Assistant to Managing Director / CEO",
+    "reason": "adds seniority words: head_director"
+   }
+  ],
+  "FP&A Analyst": [
+   {
+    "variant": "FP&A Associate Analyst",
+    "reason": "adds seniority words: associate"
+   }
+  ],
+  "Financial Controller": [
+   {
+    "variant": "Head of Finance",
+    "reason": "adds seniority words: head_director"
+   },
+   {
+    "variant": "Head of Financial Control",
+    "reason": "adds seniority words: head_director"
+   },
+   {
+    "variant": "Director of Financial Control",
+    "reason": "adds seniority words: head_director"
+   }
+  ],
+  "General Counsel": [
+   {
+    "variant": "Chief Legal Officer",
+    "reason": "adds seniority words: chief"
+   },
+   {
+    "variant": "Head of Legal",
+    "reason": "is another canonical title (Head of Legal)"
+   },
+   {
+    "variant": "Chief Counsel",
+    "reason": "adds seniority words: chief"
+   },
+   {
+    "variant": "Director, Legal",
+    "reason": "adds seniority words: head_director"
+   },
+   {
+    "variant": "Director of Legal Affairs",
+    "reason": "adds seniority words: head_director"
+   },
+   {
+    "variant": "Legal Director",
+    "reason": "adds seniority words: head_director"
+   },
+   {
+    "variant": "Legal Affairs Director",
+    "reason": "adds seniority words: head_director"
+   },
+   {
+    "variant": "Senior General Counsel",
+    "reason": "adds seniority words: senior"
+   }
+  ],
+  "General Manager Manufacturing": [
+   {
+    "variant": "Director of Manufacturing",
+    "reason": "adds seniority words: head_director"
+   },
+   {
+    "variant": "Manufacturing Director",
+    "reason": "adds seniority words: head_director"
+   },
+   {
+    "variant": "Head of Manufacturing",
+    "reason": "adds seniority words: head_director"
+   }
+  ],
+  "General Manager Merchandise": [
+   {
+    "variant": "Head of Merchandise",
+    "reason": "adds seniority words: head_director"
+   },
+   {
+    "variant": "Merchandise Director",
+    "reason": "adds seniority words: head_director"
+   }
+  ],
+  "General Manager Operations": [
+   {
+    "variant": "Operations Director",
+    "reason": "adds seniority words: head_director"
+   },
+   {
+    "variant": "Head of Operations",
+    "reason": "is another canonical title (Head of Operations)"
+   }
+  ],
+  "General Manager Projects": [
+   {
+    "variant": "Director of Projects",
+    "reason": "adds seniority words: head_director"
+   },
+   {
+    "variant": "Head of Projects",
+    "reason": "adds seniority words: head_director"
+   }
+  ],
+  "General Manager, Business Banking": [
+   {
+    "variant": "Head of Business Banking",
+    "reason": "adds seniority words: head_director"
+   },
+   {
+    "variant": "Director, Business Banking",
+    "reason": "adds seniority words: head_director"
+   }
+  ],
+  "General Manager, Retail": [
+   {
+    "variant": "Head of Retail",
+    "reason": "adds seniority words: head_director"
+   },
+   {
+    "variant": "Director of Retail",
+    "reason": "adds seniority words: head_director"
+   }
+  ],
+  "General Manager, Technology": [
+   {
+    "variant": "Head of Technology",
+    "reason": "adds seniority words: head_director"
+   },
+   {
+    "variant": "Director of Technology",
+    "reason": "adds seniority words: head_director"
+   }
+  ],
+  "Geologist": [
+   {
+    "variant": "Staff Geologist",
+    "reason": "adds seniority words: staff"
+   }
+  ],
+  "Graduate Consultant": [
+   {
+    "variant": "Junior Consultant",
+    "reason": "adds seniority words: junior"
+   },
+   {
+    "variant": "Associate Consultant",
+    "reason": "adds seniority words: associate"
+   },
+   {
+    "variant": "Junior Consulting Associate",
+    "reason": "adds seniority words: associate, junior"
+   }
+  ],
+  "Graduate Physiotherapist": [
+   {
+    "variant": "Junior Physiotherapist",
+    "reason": "adds seniority words: junior"
+   },
+   {
+    "variant": "Associate Physiotherapist",
+    "reason": "adds seniority words: associate"
+   },
+   {
+    "variant": "Physio",
+    "reason": "also offered for Physiotherapist at a different level"
+   }
+  ],
+  "Group CEO": [
+   {
+    "variant": "Group Managing Director",
+    "reason": "adds seniority words: head_director"
+   },
+   {
+    "variant": "Managing Director & Group CEO",
+    "reason": "adds seniority words: head_director"
+   }
+  ],
+  "HR Manager": [
+   {
+    "variant": "HR Leader",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "Human Resources Leader",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "HR Management Lead",
+    "reason": "adds seniority words: lead"
+   }
+  ],
+  "HSE Manager": [
+   {
+    "variant": "HSE Management Lead",
+    "reason": "adds seniority words: lead"
+   }
+  ],
+  "Haul Truck Operator": [
+   {
+    "variant": "Truck Driver",
+    "reason": "is another canonical title (Truck Driver)"
+   }
+  ],
+  "Head of Buying": [
+   {
+    "variant": "Leader of Buying",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "VP Buying",
+    "reason": "adds seniority words: vp"
+   },
+   {
+    "variant": "VP of Buying",
+    "reason": "adds seniority words: vp"
+   },
+   {
+    "variant": "General Manager, Buying",
+    "reason": "adds seniority words: manager"
+   },
+   {
+    "variant": "Buying General Manager",
+    "reason": "adds seniority words: manager"
+   }
+  ],
+  "Head of Compliance": [
+   {
+    "variant": "Leader of Compliance",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "VP Compliance",
+    "reason": "adds seniority words: vp"
+   },
+   {
+    "variant": "VP of Compliance",
+    "reason": "adds seniority words: vp"
+   },
+   {
+    "variant": "General Manager, Compliance",
+    "reason": "adds seniority words: manager"
+   },
+   {
+    "variant": "Compliance General Manager",
+    "reason": "adds seniority words: manager"
+   },
+   {
+    "variant": "VP of Reg & Compliance",
+    "reason": "adds seniority words: vp"
+   }
+  ],
+  "Head of Customer Success": [
+   {
+    "variant": "Leader of Customer Success",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "VP Customer Success",
+    "reason": "is another canonical title (VP Customer Success)"
+   },
+   {
+    "variant": "VP of Customer Success",
+    "reason": "adds seniority words: vp"
+   },
+   {
+    "variant": "General Manager, Customer Success",
+    "reason": "adds seniority words: manager"
+   },
+   {
+    "variant": "Customer Success General Manager",
+    "reason": "adds seniority words: manager"
+   }
+  ],
+  "Head of Customer Support": [
+   {
+    "variant": "Leader of Customer Support",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "VP Customer Support",
+    "reason": "adds seniority words: vp"
+   },
+   {
+    "variant": "VP of Customer Support",
+    "reason": "adds seniority words: vp"
+   },
+   {
+    "variant": "General Manager, Customer Support",
+    "reason": "adds seniority words: manager"
+   },
+   {
+    "variant": "Customer Support General Manager",
+    "reason": "adds seniority words: manager"
+   }
+  ],
+  "Head of Data": [
+   {
+    "variant": "Leader of Data",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "VP Data",
+    "reason": "is another canonical title (VP Data)"
+   },
+   {
+    "variant": "VP of Data",
+    "reason": "adds seniority words: vp"
+   },
+   {
+    "variant": "General Manager, Data",
+    "reason": "adds seniority words: manager"
+   },
+   {
+    "variant": "Data General Manager",
+    "reason": "adds seniority words: manager"
+   }
+  ],
+  "Head of Design": [
+   {
+    "variant": "Leader of Design",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "VP Design",
+    "reason": "is another canonical title (VP Design)"
+   },
+   {
+    "variant": "VP of Design",
+    "reason": "adds seniority words: vp"
+   },
+   {
+    "variant": "General Manager, Design",
+    "reason": "adds seniority words: manager"
+   },
+   {
+    "variant": "Design General Manager",
+    "reason": "adds seniority words: manager"
+   }
+  ],
+  "Head of Engineering": [
+   {
+    "variant": "Leader of Engineering",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "VP Engineering",
+    "reason": "is another canonical title (VP Engineering)"
+   },
+   {
+    "variant": "VP of Engineering",
+    "reason": "adds seniority words: vp"
+   },
+   {
+    "variant": "General Manager, Engineering",
+    "reason": "adds seniority words: manager"
+   },
+   {
+    "variant": "Engineering General Manager",
+    "reason": "adds seniority words: manager"
+   }
+  ],
+  "Head of HSE": [
+   {
+    "variant": "Leader of HSE",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "VP HSE",
+    "reason": "adds seniority words: vp"
+   },
+   {
+    "variant": "VP of HSE",
+    "reason": "adds seniority words: vp"
+   },
+   {
+    "variant": "General Manager, HSE",
+    "reason": "adds seniority words: manager"
+   },
+   {
+    "variant": "HSE General Manager",
+    "reason": "adds seniority words: manager"
+   }
+  ],
+  "Head of IT": [
+   {
+    "variant": "Leader of IT",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "VP IT",
+    "reason": "adds seniority words: vp"
+   },
+   {
+    "variant": "VP of IT",
+    "reason": "adds seniority words: vp"
+   },
+   {
+    "variant": "General Manager, IT",
+    "reason": "adds seniority words: manager"
+   },
+   {
+    "variant": "IT General Manager",
+    "reason": "adds seniority words: manager"
+   }
+  ],
+  "Head of Information Security": [
+   {
+    "variant": "Leader of Information Security",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "VP Information Security",
+    "reason": "adds seniority words: vp"
+   },
+   {
+    "variant": "VP of Information Security",
+    "reason": "adds seniority words: vp"
+   },
+   {
+    "variant": "General Manager, Information Security",
+    "reason": "adds seniority words: manager"
+   },
+   {
+    "variant": "Information Security General Manager",
+    "reason": "adds seniority words: manager"
+   }
+  ],
+  "Head of Legal": [
+   {
+    "variant": "Leader of Legal",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "VP Legal",
+    "reason": "adds seniority words: vp"
+   },
+   {
+    "variant": "VP of Legal",
+    "reason": "adds seniority words: vp"
+   },
+   {
+    "variant": "General Manager, Legal",
+    "reason": "adds seniority words: manager"
+   },
+   {
+    "variant": "Legal General Manager",
+    "reason": "adds seniority words: manager"
+   }
+  ],
+  "Head of Lending": [
+   {
+    "variant": "Leader of Lending",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "VP Lending",
+    "reason": "adds seniority words: vp"
+   },
+   {
+    "variant": "VP of Lending",
+    "reason": "adds seniority words: vp"
+   },
+   {
+    "variant": "General Manager, Lending",
+    "reason": "adds seniority words: manager"
+   },
+   {
+    "variant": "Lending General Manager",
+    "reason": "adds seniority words: manager"
+   }
+  ],
+  "Head of Marketing": [
+   {
+    "variant": "Leader of Marketing",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "VP Marketing",
+    "reason": "is another canonical title (VP Marketing)"
+   },
+   {
+    "variant": "VP of Marketing",
+    "reason": "adds seniority words: vp"
+   },
+   {
+    "variant": "General Manager, Marketing",
+    "reason": "adds seniority words: manager"
+   },
+   {
+    "variant": "Marketing General Manager",
+    "reason": "adds seniority words: manager"
+   }
+  ],
+  "Head of Operations": [
+   {
+    "variant": "Leader of Operations",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "VP Operations",
+    "reason": "is another canonical title (VP Operations)"
+   },
+   {
+    "variant": "VP of Operations",
+    "reason": "adds seniority words: vp"
+   },
+   {
+    "variant": "General Manager, Operations",
+    "reason": "is another canonical title (General Manager Operations)"
+   },
+   {
+    "variant": "Operations General Manager",
+    "reason": "adds seniority words: manager"
+   }
+  ],
+  "Head of People": [
+   {
+    "variant": "Leader of People",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "VP People",
+    "reason": "adds seniority words: vp"
+   },
+   {
+    "variant": "VP of People",
+    "reason": "adds seniority words: vp"
+   },
+   {
+    "variant": "General Manager, People",
+    "reason": "adds seniority words: manager"
+   },
+   {
+    "variant": "People General Manager",
+    "reason": "adds seniority words: manager"
+   }
+  ],
+  "Head of Product": [
+   {
+    "variant": "Leader of Product",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "VP Product",
+    "reason": "is another canonical title (VP Product)"
+   },
+   {
+    "variant": "VP of Product",
+    "reason": "adds seniority words: vp"
+   },
+   {
+    "variant": "General Manager, Product",
+    "reason": "adds seniority words: manager"
+   },
+   {
+    "variant": "Product General Manager",
+    "reason": "adds seniority words: manager"
+   }
+  ],
+  "Head of Quality": [
+   {
+    "variant": "Leader of Quality",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "VP Quality",
+    "reason": "adds seniority words: vp"
+   },
+   {
+    "variant": "VP of Quality",
+    "reason": "adds seniority words: vp"
+   },
+   {
+    "variant": "General Manager, Quality",
+    "reason": "adds seniority words: manager"
+   },
+   {
+    "variant": "Quality General Manager",
+    "reason": "adds seniority words: manager"
+   }
+  ],
+  "Head of Retail Operations": [
+   {
+    "variant": "Leader of Retail Operations",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "VP Retail Operations",
+    "reason": "adds seniority words: vp"
+   },
+   {
+    "variant": "VP of Retail Operations",
+    "reason": "adds seniority words: vp"
+   },
+   {
+    "variant": "General Manager, Retail Operations",
+    "reason": "adds seniority words: manager"
+   },
+   {
+    "variant": "Retail Operations General Manager",
+    "reason": "adds seniority words: manager"
+   }
+  ],
+  "Head of Risk": [
+   {
+    "variant": "Leader of Risk",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "VP Risk",
+    "reason": "adds seniority words: vp"
+   },
+   {
+    "variant": "VP of Risk",
+    "reason": "adds seniority words: vp"
+   },
+   {
+    "variant": "General Manager, Risk",
+    "reason": "adds seniority words: manager"
+   },
+   {
+    "variant": "Risk General Manager",
+    "reason": "adds seniority words: manager"
+   }
+  ],
+  "Head of Sales": [
+   {
+    "variant": "Sales Director",
+    "reason": "is another canonical title (Sales Director)"
+   },
+   {
+    "variant": "Leader of Sales",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "VP Sales",
+    "reason": "is another canonical title (VP Sales)"
+   },
+   {
+    "variant": "VP of Sales",
+    "reason": "adds seniority words: vp"
+   },
+   {
+    "variant": "General Manager, Sales",
+    "reason": "adds seniority words: manager"
+   },
+   {
+    "variant": "Sales General Manager",
+    "reason": "adds seniority words: manager"
+   },
+   {
+    "variant": "Director of Sales",
+    "reason": "also offered for Sales Director at a different level"
+   },
+   {
+    "variant": "Director, Sales",
+    "reason": "also offered for Sales Director at a different level"
+   }
+  ],
+  "Head of School": [
+   {
+    "variant": "Principal of School",
+    "reason": "adds seniority words: principal"
+   },
+   {
+    "variant": "School Principal",
+    "reason": "adds seniority words: principal"
+   },
+   {
+    "variant": "School Lead",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "Dean of School",
+    "reason": "also offered for Dean at a different level"
+   },
+   {
+    "variant": "School Dean",
+    "reason": "also offered for Dean at a different level"
+   }
+  ],
+  "Head of Student Services": [
+   {
+    "variant": "Student Services Lead",
+    "reason": "adds seniority words: lead"
+   }
+  ],
+  "Head of Supply Chain": [
+   {
+    "variant": "Supply Chain Lead",
+    "reason": "adds seniority words: lead"
+   }
+  ],
+  "Head of Transport": [
+   {
+    "variant": "Transport Lead",
+    "reason": "adds seniority words: lead"
+   }
+  ],
+  "IT Support Analyst": [
+   {
+    "variant": "Service Desk Analyst",
+    "reason": "is another canonical title (Service Desk Analyst)"
+   }
+  ],
+  "Intern Pharmacist": [
+   {
+    "variant": "Graduate Pharmacist",
+    "reason": "adds seniority words: graduate"
+   },
+   {
+    "variant": "Pharmacy Graduate",
+    "reason": "adds seniority words: graduate"
+   },
+   {
+    "variant": "Pharmacy Graduate Intern",
+    "reason": "adds seniority words: graduate"
+   }
+  ],
+  "Inventory Controller": [
+   {
+    "variant": "Stock Controller",
+    "reason": "is another canonical title (Stock Controller)"
+   }
+  ],
+  "Lead Product Manager": [
+   {
+    "variant": "Principal Product Manager",
+    "reason": "adds seniority words: principal"
+   },
+   {
+    "variant": "Senior Product Manager",
+    "reason": "adds seniority words: senior"
+   },
+   {
+    "variant": "Group Product Manager",
+    "reason": "is another canonical title (Group Product Manager)"
+   },
+   {
+    "variant": "Chief Product Manager",
+    "reason": "adds seniority words: chief"
+   },
+   {
+    "variant": "Senior Product Lead",
+    "reason": "adds seniority words: senior"
+   }
+  ],
+  "Lecturer": [
+   {
+    "variant": "Associate Lecturer",
+    "reason": "is another canonical title (Associate Lecturer)"
+   },
+   {
+    "variant": "Tutor",
+    "reason": "is another canonical title (Tutor)"
+   },
+   {
+    "variant": "Course Coordinator",
+    "reason": "is another canonical title (Course Coordinator)"
+   },
+   {
+    "variant": "Academic Staff",
+    "reason": "adds seniority words: staff"
+   }
+  ],
+  "Legal Counsel": [
+   {
+    "variant": "Legal Associate",
+    "reason": "adds seniority words: associate"
+   }
+  ],
+  "Lending Manager": [
+   {
+    "variant": "Senior Lending Officer",
+    "reason": "adds seniority words: senior"
+   }
+  ],
+  "Lending Specialist": [
+   {
+    "variant": "Loan Officer",
+    "reason": "is another canonical title (Loan Officer)"
+   }
+  ],
+  "Manager": [
+   {
+    "variant": "Account Manager",
+    "reason": "is another canonical title (Account Manager)"
+   },
+   {
+    "variant": "Relationship Manager",
+    "reason": "is another canonical title (Relationship Manager)"
+   },
+   {
+    "variant": "Operations Manager",
+    "reason": "is another canonical title (Operations Manager)"
+   },
+   {
+    "variant": "Client Success Manager",
+    "reason": "also offered for Customer Success Manager at a different level"
+   }
+  ],
+  "Managing Director": [
+   {
+    "variant": "Chief Executive Officer",
+    "reason": "is another canonical title (Chief Executive Officer)"
+   },
+   {
+    "variant": "CEO",
+    "reason": "adds seniority words: chief"
+   },
+   {
+    "variant": "Principal Director",
+    "reason": "adds seniority words: principal"
+   },
+   {
+    "variant": "General Manager",
+    "reason": "adds seniority words: manager"
+   },
+   {
+    "variant": "GM",
+    "reason": "adds seniority words: manager"
+   },
+   {
+    "variant": "Chief Officer",
+    "reason": "adds seniority words: chief"
+   },
+   {
+    "variant": "Executive Lead",
+    "reason": "adds seniority words: lead"
+   }
+  ],
+  "Managing Partner": [
+   {
+    "variant": "Senior Partner",
+    "reason": "adds seniority words: senior"
+   },
+   {
+    "variant": "Lead Partner",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "Principal Partner",
+    "reason": "adds seniority words: principal"
+   },
+   {
+    "variant": "Chief Executive Partner",
+    "reason": "adds seniority words: chief"
+   },
+   {
+    "variant": "CEO & Managing Partner",
+    "reason": "adds seniority words: chief"
+   },
+   {
+    "variant": "Managing Principal",
+    "reason": "adds seniority words: principal"
+   },
+   {
+    "variant": "Principal",
+    "reason": "is another canonical title (Principal)"
+   },
+   {
+    "variant": "Head of Practice",
+    "reason": "adds seniority words: head_director"
+   },
+   {
+    "variant": "Partner, Senior",
+    "reason": "adds seniority words: senior"
+   },
+   {
+    "variant": "Partner, Lead",
+    "reason": "adds seniority words: lead"
+   }
+  ],
+  "Marketing Coordinator": [
+   {
+    "variant": "Marketing Assistant",
+    "reason": "adds seniority words: assistant"
+   },
+   {
+    "variant": "Assistant, Marketing",
+    "reason": "adds seniority words: assistant"
+   },
+   {
+    "variant": "Marketing Specialist",
+    "reason": "is another canonical title (Marketing Specialist)"
+   },
+   {
+    "variant": "Marketing Associate",
+    "reason": "adds seniority words: associate"
+   }
+  ],
+  "Marketing Manager": [
+   {
+    "variant": "Brand Manager",
+    "reason": "is another canonical title (Brand Manager)"
+   },
+   {
+    "variant": "Product Marketing Manager",
+    "reason": "is another canonical title (Product Marketing Manager)"
+   },
+   {
+    "variant": "Content Marketing Manager",
+    "reason": "is another canonical title (Content Marketing Manager)"
+   }
+  ],
+  "Marketing Specialist": [
+   {
+    "variant": "Digital Marketing Specialist",
+    "reason": "is another canonical title (Digital Marketing Specialist)"
+   }
+  ],
+  "Medical Officer": [
+   {
+    "variant": "Resident Medical Officer",
+    "reason": "is another canonical title (Resident Medical Officer)"
+   },
+   {
+    "variant": "Staff Doctor",
+    "reason": "adds seniority words: staff"
+   },
+   {
+    "variant": "Senior Resident Medical Officer",
+    "reason": "adds seniority words: senior"
+   },
+   {
+    "variant": "RMO",
+    "reason": "also offered for Resident Medical Officer at a different level"
+   },
+   {
+    "variant": "Hospital Medical Officer",
+    "reason": "also offered for Resident Medical Officer at a different level"
+   }
+  ],
+  "Mine Manager": [
+   {
+    "variant": "Mining Operations Director",
+    "reason": "adds seniority words: head_director"
+   },
+   {
+    "variant": "Director of Mining Operations",
+    "reason": "adds seniority words: head_director"
+   }
+  ],
+  "National Warehouse Manager": [
+   {
+    "variant": "Head of National Warehousing",
+    "reason": "adds seniority words: head_director"
+   }
+  ],
+  "Nurse Manager": [
+   {
+    "variant": "Assistant Director of Nursing (ADON)",
+    "reason": "adds seniority words: assistant, head_director"
+   },
+   {
+    "variant": "Nursing Leader",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "Nurse Unit Manager (Senior)",
+    "reason": "adds seniority words: senior"
+   },
+   {
+    "variant": "Ward Manager",
+    "reason": "also offered for Nurse Unit Manager at a different level"
+   }
+  ],
+  "Nurse Unit Manager": [
+   {
+    "variant": "Team Leader - Nursing Unit",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "Clinical Team Leader (Nursing)",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "Ward Manager",
+    "reason": "also offered for Nurse Manager at a different level"
+   }
+  ],
+  "Occupational Therapist": [
+   {
+    "variant": "Senior Occupational Therapist",
+    "reason": "adds seniority words: senior"
+   }
+  ],
+  "Operations Manager": [
+   {
+    "variant": "Head of Operations",
+    "reason": "is another canonical title (Head of Operations)"
+   },
+   {
+    "variant": "Logistics Operations Manager",
+    "reason": "also offered for Transport Manager at a different level"
+   },
+   {
+    "variant": "Production Operations Manager",
+    "reason": "also offered for Production Manager at a different level"
+   }
+  ],
+  "Paralegal": [
+   {
+    "variant": "Legal Assistant",
+    "reason": "adds seniority words: assistant"
+   },
+   {
+    "variant": "Senior Paralegal",
+    "reason": "adds seniority words: senior"
+   },
+   {
+    "variant": "Legal Associate",
+    "reason": "adds seniority words: associate"
+   }
+  ],
+  "Partner": [
+   {
+    "variant": "Managing Partner",
+    "reason": "is another canonical title (Managing Partner)"
+   },
+   {
+    "variant": "Principal Partner",
+    "reason": "adds seniority words: principal"
+   },
+   {
+    "variant": "Director (Partner)",
+    "reason": "adds seniority words: head_director"
+   },
+   {
+    "variant": "Senior Partner",
+    "reason": "adds seniority words: senior"
+   },
+   {
+    "variant": "Associate Partner",
+    "reason": "adds seniority words: associate"
+   }
+  ],
+  "Payroll Officer": [
+   {
+    "variant": "Payroll Assistant",
+    "reason": "adds seniority words: assistant"
+   }
+  ],
+  "People & Culture Coordinator": [
+   {
+    "variant": "People & Culture Assistant",
+    "reason": "adds seniority words: assistant"
+   }
+  ],
+  "Pharmacist": [
+   {
+    "variant": "Senior Pharmacist",
+    "reason": "is another canonical title (Senior Pharmacist)"
+   }
+  ],
+  "Physiotherapist": [
+   {
+    "variant": "Senior Physiotherapist",
+    "reason": "is another canonical title (Senior Physiotherapist)"
+   },
+   {
+    "variant": "Physio",
+    "reason": "also offered for Graduate Physiotherapist at a different level"
+   }
+  ],
+  "Pick Packer": [
+   {
+    "variant": "Logistics Assistant (Pick Pack)",
+    "reason": "adds seniority words: assistant"
+   },
+   {
+    "variant": "Despatch Assistant (Pick Pack)",
+    "reason": "adds seniority words: assistant"
+   },
+   {
+    "variant": "Warehouse Assistant (Pick Pack)",
+    "reason": "adds seniority words: assistant"
+   }
+  ],
+  "Plant Manager": [
+   {
+    "variant": "Plant Operations Director",
+    "reason": "adds seniority words: head_director"
+   },
+   {
+    "variant": "Director of Plant Operations",
+    "reason": "adds seniority words: head_director"
+   },
+   {
+    "variant": "Production Director (Plant)",
+    "reason": "adds seniority words: head_director"
+   },
+   {
+    "variant": "Head of Plant Operations",
+    "reason": "adds seniority words: head_director"
+   },
+   {
+    "variant": "Site Director (Manufacturing)",
+    "reason": "adds seniority words: head_director"
+   }
+  ],
+  "Principal": [
+   {
+    "variant": "Chief Principal",
+    "reason": "adds seniority words: chief"
+   },
+   {
+    "variant": "Senior Principal",
+    "reason": "adds seniority words: senior"
+   },
+   {
+    "variant": "Principal Director",
+    "reason": "adds seniority words: head_director"
+   },
+   {
+    "variant": "CEO Principal",
+    "reason": "adds seniority words: chief"
+   }
+  ],
+  "Process Technician": [
+   {
+    "variant": "Technical Process Assistant",
+    "reason": "adds seniority words: assistant"
+   }
+  ],
+  "Procurement Officer": [
+   {
+    "variant": "Procurement Specialist",
+    "reason": "is another canonical title (Procurement Specialist)"
+   },
+   {
+    "variant": "Procurement Assistant",
+    "reason": "adds seniority words: assistant"
+   },
+   {
+    "variant": "Buyer",
+    "reason": "is another canonical title (Buyer)"
+   }
+  ],
+  "Production Manager": [
+   {
+    "variant": "Production Superintendent",
+    "reason": "is another canonical title (Production Superintendent)"
+   },
+   {
+    "variant": "Head of Production",
+    "reason": "adds seniority words: head_director"
+   },
+   {
+    "variant": "Prod Manager",
+    "reason": "also offered for Product Manager at a different level"
+   },
+   {
+    "variant": "Production Operations Manager",
+    "reason": "also offered for Operations Manager at a different level"
+   }
+  ],
+  "Production Superintendent": [
+   {
+    "variant": "Production Supervisor",
+    "reason": "adds seniority words: supervisor"
+   }
+  ],
+  "Production Worker": [
+   {
+    "variant": "Production Assistant",
+    "reason": "adds seniority words: assistant"
+   },
+   {
+    "variant": "Manufacturing Assistant",
+    "reason": "adds seniority words: assistant"
+   }
+  ],
+  "Project Director": [
+   {
+    "variant": "Projects Lead",
+    "reason": "adds seniority words: lead"
+   }
+  ],
+  "Project Manager": [
+   {
+    "variant": "Project Lead",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "PM",
+    "reason": "also offered for Product Manager at a different level"
+   }
+  ],
+  "Provost": [
+   {
+    "variant": "Provost & VP Academic",
+    "reason": "adds seniority words: vp"
+   },
+   {
+    "variant": "Provost and Vice-President",
+    "reason": "adds seniority words: vp"
+   },
+   {
+    "variant": "Provost & Chief Academic Officer",
+    "reason": "adds seniority words: chief"
+   },
+   {
+    "variant": "Chief Academic Officer (CAO)",
+    "reason": "adds seniority words: chief"
+   },
+   {
+    "variant": "VP Academic Affairs",
+    "reason": "adds seniority words: vp"
+   },
+   {
+    "variant": "Academic Head",
+    "reason": "adds seniority words: head_director"
+   },
+   {
+    "variant": "Senior Academic Officer",
+    "reason": "adds seniority words: senior"
+   },
+   {
+    "variant": "Pro-Vice-Chancellor",
+    "reason": "adds seniority words: vp"
+   },
+   {
+    "variant": "Vice-President Academic",
+    "reason": "adds seniority words: vp"
+   },
+   {
+    "variant": "Chief Academic Officer",
+    "reason": "adds seniority words: chief"
+   },
+   {
+    "variant": "Academic Dean",
+    "reason": "also offered for Dean at a different level"
+   }
+  ],
+  "QA Engineer": [
+   {
+    "variant": "Quality Engineer",
+    "reason": "is another canonical title (Quality Engineer)"
+   }
+  ],
+  "Quality Assurance Officer": [
+   {
+    "variant": "QA Associate",
+    "reason": "adds seniority words: associate"
+   }
+  ],
+  "Quality Manager": [
+   {
+    "variant": "Head of Quality",
+    "reason": "is another canonical title (Head of Quality)"
+   },
+   {
+    "variant": "Quality Lead",
+    "reason": "adds seniority words: lead"
+   }
+  ],
+  "Recruiter": [
+   {
+    "variant": "Talent Partner",
+    "reason": "adds seniority words: partner"
+   }
+  ],
+  "Registered Nurse": [
+   {
+    "variant": "Clinical Nurse",
+    "reason": "is another canonical title (Clinical Nurse)"
+   },
+   {
+    "variant": "Staff Nurse",
+    "reason": "adds seniority words: staff"
+   },
+   {
+    "variant": "RN - Clinical",
+    "reason": "also offered for Clinical Nurse at a different level"
+   }
+  ],
+  "Research Assistant": [
+   {
+    "variant": "Graduate Research Assistant",
+    "reason": "adds seniority words: graduate"
+   },
+   {
+    "variant": "Junior Research Assistant",
+    "reason": "adds seniority words: junior"
+   },
+   {
+    "variant": "Research Associate",
+    "reason": "adds seniority words: associate"
+   },
+   {
+    "variant": "Post-Graduate Research Assistant",
+    "reason": "adds seniority words: graduate"
+   }
+  ],
+  "Research Fellow": [
+   {
+    "variant": "Research Associate",
+    "reason": "adds seniority words: associate"
+   },
+   {
+    "variant": "Senior Research Associate",
+    "reason": "adds seniority words: associate, senior"
+   },
+   {
+    "variant": "Junior Research Fellow",
+    "reason": "adds seniority words: junior"
+   }
+  ],
+  "Resident Medical Officer": [
+   {
+    "variant": "Junior Medical Officer (JMO)",
+    "reason": "adds seniority words: junior"
+   },
+   {
+    "variant": "Junior Doctor",
+    "reason": "adds seniority words: junior"
+   },
+   {
+    "variant": "Intern",
+    "reason": "adds seniority words: intern"
+   },
+   {
+    "variant": "RMO",
+    "reason": "also offered for Medical Officer at a different level"
+   },
+   {
+    "variant": "Hospital Medical Officer",
+    "reason": "also offered for Medical Officer at a different level"
+   }
+  ],
+  "Retail Assistant": [
+   {
+    "variant": "Sales Associate",
+    "reason": "is another canonical title (Sales Associate)"
+   }
+  ],
+  "Risk Analyst": [
+   {
+    "variant": "Credit Risk Analyst",
+    "reason": "is another canonical title (Credit Risk Analyst)"
+   },
+   {
+    "variant": "Risk Associate",
+    "reason": "adds seniority words: associate"
+   }
+  ],
+  "Sales Development Representative": [
+   {
+    "variant": "Business Development Representative",
+    "reason": "is another canonical title (Business Development Representative)"
+   },
+   {
+    "variant": "Lead Development Representative",
+    "reason": "adds seniority words: lead"
+   }
+  ],
+  "Sales Director": [
+   {
+    "variant": "Head of Sales",
+    "reason": "is another canonical title (Head of Sales)"
+   },
+   {
+    "variant": "Sales General Manager",
+    "reason": "adds seniority words: manager"
+   },
+   {
+    "variant": "Sales Leader",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "Director of Sales",
+    "reason": "also offered for Head of Sales at a different level"
+   },
+   {
+    "variant": "Director, Sales",
+    "reason": "also offered for Head of Sales at a different level"
+   }
+  ],
+  "Security Analyst": [
+   {
+    "variant": "Security Associate",
+    "reason": "adds seniority words: associate"
+   },
+   {
+    "variant": "GRC Analyst",
+    "reason": "is another canonical title (GRC Analyst)"
+   }
+  ],
+  "Senior Analyst": [
+   {
+    "variant": "Lead Analyst",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "Senior Consultant",
+    "reason": "is another canonical title (Senior Consultant)"
+   },
+   {
+    "variant": "Senior Associate Analyst",
+    "reason": "adds seniority words: associate"
+   },
+   {
+    "variant": "Analyst, Lead",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "Principal Analyst",
+    "reason": "adds seniority words: principal"
+   }
+  ],
+  "Senior Buying Manager": [
+   {
+    "variant": "Head of Buying",
+    "reason": "is another canonical title (Head of Buying)"
+   }
+  ],
+  "Senior Compliance Manager": [
+   {
+    "variant": "Head of Compliance",
+    "reason": "is another canonical title (Head of Compliance)"
+   },
+   {
+    "variant": "Senior Compliance Leader",
+    "reason": "adds seniority words: lead"
+   }
+  ],
+  "Senior Consultant": [
+   {
+    "variant": "Lead Consultant",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "Principal Consultant",
+    "reason": "adds seniority words: principal"
+   },
+   {
+    "variant": "Consultant, Lead",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "Consultant, Principal",
+    "reason": "adds seniority words: principal"
+   }
+  ],
+  "Senior Engineering Manager": [
+   {
+    "variant": "Head of Engineering",
+    "reason": "is another canonical title (Head of Engineering)"
+   },
+   {
+    "variant": "Senior Engineering Lead",
+    "reason": "adds seniority words: lead"
+   }
+  ],
+  "Senior Finance Manager": [
+   {
+    "variant": "Head of Finance",
+    "reason": "adds seniority words: head_director"
+   }
+  ],
+  "Senior HSE Manager": [
+   {
+    "variant": "Head of HSE",
+    "reason": "is another canonical title (Head of HSE)"
+   }
+  ],
+  "Senior Lecturer": [
+   {
+    "variant": "Associate Professor",
+    "reason": "adds seniority words: associate"
+   },
+   {
+    "variant": "Lecturer, Associate Professor",
+    "reason": "adds seniority words: associate"
+   },
+   {
+    "variant": "Principal Lecturer",
+    "reason": "adds seniority words: principal"
+   },
+   {
+    "variant": "Lecturer, Principal",
+    "reason": "adds seniority words: principal"
+   },
+   {
+    "variant": "Senior Academic Staff Member",
+    "reason": "adds seniority words: staff"
+   }
+  ],
+  "Senior Legal Counsel": [
+   {
+    "variant": "Legal Manager",
+    "reason": "adds seniority words: manager"
+   },
+   {
+    "variant": "Manager, Legal",
+    "reason": "adds seniority words: manager"
+   },
+   {
+    "variant": "Legal Counsel Manager",
+    "reason": "adds seniority words: manager"
+   },
+   {
+    "variant": "Legal Affairs Manager",
+    "reason": "adds seniority words: manager"
+   },
+   {
+    "variant": "Senior Manager, Legal",
+    "reason": "adds seniority words: manager"
+   }
+  ],
+  "Senior Lending Manager": [
+   {
+    "variant": "Head of Lending",
+    "reason": "is another canonical title (Head of Lending)"
+   }
+  ],
+  "Senior Manager": [
+   {
+    "variant": "Lead Manager",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "Senior Level Leader",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "Manager, Lead Level",
+    "reason": "adds seniority words: lead"
+   }
+  ],
+  "Senior Manager, Customer Success": [
+   {
+    "variant": "Head of Customer Success",
+    "reason": "is another canonical title (Head of Customer Success)"
+   }
+  ],
+  "Senior Manager, Data & Analytics": [
+   {
+    "variant": "Head of Data & Analytics",
+    "reason": "adds seniority words: head_director"
+   },
+   {
+    "variant": "Senior Data Leader",
+    "reason": "adds seniority words: lead"
+   }
+  ],
+  "Senior Medical Officer": [
+   {
+    "variant": "Principal Medical Officer",
+    "reason": "adds seniority words: principal"
+   },
+   {
+    "variant": "Senior Staff Medical Officer",
+    "reason": "adds seniority words: staff"
+   }
+  ],
+  "Service Desk Analyst": [
+   {
+    "variant": "IT Support Analyst",
+    "reason": "is another canonical title (IT Support Analyst)"
+   }
+  ],
+  "Shift Supervisor": [
+   {
+    "variant": "Shift Lead",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "Shift Manager",
+    "reason": "adds seniority words: manager"
+   },
+   {
+    "variant": "Manager, Shift",
+    "reason": "adds seniority words: manager"
+   },
+   {
+    "variant": "Shift Operations Manager",
+    "reason": "adds seniority words: manager"
+   },
+   {
+    "variant": "Manager, Shift Operations",
+    "reason": "adds seniority words: manager"
+   }
+  ],
+  "Site Supervisor": [
+   {
+    "variant": "Site Team Leader",
+    "reason": "adds seniority words: lead"
+   }
+  ],
+  "Stock Controller": [
+   {
+    "variant": "Inventory Controller",
+    "reason": "is another canonical title (Inventory Controller)"
+   }
+  ],
+  "Support Team Lead": [
+   {
+    "variant": "Support Supervisor",
+    "reason": "adds seniority words: supervisor"
+   },
+   {
+    "variant": "Supervisor, Support",
+    "reason": "adds seniority words: supervisor"
+   },
+   {
+    "variant": "Support Manager",
+    "reason": "adds seniority words: manager"
+   },
+   {
+    "variant": "Manager, Support",
+    "reason": "adds seniority words: manager"
+   },
+   {
+    "variant": "Support Team Manager",
+    "reason": "adds seniority words: manager"
+   },
+   {
+    "variant": "Team Manager, Support",
+    "reason": "adds seniority words: manager"
+   }
+  ],
+  "Transport Manager": [
+   {
+    "variant": "Logistics Manager",
+    "reason": "is another canonical title (Logistics Manager)"
+   },
+   {
+    "variant": "Fleet Manager",
+    "reason": "is another canonical title (Fleet Manager)"
+   },
+   {
+    "variant": "Logistics Operations Manager",
+    "reason": "also offered for Operations Manager at a different level"
+   },
+   {
+    "variant": "Manager, Logistics",
+    "reason": "also offered for Logistics Manager at a different level"
+   },
+   {
+    "variant": "Logistics & Transport Manager",
+    "reason": "also offered for Logistics Manager at a different level"
+   },
+   {
+    "variant": "Manager, Fleet",
+    "reason": "also offered for Fleet Manager at a different level"
+   }
+  ],
+  "Truck Driver": [
+   {
+    "variant": "Linehaul Driver",
+    "reason": "is another canonical title (Linehaul Driver)"
+   }
+  ],
+  "VP Customer Success": [
+   {
+    "variant": "Head of Customer Success",
+    "reason": "is another canonical title (Head of Customer Success)"
+   },
+   {
+    "variant": "EVP Customer Success",
+    "reason": "adds seniority words: evp_svp"
+   }
+  ],
+  "VP Data": [
+   {
+    "variant": "Head of Data",
+    "reason": "is another canonical title (Head of Data)"
+   },
+   {
+    "variant": "EVP Data",
+    "reason": "adds seniority words: evp_svp"
+   }
+  ],
+  "VP Design": [
+   {
+    "variant": "Head of Design",
+    "reason": "is another canonical title (Head of Design)"
+   },
+   {
+    "variant": "EVP Design",
+    "reason": "adds seniority words: evp_svp"
+   }
+  ],
+  "VP Engineering": [
+   {
+    "variant": "Head of Engineering",
+    "reason": "is another canonical title (Head of Engineering)"
+   },
+   {
+    "variant": "EVP Engineering",
+    "reason": "adds seniority words: evp_svp"
+   }
+  ],
+  "VP Marketing": [
+   {
+    "variant": "Head of Marketing",
+    "reason": "is another canonical title (Head of Marketing)"
+   },
+   {
+    "variant": "EVP Marketing",
+    "reason": "adds seniority words: evp_svp"
+   }
+  ],
+  "VP Operations": [
+   {
+    "variant": "Head of Operations",
+    "reason": "is another canonical title (Head of Operations)"
+   },
+   {
+    "variant": "EVP Operations",
+    "reason": "adds seniority words: evp_svp"
+   }
+  ],
+  "VP Product": [
+   {
+    "variant": "Head of Product",
+    "reason": "is another canonical title (Head of Product)"
+   },
+   {
+    "variant": "EVP Product",
+    "reason": "adds seniority words: evp_svp"
+   }
+  ],
+  "VP Sales": [
+   {
+    "variant": "Head of Sales",
+    "reason": "is another canonical title (Head of Sales)"
+   },
+   {
+    "variant": "EVP Sales",
+    "reason": "adds seniority words: evp_svp"
+   }
+  ],
+  "Vice-Chancellor": [
+   {
+    "variant": "Head of University",
+    "reason": "adds seniority words: head_director"
+   },
+   {
+    "variant": "Chief Executive Officer, University",
+    "reason": "adds seniority words: chief"
+   },
+   {
+    "variant": "CEO - University",
+    "reason": "adds seniority words: chief"
+   }
+  ],
+  "Warehouse Coordinator": [
+   {
+    "variant": "Stock Controller",
+    "reason": "is another canonical title (Stock Controller)"
+   }
+  ],
+  "Warehouse Operator": [
+   {
+    "variant": "Forklift Operator",
+    "reason": "is another canonical title (Forklift Operator)"
+   },
+   {
+    "variant": "Warehouse Assistant",
+    "reason": "adds seniority words: assistant"
+   }
+  ],
+  "Warehouse Supervisor": [
+   {
+    "variant": "Team Leader - Warehouse",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "Warehouse Team Leader",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "Warehouse Lead",
+    "reason": "adds seniority words: lead"
+   },
+   {
+    "variant": "Manager - Warehouse Operations",
+    "reason": "adds seniority words: manager"
+   }
+  ],
+  "Product Manager": [
+   {
+    "variant": "Prod Manager",
+    "reason": "also offered for Production Manager at a different level"
+   },
+   {
+    "variant": "PM",
+    "reason": "also offered for Project Manager at a different level"
+   }
+  ],
+  "Clinical Nurse": [
+   {
+    "variant": "RN (Clinical)",
+    "reason": "also offered for Registered Nurse at a different level"
+   }
+  ],
+  "Logistics Manager": [
+   {
+    "variant": "Manager, Logistics",
+    "reason": "also offered for Transport Manager at a different level"
+   },
+   {
+    "variant": "Logistics & Transport Manager",
+    "reason": "also offered for Transport Manager at a different level"
+   }
+  ],
+  "Fleet Manager": [
+   {
+    "variant": "Manager, Fleet",
+    "reason": "also offered for Transport Manager at a different level"
+   }
+  ]
+ }
+}
