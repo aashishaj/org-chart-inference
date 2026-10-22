@@ -38,6 +38,8 @@ class Function:
     reports_to: dict[str, float] = field(default_factory=lambda: {"ceo": 1.0})
     big_head_title: tuple[int, str] | None = None  # (min company size, head title) e.g. CISO at large cos
     multi_head: bool = False        # several peers at the top (e.g. Partners) instead of one head
+    leaf_teams: bool = False        # team names identify the unit a front-line manager runs (a store,
+                                    # a ward, a site) rather than a group at the first split
 
 
 FUNCTIONS: dict[str, Function] = {
@@ -112,7 +114,8 @@ FUNCTIONS: dict[str, Function] = {
     ),
     "customer_success": Function(
         "Customer Success",
-        {VP: "VP Customer Success", HEAD: "Head of Customer Success", MGR: "Customer Success Team Lead"},
+        {VP: "VP Customer Success", HEAD: "Head of Customer Success", SR_MGR: "Senior Manager, Customer Success",
+         MGR: "Customer Success Team Lead"},
         ["Customer Success Manager", "Onboarding Specialist", "Implementation Consultant"],  # CSM is an IC
         ["Enterprise", "Mid-Market", "SMB", "Onboarding"],
         span=(5, 9), reports_to={"sales": 0.5, "ceo": 0.3, "operations": 0.2},
@@ -166,7 +169,7 @@ FUNCTIONS: dict[str, Function] = {
     ),
     "compliance": Function(
         "Compliance",
-        {HEAD: "Head of Compliance", MGR: "Compliance Manager"},
+        {HEAD: "Head of Compliance", SR_MGR: "Senior Compliance Manager", MGR: "Compliance Manager"},
         ["Compliance Analyst", "AML Analyst", "Compliance Officer"],
         ["AML/CTF", "Regulatory Compliance", "Financial Crime"],
         span=(3, 7), reports_to={"risk": 0.6, "legal": 0.4},
@@ -190,14 +193,15 @@ FUNCTIONS: dict[str, Function] = {
          ("Senior Pharmacist", "Pharmacist", "Intern Pharmacist"),
          ("Senior Medical Officer", "Medical Officer", "Resident Medical Officer"),
          "Occupational Therapist"],
-        ["Emergency", "ICU", "Surgical", "Medical Ward", "Aged Care", "Outpatients", "Rehabilitation"],
-        span=(8, 15), exec_min_size=0,
+        ["Emergency", "ICU", "Surgical", "Medical Ward", "Aged Care", "Outpatients", "Rehabilitation",
+         "Maternity", "Paediatrics", "Oncology", "Cardiology", "Mental Health", "Day Surgery", "Renal"],
+        span=(8, 15), exec_min_size=0, leaf_teams=True,
     ),
 
     # ---- mining, construction, manufacturing, logistics -------------------
     "hse": Function(
         "Health, Safety & Environment",
-        {HEAD: "Head of HSE", MGR: "HSE Manager"},
+        {HEAD: "Head of HSE", SR_MGR: "Senior HSE Manager", MGR: "HSE Manager"},
         ["HSE Advisor", "Safety Officer", "Environmental Advisor"],
         ["Safety", "Environment", "Training"],
         span=(3, 7), reports_to={"operations": 0.7, "ceo": 0.3},
@@ -216,8 +220,9 @@ FUNCTIONS: dict[str, Function] = {
         {VP: "General Manager Projects", HEAD: "Project Director", SR_MGR: "Senior Project Manager",
          MGR: "Project Manager"},
         ["Site Engineer", "Contract Administrator", "Estimator", "Site Supervisor"],
-        ["Western Sydney Airport", "Metro Tunnel", "Cross River Rail", "Sydney Metro West", "Inland Rail"],
-        span=(4, 9), reports_to={"operations": 0.6, "ceo": 0.4},
+        ["Western Sydney Airport", "Metro Tunnel", "Cross River Rail", "Sydney Metro West", "Inland Rail",
+         "North East Link", "WestConnex", "Snowy 2.0", "Brisbane Olympic Venues", "Perth METRONET"],
+        span=(4, 9), reports_to={"operations": 0.6, "ceo": 0.4}, leaf_teams=True,
     ),
     "production": Function(
         "Production",
@@ -230,14 +235,15 @@ FUNCTIONS: dict[str, Function] = {
     ),
     "quality": Function(
         "Quality",
-        {HEAD: "Head of Quality", MGR: "Quality Manager"},
+        {HEAD: "Head of Quality", SR_MGR: "Senior Quality Manager", MGR: "Quality Manager"},
         ["Quality Inspector", "Quality Assurance Officer", "Quality Engineer"],
         ["QA", "QC", "Continuous Improvement"],
         span=(3, 7), reports_to={"operations": 0.6, "production": 0.4},
     ),
     "supply_chain": Function(
         "Supply Chain",
-        {EXEC: "Chief Supply Chain Officer", HEAD: "Head of Supply Chain", MGR: "Logistics Manager"},
+        {EXEC: "Chief Supply Chain Officer", HEAD: "Head of Supply Chain", SR_MGR: "Senior Supply Chain Manager",
+         MGR: "Logistics Manager"},
         ["Supply Chain Analyst", "Demand Planner", "Warehouse Coordinator", "Procurement Specialist"],
         ["Planning", "Procurement", "Logistics", "Inventory"],
         span=(4, 8), exec_min_size=1500, reports_to={"operations": 0.8, "ceo": 0.2},
@@ -248,7 +254,7 @@ FUNCTIONS: dict[str, Function] = {
          MGR: "Warehouse Supervisor"},
         ["Warehouse Operator", "Forklift Driver", "Pick Packer", "Inventory Controller"],
         ["Eastern Creek DC", "Truganina DC", "Brisbane DC", "Perth DC", "Adelaide DC"],
-        span=(10, 18), reports_to={"operations": 1.0},
+        span=(10, 18), reports_to={"operations": 1.0}, leaf_teams=True,  # repeats = several shifts per DC
     ),
     "transport": Function(
         "Transport",
@@ -266,12 +272,17 @@ FUNCTIONS: dict[str, Function] = {
         ["Retail Assistant", "Sales Associate", "Visual Merchandiser", "Stock Controller"],
         # Store names double as the team-name clue.
         ["Bondi Junction", "Chadstone", "Westfield Sydney", "Carindale", "Garden City", "Highpoint",
-         "Indooroopilly", "Doncaster", "Macquarie Centre"],
-        span=(8, 18), reports_to={"operations": 0.6, "ceo": 0.4},
+         "Indooroopilly", "Doncaster", "Macquarie Centre", "Parramatta", "Chermside", "Southland",
+         "Miranda", "Castle Hill", "Robina", "Fountain Gate", "Knox", "Burwood", "Chatswood",
+         "Penrith", "Liverpool", "Eastland", "Northland", "Pacific Fair", "Karrinyup", "Booragoon",
+         "Joondalup", "Marion", "Tea Tree Plaza", "Canberra Centre", "Belconnen", "Hobart CBD",
+         "Melbourne Central", "Emporium", "Watergardens", "Rundle Mall"],
+        span=(8, 18), reports_to={"operations": 0.6, "ceo": 0.4}, leaf_teams=True,
     ),
     "merchandising": Function(
         "Merchandise & Buying",
-        {VP: "General Manager Merchandise", HEAD: "Head of Buying", MGR: "Buying Manager"},
+        {VP: "General Manager Merchandise", HEAD: "Head of Buying", SR_MGR: "Senior Buying Manager",
+         MGR: "Buying Manager"},
         ["Buyer", "Assistant Buyer", "Merchandise Planner", "Allocator"],
         ["Womenswear", "Menswear", "Home", "Footwear", "Accessories"],
         span=(3, 7), reports_to={"ceo": 0.5, "operations": 0.5},
@@ -298,7 +309,7 @@ FUNCTIONS: dict[str, Function] = {
     ),
     "student_services": Function(
         "Student Services",
-        {HEAD: "Head of Student Services", MGR: "Student Services Manager"},
+        {HEAD: "Head of Student Services", SR_MGR: "Senior Student Services Manager", MGR: "Student Services Manager"},
         ["Student Advisor", "Admissions Officer", "Enrolment Officer"],
         ["Admissions", "Student Support", "International Students"],
         span=(5, 10), reports_to={"operations": 0.5, "academic": 0.5},
