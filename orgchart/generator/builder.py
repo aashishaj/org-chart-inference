@@ -28,6 +28,11 @@ class Person:
     title: str
     team: str | None
     manager_id: str | None
+    # Hidden clues, filled in by clues.add_clues()
+    location: str | None = None
+    start_date: str | None = None   # "YYYY-MM"
+    prev_employer: str | None = None
+    show_team: bool = False         # whether the team name appears in their public title
 
 
 def sample_company_size(rng: random.Random, lo: int = 100, hi: int = 2000) -> int:
