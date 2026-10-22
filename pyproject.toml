@@ -1,0 +1,19 @@
+[project]
+name = "orgchart"
+version = "0.1.0"
+description = "Org chart inference from flat employee lists"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn>=0.32",
+    "google-genai>=1.0",
+    "python-dotenv>=1.0",
+    "faker>=30.0",
+]
+
+[dependency-groups]
+dev = ["pytest>=8.0"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

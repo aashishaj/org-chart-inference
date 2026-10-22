@@ -1,0 +1,18 @@
+# python
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+
+# secrets
+.env
+
+# generated data (rebuilt by `make data`)
+data/*
+!data/.gitkeep
+
+# frontend
+web/node_modules/
+web/dist/
+
+.DS_Store
