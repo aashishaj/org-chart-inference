@@ -54,3 +54,28 @@ Director are treated as the same level, since real data swaps them freely.
 models first, bigger Flash models as backup) with a 90s timeout per call, because
 the free tier often returns 503 "high demand" or hangs. Every response is cached on
 disk, so reruns are free and deterministic.
+
+## Phase 2: mess layer and dataset
+
+**Two outputs, kept apart.** `people.csv` is what inference sees: one messy row
+per record, shuffled opaque ids, no manager column. `truth/` is the answer key:
+true manager, plus the list of mess types applied to each row, so accuracy can be
+broken down by mess type.
+
+**Missing managers resolve to the nearest visible boss.** If Raj -> Sara -> Tom
+and Sara isn't in the data, the correct answer for Raj is Tom. That's what a
+salesperson needs. These lines are flagged as skip-level and scored separately.
+
+**Mess types.** Always on, scaled by mess level: vocabulary spellings, seniority
+spellings, team-suffix formats, casing/typos, missing fields, unreliable
+department field, acting/interim. Hard ones: missing employees, ghosts (left but
+still listed; must never be anyone's manager), duplicates, LinkedIn fluff and
+contractors, stale titles (promoted but profile shows old title), title inflation
+(startup "VPs" running small teams), vague/creative titles, inconsistent location
+and date formats.
+
+**Mess levels per company: 20% clean, 50% medium, 30% messy.** Messy companies
+get more of every mess type and weaker hidden clues, so we can chart accuracy
+against data quality.
+
+**600 companies** (~250k people), comfortably above the 500 minimum.
