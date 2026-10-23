@@ -178,6 +178,10 @@ class NameMaker:
 
     def __init__(self, seed: int):
         self.fakers = {loc: Faker(loc) for loc in _LOCALES if loc != "asian"}
+        self.reseed(seed)
+
+    def reseed(self, seed: int) -> None:
+        """Cheap per-company reseed (building Faker instances is the slow part)."""
         for i, f in enumerate(self.fakers.values()):
             f.seed_instance(seed + i)
 
