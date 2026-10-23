@@ -79,3 +79,38 @@ get more of every mess type and weaker hidden clues, so we can chart accuracy
 against data quality.
 
 **600 companies** (~250k people), comfortably above the 500 minimum.
+
+## Phase 3: title parsing and inference
+
+**No peeking.** Inference code reads only the public files and may not import
+anything from `orgchart/generator` (templates, vocabulary, team lists). A test
+enforces it. Otherwise the parser would "know" the generator's vocabulary and
+every score would be inflated.
+
+**Honest splits.** Companies are split 360 train / 120 calibration / 120 test.
+Weights are learned on train, confidences calibrated on calibration, and every
+reported number comes from test companies the model never saw.
+
+**Title parser: rules first, Gemini for the tail.** Normalise (strip fluff,
+emojis, expand abbreviations), then keyword rules for seniority, department,
+team qualifier and flags (contractor, acting, vague). Low-confidence titles go to
+Gemini Lite in cached batches. Parser accuracy is measured on its own before the
+engine is built on it.
+
+**Inference: learned pairwise scores, assembled as a tree.** Candidate bosses are
+more senior records in a compatible department. Each pair gets interpretable
+features (level gap, department and team match, office, start-date order, shared
+previous employer, department-field leak, ghost signals). A logistic regression
+combines them; a maximum spanning arborescence picks everyone's manager jointly
+so the result is a consistent tree.
+
+**Three kinds of answer.** An exact edge with a confidence; a *partial edge*
+("reports up to Tom, Senior EM"), used when the person is one of several
+managers' reports and Tom sits above all of them, a true statement that answers
+the economic-buyer question; or abstain. Partial edges are scored as ancestor
+claims.
+
+**Gemini as industry knowledge, for department heads only.** One prompt per
+industry asks who each department head typically reports to (e.g. Head of
+Security at a bank). Used as a prior feature for top-level lines; it draws on
+Gemini's own knowledge, not on our generator.
