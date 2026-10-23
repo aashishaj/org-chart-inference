@@ -19,3 +19,6 @@ web/dist/
 
 # LLM response cache
 .cache/
+
+# evaluation run history
+runs/
