@@ -9,6 +9,8 @@ dependencies = [
     "google-genai>=1.0",
     "python-dotenv>=1.0",
     "faker>=30.0",
+    "scikit-learn>=1.9.1",
+    "numpy>=2.5.4",
 ]
 
 [dependency-groups]

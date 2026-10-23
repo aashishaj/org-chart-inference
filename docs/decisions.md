@@ -114,3 +114,16 @@ claims.
 industry asks who each department head typically reports to (e.g. Head of
 Security at a bank). Used as a prior feature for top-level lines; it draws on
 Gemini's own knowledge, not on our generator.
+
+**Gemini only where the rules are unsure.** Rule confidence below 0.7 is where the
+rules are 0-57% right; above it they're 89-92% right. Routing only that tail sent
+16,158 distinct titles (~118 calls, all on 3.5 Flash Lite) instead of 51k. Dev
+split: level 86.8% -> 88.1%, department 88.7% -> 91.4%; creative titles 5% -> 41%
+level. For vague titles the rule's industry default beats Gemini's guess.
+
+**Independent check on the rules.** On 1,500 titles the rules parsed confidently,
+Gemini (which never saw the generator) matches on department (93.7% vs 95.2%) but
+trails on level (84.7% vs 94.0%), mostly on conventions like "HR Business Partner
+is an IC". The rules encode those conventions deliberately, but they are also
+traps the generator was built with, so the rules carry a few points of insider
+advantage on seniority. Reported as such.

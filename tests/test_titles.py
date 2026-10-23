@@ -50,6 +50,19 @@ def test_known_traps(title, industry, level, function):
     assert (p.level, p.function) == (level, function), p
 
 
+def test_hybrid_uses_saved_gemini_answers_only_where_rules_are_unsure():
+    from orgchart.inference.llm_titles import ROUTE_BELOW, gemini_parse, parse_title_hybrid
+
+    # "Code Ninja" means nothing to the rules; Gemini's saved answer fills it in (no API call).
+    assert parse_title("Code Ninja", "Software & SaaS").confidence < ROUTE_BELOW
+    if gemini_parse("Code Ninja", "Software & SaaS") is None:
+        pytest.skip("title not in this dataset's saved Gemini parses")
+    p = parse_title_hybrid("Code Ninja", "Software & SaaS")
+    assert p.function == "engineering" and "gemini" in p.flags
+    # Confident rule parses are never overridden.
+    assert "gemini" not in parse_title_hybrid("Senior Engineering Manager", "Software & SaaS").flags
+
+
 def test_flags_and_qualifiers():
     p = parse_title("Engineering Manager | Hiring!")
     assert "fluff" in p.flags and p.qualifiers == ()

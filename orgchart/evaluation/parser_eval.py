@@ -10,16 +10,20 @@ import json
 from collections import Counter, defaultdict
 
 from ..inference.data import DATA_DIR, load_companies
+from ..inference.llm_titles import gemini_parse, parse_title_hybrid
 from ..inference.titles import department_function, parse_title
 from .run import RUNS_DIR
 from .split import SPLITS, companies_in
+
+PARSERS = {"rules": parse_title, "hybrid": parse_title_hybrid}
 
 TAGS = ["variant", "seniority_format", "team", "typo", "casing", "fluff", "vague", "creative", "contractor",
         "acting", "stale", "inflated", "title_missing"]
 HIGH_CONF = 0.8
 
 
-def evaluate(split: str = "dev", show_errors: int = 15) -> dict:
+def evaluate(split: str = "dev", show_errors: int = 15, parser: str = "rules") -> dict:
+    parse = PARSERS[parser]
     ids = set(companies_in(split))
     companies = load_companies()
     industry = {cid: c.industry for cid, c in companies.items()}
@@ -32,7 +36,7 @@ def evaluate(split: str = "dev", show_errors: int = 15) -> dict:
     level_err, func_err = Counter(), Counter()
     for t in truth:
         r = public[t["record_id"]]
-        p = parse_title(r.title, industry[r.company_id])
+        p = parse(r.title, industry[r.company_id])
         true_level, true_fn = int(t["level"]), t["function"]
         fn = p.function or department_function(r.department)
         hit_level = p.level == true_level
@@ -63,7 +67,7 @@ def evaluate(split: str = "dev", show_errors: int = 15) -> dict:
         "by_tag": {tag: {"n": c["n"], "level": c["level"] / c["n"], "fn": c["fn"] / c["n"]}
                    for tag, c in by_tag.items()},
     }
-    path = RUNS_DIR / split / "parser.json"
+    path = RUNS_DIR / split / f"parser_{parser}.json"
     prev = json.loads(path.read_text()) if path.exists() else {}
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(m, indent=1))
@@ -72,7 +76,7 @@ def evaluate(split: str = "dev", show_errors: int = 15) -> dict:
         d = f"   ({m[key] - prev[key]:+.1%})" if prev.get(key) is not None and abs(m[key] - prev[key]) > 1e-9 else ""
         return f"  {label:<44} {m[key]:>7.1%}{d}"
 
-    print(f"\n=== title parser on {split} ({N:,} records) ===")
+    print(f"\n=== title parser ({parser}) on {split} ({N:,} records) ===")
     for label, key in [("Level exact", "level_exact"), ("Level within one", "level_within_1"),
                        ("Department from title alone", "fn_title_only"),
                        ("Department with department-field fallback", "fn_with_department"),
@@ -96,9 +100,46 @@ def evaluate(split: str = "dev", show_errors: int = 15) -> dict:
     return m
 
 
+def independent_check() -> None:
+    """Rules vs Gemini on a random sample of titles the rules were confident about.
+
+    The rules were written by someone who had seen the generator's spellings; Gemini
+    wasn't. If the rules are only good because of that, Gemini will do far better or
+    disagree a lot on this sample."""
+    companies = load_companies()
+    industry = {cid: c.industry for cid, c in companies.items()}
+    with open(DATA_DIR / "truth" / "people.csv", newline="") as f:
+        truth = {t["record_id"]: t for t in csv.DictReader(f)}
+    n = Counter()
+    for c in companies.values():
+        for r in c.records:
+            g = gemini_parse(r.title, c.industry) if r.title else None
+            rule = parse_title(r.title, industry[r.company_id]) if r.title else None
+            if g is None or rule is None or rule.confidence < 0.7:
+                continue  # only the check sample: titles the rules were confident about
+            t = truth[r.record_id]
+            lvl, fn = int(t["level"]), t["function"]
+            n.update({"n": 1, "rules_level": rule.level == lvl, "gemini_level": g.level == lvl,
+                      "rules_fn": rule.function == fn, "gemini_fn": g.department == fn,
+                      "agree": (rule.level, rule.function) == (g.level, g.department)})
+    if not n["n"]:
+        print("no check-sample parses yet: run `python -m orgchart.inference.llm_titles`")
+        return
+    print(f"\n=== independent check: {n['n']:,} records whose titles the rules parsed confidently ===")
+    print(f"                 level   department")
+    print(f"  rules          {n['rules_level'] / n['n']:>5.1%}   {n['rules_fn'] / n['n']:>5.1%}")
+    print(f"  gemini         {n['gemini_level'] / n['n']:>5.1%}   {n['gemini_fn'] / n['n']:>5.1%}")
+    print(f"  rules and gemini agree on both: {n['agree'] / n['n']:.1%}")
+
+
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--split", default="dev", choices=SPLITS)
     ap.add_argument("--errors", type=int, default=15)
+    ap.add_argument("--parser", default="rules", choices=list(PARSERS))
+    ap.add_argument("--check", action="store_true", help="rules vs Gemini on the independent check sample")
     args = ap.parse_args()
-    evaluate(args.split, args.errors)
+    if args.check:
+        independent_check()
+    else:
+        evaluate(args.split, args.errors, args.parser)
