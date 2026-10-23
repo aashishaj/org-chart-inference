@@ -38,12 +38,21 @@ SENIORITY_FAMILIES = {
     "assistant": {"assistant", "asst"}, "associate": {"associate", "assoc"}, "partner": {"partner"},
     "supervisor": {"supervisor", "supv"},
 }
+# Medical career ladders have their own seniority words ("Registrar" outranks "Medical
+# Officer"; "Specialist Nurse" outranks "Registered Nurse"). Only applied to clinical
+# titles: elsewhere "Specialist" or "Consultant" is an ordinary IC word.
+CLINICAL_FAMILIES = {
+    "registrar": {"registrar"}, "consultant": {"consultant"}, "specialist": {"specialist"},
+    "practitioner": {"practitioner"}, "charge": {"charge"}, "fellow": {"fellow"},
+}
+CLINICAL_DEPARTMENT = "Clinical Services"
 _TOKEN = re.compile(r"[a-z']+")
 
 
-def _families(title: str) -> set[str]:
+def _families(title: str, clinical: bool = False) -> set[str]:
     tokens = set(_TOKEN.findall(title.lower()))
-    return {fam for fam, words in SENIORITY_FAMILIES.items() if tokens & words}
+    families = SENIORITY_FAMILIES | CLINICAL_FAMILIES if clinical else SENIORITY_FAMILIES
+    return {fam for fam, words in families.items() if tokens & words}
 
 
 def _norm(title: str) -> str:
@@ -124,7 +133,8 @@ def _validate(canonical: dict[str, dict], raw: dict[str, list]) -> tuple[dict, d
                 reject(t, v, "too long")
             elif n in canon_norm and canon_norm[n] != t:
                 reject(t, v, f"is another canonical title ({canon_norm[n]})")
-            elif extra := _families(v) - _families(t):
+            elif extra := (_families(v, clinical := canonical[t]["department"] == CLINICAL_DEPARTMENT)
+                           - _families(t, clinical)):
                 reject(t, v, f"adds seniority words: {', '.join(sorted(extra))}")
             else:
                 keep[t].append(v)

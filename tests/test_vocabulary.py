@@ -26,6 +26,15 @@ def test_promotions_and_demotions_are_rejected():
     assert "Engineering Lead" in rej and "Eng Mgr" not in rej
 
 
+def test_clinical_promotions_are_rejected_but_specialist_is_fine_elsewhere():
+    _, rej = _check("Medical Officer", ["Registrar", "MO"])
+    assert rej == ["Registrar"]
+    _, rej = _check("Registered Nurse", ["Specialist Nurse", "RN"])
+    assert rej == ["Specialist Nurse"]
+    kept, _ = _check("Talent Acquisition Partner", ["Talent Acquisition Specialist"])
+    assert kept == ["Talent Acquisition Specialist"]
+
+
 def test_variant_that_is_another_canonical_title_is_rejected():
     _, rej = _check("Head of Data", ["Chief Data Officer", "Data Head"])
     assert rej == ["Chief Data Officer"]

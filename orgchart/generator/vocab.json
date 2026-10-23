@@ -3,7 +3,7 @@
   "gemini-2.5-flash",
   "gemini-3.5-flash"
  ],
- "generated": "2026-10-22",
+ "generated": "2026-10-23",
  "missing": [],
  "titles": {
   "Chief Executive Officer": [
@@ -2255,9 +2255,7 @@
    "Manager - Unit (Nursing)",
    "Registered Nurse Unit Manager",
    "Nursing Unit Manager",
-   "Manager, Nurse Unit",
-   "Charge Nurse Manager",
-   "Nurse in Charge (NIC) - Manager"
+   "Manager, Nurse Unit"
   ],
   "Clinical Nurse": [
    "Clin Nurse",
@@ -2290,7 +2288,6 @@
    "Community Nurse",
    "Medical Nurse",
    "Surgical Nurse",
-   "Specialist Nurse",
    "RN Division 1"
   ],
   "Enrolled Nurse": [
@@ -2337,8 +2334,7 @@
    "Paediatric Physiotherapist",
    "Allied Health Professional (Physio)",
    "Physiotherapy Clinician",
-   "Exercise Physiologist",
-   "Physiotherapy Specialist"
+   "Exercise Physiologist"
   ],
   "Graduate Physiotherapist": [
    "Grad Physiotherapist",
@@ -2379,9 +2375,7 @@
    "Dispensing Pharmacist",
    "Compounding Pharmacist",
    "Retail Pharmacist",
-   "Pharmacist In Charge (PIC)",
    "Medication Management Pharmacist",
-   "Consultant Pharmacist",
    "Pharmacy Professional",
    "Locum Pharmacist",
    "Clinical Compounding Pharmacist"
@@ -2410,13 +2404,8 @@
    "Senior MO",
    "Officer, Senior Medical",
    "Senior Doctor",
-   "Consultant Medical Officer",
-   "Medical Consultant",
    "Senior Physician",
-   "Specialist Medical Officer",
    "Senior Clinician",
-   "Senior Medical Practitioner",
-   "Medical Officer, Consultant Grade",
    "Senior Medical Advisor",
    "Senior Clinical Officer"
   ],
@@ -2424,11 +2413,8 @@
    "MO",
    "Clinical Officer",
    "Doctor",
-   "Registrar",
-   "Medical Practitioner",
    "Clinical Doctor",
-   "Emergency Medical Officer",
-   "GP (General Practitioner)"
+   "Emergency Medical Officer"
   ],
   "Resident Medical Officer": [
    "Medical Officer - Resident",
@@ -2439,9 +2425,7 @@
    "Clinical Resident",
    "Medical Resident",
    "House Officer",
-   "General Resident Medical Officer",
-   "Provisional Registrar",
-   "Medical Registrar"
+   "General Resident Medical Officer"
   ],
   "Occupational Therapist": [
    "OT",
@@ -2454,7 +2438,6 @@
    "Rehabilitation Occupational Therapist",
    "Clinical Occupational Therapist",
    "Hand Therapist",
-   "OT Practitioner",
    "Occupational Therapy Clinician"
   ],
   "Head of HSE": [
@@ -5132,12 +5115,24 @@
     "reason": "is another canonical title (Resident Medical Officer)"
    },
    {
+    "variant": "Registrar",
+    "reason": "adds seniority words: registrar"
+   },
+   {
+    "variant": "Medical Practitioner",
+    "reason": "adds seniority words: practitioner"
+   },
+   {
     "variant": "Staff Doctor",
     "reason": "adds seniority words: staff"
    },
    {
     "variant": "Senior Resident Medical Officer",
     "reason": "adds seniority words: senior"
+   },
+   {
+    "variant": "GP (General Practitioner)",
+    "reason": "adds seniority words: practitioner"
    },
    {
     "variant": "RMO",
@@ -5192,11 +5187,23 @@
     "reason": "adds seniority words: lead"
    },
    {
+    "variant": "Charge Nurse Manager",
+    "reason": "adds seniority words: charge"
+   },
+   {
+    "variant": "Nurse in Charge (NIC) - Manager",
+    "reason": "adds seniority words: charge"
+   },
+   {
     "variant": "Ward Manager",
     "reason": "also offered for Nurse Manager at a different level"
    }
   ],
   "Occupational Therapist": [
+   {
+    "variant": "OT Practitioner",
+    "reason": "adds seniority words: practitioner"
+   },
    {
     "variant": "Senior Occupational Therapist",
     "reason": "adds seniority words: senior"
@@ -5268,12 +5275,24 @@
    {
     "variant": "Senior Pharmacist",
     "reason": "is another canonical title (Senior Pharmacist)"
+   },
+   {
+    "variant": "Pharmacist In Charge (PIC)",
+    "reason": "adds seniority words: charge"
+   },
+   {
+    "variant": "Consultant Pharmacist",
+    "reason": "adds seniority words: consultant"
    }
   ],
   "Physiotherapist": [
    {
     "variant": "Senior Physiotherapist",
     "reason": "is another canonical title (Senior Physiotherapist)"
+   },
+   {
+    "variant": "Physiotherapy Specialist",
+    "reason": "adds seniority words: specialist"
    },
    {
     "variant": "Physio",
@@ -5488,6 +5507,10 @@
     "reason": "adds seniority words: staff"
    },
    {
+    "variant": "Specialist Nurse",
+    "reason": "adds seniority words: specialist"
+   },
+   {
     "variant": "RN - Clinical",
     "reason": "also offered for Clinical Nurse at a different level"
    }
@@ -5536,6 +5559,14 @@
    {
     "variant": "Intern",
     "reason": "adds seniority words: intern"
+   },
+   {
+    "variant": "Provisional Registrar",
+    "reason": "adds seniority words: registrar"
+   },
+   {
+    "variant": "Medical Registrar",
+    "reason": "adds seniority words: registrar"
    },
    {
     "variant": "RMO",
@@ -5764,12 +5795,32 @@
   ],
   "Senior Medical Officer": [
    {
+    "variant": "Consultant Medical Officer",
+    "reason": "adds seniority words: consultant"
+   },
+   {
+    "variant": "Medical Consultant",
+    "reason": "adds seniority words: consultant"
+   },
+   {
     "variant": "Principal Medical Officer",
     "reason": "adds seniority words: principal"
    },
    {
+    "variant": "Specialist Medical Officer",
+    "reason": "adds seniority words: specialist"
+   },
+   {
     "variant": "Senior Staff Medical Officer",
     "reason": "adds seniority words: staff"
+   },
+   {
+    "variant": "Senior Medical Practitioner",
+    "reason": "adds seniority words: practitioner"
+   },
+   {
+    "variant": "Medical Officer, Consultant Grade",
+    "reason": "adds seniority words: consultant"
    }
   ],
   "Service Desk Analyst": [
