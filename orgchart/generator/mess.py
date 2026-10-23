@@ -175,7 +175,10 @@ def render_title(p: Person, ctx: TitleContext, rng: random.Random) -> tuple[str,
     else:
         # 3. Real-world spelling of the core title.
         if core in ctx.vocab and ctx.vocab[core] and rng.random() < prof.vocab_variant:
-            core = rng.choice(ctx.vocab[core])
+            # Long tail: Gemini lists the most common spellings first, so weight by rank
+            # ("Engineering Mgr" should be far more common than "Systems Engineering Manager").
+            variants = ctx.vocab[core]
+            core = rng.choices(variants, weights=[1 / (i + 1) for i in range(len(variants))])[0]
             tags.append("variant")
         # 4. Seniority prefix, written one of several ways.
         if prefix:
