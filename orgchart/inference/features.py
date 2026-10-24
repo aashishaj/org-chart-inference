@@ -109,6 +109,7 @@ FEATURES = [
     "boss_started_first", "boss_started_after", "start_unknown", "burst_6m", "log_months_after",
     "same_employer", "log_same_title_peers", "boss_twin_count_log", "boss_is_oldest_twin",
     "boss_cannot_manage", "boss_level_unknown", "person_level_unknown", "boss_parse_conf", "boss_reports_hint",
+    "boss_is_older_echo",
 ]
 F = {name: i for i, name in enumerate(FEATURES)}
 
@@ -120,16 +121,35 @@ def _is_oldest_twin(p: Person, others: list[Person]) -> float:
 
 # Features of the "none of these" option, per person: when should nobody be the boss?
 NONE_FEATURES = ["none_bias", "is_oldest_twin", "twin_count_log", "level_unknown", "is_top_level",
-                 "title_blank", "is_contractor"]
+                 "title_blank", "is_contractor", "is_older_echo", "is_older_echo_manager"]
+
+
+def older_echoes(people: list[Person]) -> set[str]:
+    """Records that look like an earlier holder of someone else's job: same department,
+    level, team and previous employer, but started earlier. A ghost profile is exactly
+    this (the person left, their replacement joined later); two real colleagues rarely
+    share all four."""
+    groups = defaultdict(list)
+    for p in people:
+        if p.function and p.employer and p.start is not None:
+            groups[(p.function, p.level, p.team, p.employer)].append(p)
+    out = set()
+    for g in groups.values():
+        if len(g) > 1:
+            latest = max(p.start for p in g)
+            out |= {p.rec.record_id for p in g if p.start < latest - 1}
+    return out
 
 
 def none_features(people: list[Person]) -> dict[str, list[float]]:
-    _, twins, _ = _company_context(people)
+    _, twins, _, echoes = _company_context(people)
     out = {}
     for p in people:
         tw = [t for t in twins.get(_twin_key(p), []) if t is not p]
+        echo = p.rec.record_id in echoes
         out[p.rec.record_id] = [1.0, _is_oldest_twin(p, tw), math.log1p(len(tw)), float(not p.level_known),
-                                float(p.level <= EXEC), float(not p.rec.title), float("contractor" in p.parsed.flags)]
+                                float(p.level <= EXEC), float(not p.rec.title), float("contractor" in p.parsed.flags),
+                                float(echo), float(echo and p.level <= MGR)]
     return out
 
 
@@ -155,12 +175,14 @@ def _company_context(people: list[Person]):
     # How many plausible reports each manager-level record has in their own function: a
     # "manager" with nobody below them in their department is suspicious (ghost or stale title).
     by_function_level = Counter((p.function, p.level) for p in people)
-    return peers, twins, by_function_level
+    return peers, twins, by_function_level, older_echoes(people)
 
 
 TIER_A_MAX = 80   # same department, closest level above: where the boss usually is, never pruned by a guess
 TIER_B_MAX = 30   # same department, further up (skip-levels, missing middle managers)
-TIER_C_MAX = 15   # other departments and execs, ranked by the learned department-pair prior
+TIER_R_MAX = 30   # closely related departments (Supply Chain under Operations), or no department known
+TIER_C_MAX = 15   # other departments, ranked by the learned department-pair prior
+RELATED_PRIOR = 0.05
 
 
 def _pre_score(p: Person, b: Person, prior: float) -> float:
@@ -183,9 +205,11 @@ def candidate_pairs(people: list[Person], pair_prior: dict[tuple[str, str], floa
     Tier A: same department, the closest *manager-level* rank above the person (all of
     them: this is where the boss usually is). Tier B: the rest of the department above
     them, including senior ICs (a promoted manager's profile can still say "Senior").
-    Tier C: other departments and execs, by the learned department-pair prior.
+    Execs: always (there are few, and every department head reports to one).
+    Tier R: managers in closely related departments, or any manager when the person's
+    department is unknown. Tier C: other departments, by the learned department-pair prior.
     """
-    peers, twins, by_fl = _company_context(people)
+    peers, twins, by_fl, echoes = _company_context(people)
     seniors = [b for b in people if b.level < UNKNOWN_LEVEL]
     out = []
     for p in people:
@@ -194,23 +218,29 @@ def candidate_pairs(people: list[Person], pair_prior: dict[tuple[str, str], floa
         above = [b for b in seniors if b is not p and b.level < p.level]
         same_fn = {id(b) for b in above if p.function is not None and b.function == p.function}
         closest = max((b.level for b in above if id(b) in same_fn and b.level <= MGR), default=None)
-        tier_a, tier_b, tier_c = [], [], []
+        tier_a, tier_b, execs, tier_r, tier_c = [], [], [], [], []
         for b in above:
             prior = pair_prior.get((p.function or "?", b.function or "?"), 0.0)
             if id(b) in same_fn:
                 (tier_a if b.level == closest else tier_b).append((b, prior))
-            elif b.level <= EXEC or prior >= 0.005:
+            elif b.level <= EXEC:
+                execs.append((b, prior))
+            elif b.level <= MGR and (p.function is None or prior >= RELATED_PRIOR):
+                tier_r.append((b, prior))
+            elif prior >= 0.005:
                 tier_c.append((b, prior))
-        for tier, cap in ((tier_a, TIER_A_MAX), (tier_b, TIER_B_MAX), (tier_c, TIER_C_MAX)):
+        for tier, cap in ((tier_a, TIER_A_MAX), (tier_b, TIER_B_MAX), (execs, len(execs)), (tier_r, TIER_R_MAX),
+                          (tier_c, TIER_C_MAX)):
             if len(tier) > cap:
                 tier.sort(key=lambda t: -_pre_score(p, t[0], t[1]))
             for b, prior in tier[:cap]:
                 out.append(Pair(p.rec.record_id, b.rec.record_id,
-                                _features(p, b, prior, closest, peers, twins, by_fl)))
+                                _features(p, b, prior, closest, peers, twins, by_fl, echoes)))
     return out
 
 
-def _features(p: Person, b: Person, prior: float, closest: int | None, peers, twins, by_fl) -> list[float]:
+def _features(p: Person, b: Person, prior: float, closest: int | None, peers, twins, by_fl,
+              echoes: set[str]) -> list[float]:
     x = [0.0] * len(FEATURES)
     gap = p.level - b.level
     x[F["bias"]] = 1
@@ -252,4 +282,5 @@ def _features(p: Person, b: Person, prior: float, closest: int | None, peers, tw
     # Does the boss's department actually have people one level below them?
     x[F["boss_reports_hint"]] = math.log1p(sum(by_fl.get((b.function, lvl), 0) for lvl in range(b.level + 1,
                                                                                                 b.level + 3)))
+    x[F["boss_is_older_echo"]] = float(b.rec.record_id in echoes)
     return x

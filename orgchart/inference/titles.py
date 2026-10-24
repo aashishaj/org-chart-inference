@@ -52,6 +52,8 @@ _ACTING = re.compile(r"^(acting|interim)\s+|^a/\s*|\(\s*(acting|interim)\s*\)", 
 _SENIORITY_WORDS = {"senior", "junior", "graduate", "managing", "chief", "executive", "general", "lead",
                     "principal", "associate", "assistant", "deputy", "group"}
 _REDUNDANT_ACRONYM = re.compile(r"^[a-z&]{2,5}$")  # "(CSM)", "(RGN)", "(BDR)" repeat the title
+# A segment that starts with a seniority word is the front half of an inverted title.
+_INVERTED_ROLE = re.compile(r"^(senior|snr|sr\.?|chief|chf|general|group|junior|graduate)\s+\w")
 
 
 def _split_segments(s: str) -> list[str]:
@@ -69,7 +71,7 @@ _ABBREV = {
     "rn": "registered nurse", "csr": "customer service representative", "csm": "customer success manager",
     "bdr": "business development representative", "sdr": "sales development representative",
     "ae": "account executive", "ba": "business analyst", "ta": "talent acquisition", "hrbp": "hr business partner",
-    "bp": "business partner", "infosec": "information security", "mo": "medical officer",
+    "bp": "business partner", "chf": "chief", "infosec": "information security", "mo": "medical officer",
     "don": "director of nursing", "rm": "relationship manager", "am": "account manager", "en": "enrolled nurse", "anlst": "analyst", "num": "nurse unit manager", "vc": "vice chancellor", "hse": "hse",
     "iii": "senior", "ii": "", "svp": "svp", "evp": "evp", "fin": "finance", "info": "information",
     "sys": "systems", "ux/ui": "ux ui", "ui/ux": "ux ui", "qc": "quality control", "whs": "safety",
@@ -93,7 +95,7 @@ _LEVEL_RULES: list[tuple[re.Pattern, int, float, str]] = [
     (_rx(r"^(co-? ?founder|founder|president|principal|school principal|college principal)$"), CEO, .6,
      "founder/principal"),
     (_rx(r"\bchief information security officer\b|\bciso\b"), HEAD, .75, "ciso"),
-    (_rx(r"\bchief\b.*\bofficer\b|\b(cfo|cto|coo|cio|cmo|cro|cpo|chro|cdo|cco|cso)\b|\bgeneral counsel\b|"
+    (_rx(r"\bchief\b.*\bofficer\b|\b(cfo|cto|coo|cio|cmo|cro|cpo|chro|cdo|cco|cso)\b|\bgeneral (legal )?counsel\b|"
          r"\bprovost\b|\bchief (financial|technology|operating|marketing|revenue|people|risk|medical|data)\b"),
      EXEC, .9, "c-suite"),
     (_rx(r"\bassociate director\b"), SR_MGR, .75, "associate director"),
@@ -110,7 +112,7 @@ _LEVEL_RULES: list[tuple[re.Pattern, int, float, str]] = [
     (_rx(r"\bsenior manager\b"), SR_MGR, .85, "senior manager"),
     (_IC_MANAGER, None, .75, "ic-manager"),  # level decided by seniority words below
     (_PEOPLE_MANAGER_SENIOR, SR_MGR, .7, "senior x manager"),
-    (_rx(r"\b(area manager|superintendent|group product manager|contact centre manager|site manager|"
+    (_rx(r"\b(area (\w+ )?manager|superintendent|group product manager|contact centre manager|site manager|"
          r"production manager|transport manager|nurse manager)\b"), SR_MGR, .7, "senior-manager role"),
     (_rx(r"\b(manager|management|team lead|team leader|lead|supervisor|foreman|course coordinator)\b"), MGR, .8,
      "manager"),
@@ -284,6 +286,8 @@ def parse_title(raw: str, industry: str = "") -> ParsedTitle:
         w = seg.strip().lower()
         if w in _SENIORITY_WORDS or w in ("senior", "junior", "graduate"):
             prefix.append(w)                       # "Director, Managing" -> "managing director"
+        elif _INVERTED_ROLE.match(w) and len(core.split()) == 1:
+            core = f"{w} {core}"                   # "Manager, Senior Engineering", "Officer, Chief Medical"
         elif core.strip() in ("head",):
             core = f"head of {seg}"                # "Head, Information Security"
         elif core.endswith(" officer") and w in ("chief",):
@@ -327,6 +331,8 @@ def _level(core: str) -> tuple[int | None, float, str]:
         if not rx.search(core):
             continue
         if rule == "ic-manager":  # manager-titled IC: seniority comes from other words
+            if re.search(r"\bgroup product manager\b", core):
+                return SR_MGR, conf, rule      # manages product managers
             if re.search(r"\b(senior|principal|lead|group)\b", core):
                 return SENIOR, conf, rule
             if re.search(r"\b(junior|graduate|associate|assistant)\b", core):

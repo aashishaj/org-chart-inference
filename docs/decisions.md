@@ -127,3 +127,43 @@ trails on level (84.7% vs 94.0%), mostly on conventions like "HR Business Partne
 is an IC". The rules encode those conventions deliberately, but they are also
 traps the generator was built with, so the rules carry a few points of insider
 advantage on seniority. Reported as such.
+
+## Phase 3, piece 6: error analysis and fixes
+
+**Every wrong edge gets a reason.** A diagnostic labels each wrong claim on dev by
+cause, using the answer key: ghost given a boss, attached to a ghost, a look-alike
+peer of the real boss, another branch of the same department, the real boss not
+among the candidates, and so on. At the strict preset (486 wrong claims): ghosts
+36%, wrong branch of the right department 24%, real boss not a candidate ~20%,
+skip-levels (claimed a manager under the real boss) 17%.
+
+**Fixed what the analysis pointed at.**
+- Parser: inverted titles with the seniority word on the department ("Manager,
+  Senior Engineering", "Officer, Chief Medical"), "Chf", "General Legal Counsel",
+  "Area Retail Manager", "Group Product Manager". Level accuracy +0.3 points, and
+  these are bosses, so it unblocks their reports.
+- Candidates: execs always kept (a capped tier was dropping the CEO in big
+  companies); a tier for closely related departments (Supply Chain under
+  Operations, Merchandising under Store Ops); any manager when the person has no
+  department. Recall of the real boss 82% -> 86% for 23% more pairs.
+- Ghosts: an "older echo" signal. A record with the same department, level, team
+  and previous employer as a colleague, but an earlier start, is what a stale
+  profile looks like; 66-75% of such managers are ghosts. Feeds both the "none"
+  option and the boss side.
+
+**Result on dev.** Strict 88.1% -> 88.9% precision (7.8 wrong per 1k), balanced
+83.7% -> 85.1%, broad 72.2% -> 74.3%; coverage unchanged or slightly up.
+
+**What's left is mostly unrecoverable by design, and stays an abstain.**
+- Most ghosts have no echo (no shared employer shown, or the original is hidden):
+  they look exactly like staff.
+- Choosing between several managers in one department when titles show no team
+  and the office and start date don't separate them.
+- Bosses with blank titles (about 2,100 dev lines) can't be placed by level; their
+  reports fall back to a partial edge to the next visible boss.
+
+**Tried and dropped: inferring a manager's team from their confident reports.** It
+only touched 51 managers and moved nothing.
+
+**Partial edges are under-confident, not over-confident.** Claims at 0.7-0.8 are
+right 86-90% of the time, so the partial threshold is a safe dial.

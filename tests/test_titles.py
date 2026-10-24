@@ -16,6 +16,13 @@ CASES = [
     ("MD & CEO 🚀", "", CEO, "executive"),
     ("Fin Officer, Chief", "", EXEC, "finance"),
     ("Head, Information Security", "", HEAD, "security"),
+    # Inverted with the seniority word in front of the department.
+    ("Manager, Senior Engineering - Platform", "", SR_MGR, "engineering"),
+    ("Officer, Chief Medical", "Healthcare", EXEC, "clinical"),
+    ("Chf Fin Officer", "", EXEC, "finance"),
+    ("General Legal Counsel", "", EXEC, "legal"),
+    ("Area Retail Manager", "Retail", SR_MGR, "store_ops"),
+    ("Group Product Manager - Platform", "", SR_MGR, "product"),
     # "Manager" titles that manage no one, vs real people managers.
     ("Product Manager", "", MID, "product"),
     ("Senior Product Manager", "", SENIOR, "product"),

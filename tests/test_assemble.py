@@ -48,3 +48,15 @@ def test_never_claims_up_to_the_ceo():
             _s("x", 7, [("a", 0.5), ("b", 0.5)])]
     preds = {p.record_id: p for p in assemble(flat, exact_t=0.8, partial_t=0.8)}
     assert preds["x"].kind == "none"  # only the CEO is certain, and that's useless
+
+
+def test_older_echo_marks_the_earlier_holder_of_the_same_job():
+    from orgchart.inference.features import older_echoes
+
+    def person(rid, start, employer="atlassian", level=5):
+        return SimpleNamespace(rec=SimpleNamespace(record_id=rid), function="engineering", level=level,
+                               team="platform", employer=employer, start=start)
+
+    people = [person("ghost", 2015 * 12), person("real", 2021 * 12), person("other", 2010 * 12, employer="canva"),
+              person("ic", 2012 * 12, level=7)]
+    assert older_echoes(people) == {"ghost"}
