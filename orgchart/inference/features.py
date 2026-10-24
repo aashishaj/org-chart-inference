@@ -14,7 +14,7 @@ from dataclasses import dataclass
 
 from .data import Company, Record
 from .llm_titles import parse_title_hybrid
-from .titles import CEO, EXEC, MGR, MID, ParsedTitle, department_function
+from .titles import CEO, EXEC, HEAD, MGR, MID, VP, ParsedTitle, department_function
 
 UNKNOWN_LEVEL = MID  # a title we can't read is most likely an IC
 
@@ -109,7 +109,7 @@ FEATURES = [
     "boss_started_first", "boss_started_after", "start_unknown", "burst_6m", "log_months_after",
     "same_employer", "log_same_title_peers", "boss_twin_count_log", "boss_is_oldest_twin",
     "boss_cannot_manage", "boss_level_unknown", "person_level_unknown", "boss_parse_conf", "boss_reports_hint",
-    "boss_is_older_echo",
+    "boss_is_older_echo", "ceo_over_exec", "ceo_over_unled_head",
 ]
 F = {name: i for i, name in enumerate(FEATURES)}
 
@@ -218,6 +218,8 @@ def candidate_pairs(people: list[Person], pair_prior: dict[tuple[str, str], floa
         above = [b for b in seniors if b is not p and b.level < p.level]
         same_fn = {id(b) for b in above if p.function is not None and b.function == p.function}
         closest = max((b.level for b in above if id(b) in same_fn and b.level <= MGR), default=None)
+        # A department with no visible VP or exec: its head most likely reports to the CEO.
+        unled = not any(b.level <= VP for b in above if id(b) in same_fn)
         tier_a, tier_b, execs, tier_r, tier_c = [], [], [], [], []
         for b in above:
             prior = pair_prior.get((p.function or "?", b.function or "?"), 0.0)
@@ -235,12 +237,12 @@ def candidate_pairs(people: list[Person], pair_prior: dict[tuple[str, str], floa
                 tier.sort(key=lambda t: -_pre_score(p, t[0], t[1]))
             for b, prior in tier[:cap]:
                 out.append(Pair(p.rec.record_id, b.rec.record_id,
-                                _features(p, b, prior, closest, peers, twins, by_fl, echoes)))
+                                _features(p, b, prior, closest, peers, twins, by_fl, echoes, unled)))
     return out
 
 
 def _features(p: Person, b: Person, prior: float, closest: int | None, peers, twins, by_fl,
-              echoes: set[str]) -> list[float]:
+              echoes: set[str], unled: bool) -> list[float]:
     x = [0.0] * len(FEATURES)
     gap = p.level - b.level
     x[F["bias"]] = 1
@@ -283,4 +285,7 @@ def _features(p: Person, b: Person, prior: float, closest: int | None, peers, tw
     x[F["boss_reports_hint"]] = math.log1p(sum(by_fl.get((b.function, lvl), 0) for lvl in range(b.level + 1,
                                                                                                 b.level + 3)))
     x[F["boss_is_older_echo"]] = float(b.rec.record_id in echoes)
+    ceo = b.level == CEO and b.level_known
+    x[F["ceo_over_exec"]] = float(ceo and p.level == EXEC and p.level_known)
+    x[F["ceo_over_unled_head"]] = float(ceo and p.level in (VP, HEAD) and p.level_known and unled)
     return x

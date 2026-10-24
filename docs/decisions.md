@@ -204,3 +204,15 @@ keeps the last 24. Peak about 300 MB.
 **The app found a parser bug.** "Human Resources Partner" was read as a firm
 partner (VP), so an HR team's reports were placed "up to" an IC. Fixed, tested,
 model retrained; dev numbers unchanged within 0.1 points.
+
+**The app showed an empty top of the company.** At strict, the CEO had nobody under
+them: the model gave a CTO only ~45% of reporting to the CEO, because nothing in its
+linear features said "C-suite reports to the CEO". Two features fix it: CEO over a
+C-suite record, and CEO over a head whose department has no VP or exec. On dev, strict
+now gets 77 of 84 C-suite claims right; heads are still mostly unplaced (several
+execs could own each), shown as "teams we couldn't attach" rather than guessed.
+
+**React page: no UI libraries.** Picker with search and industry filter, collapsible
+tree (direct reports, then "reports up to", senior first), confidence pills, the
+strictness slider with measured costs, and the company and preset in the URL so a
+chart can be shared as a link. FastAPI serves the build, so it's one service.

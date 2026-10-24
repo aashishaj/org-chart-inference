@@ -4,32 +4,32 @@
     "exact_threshold": 0.9,
     "partial_threshold": 0.8,
     "measured_on": "dev",
-    "precision": 0.89,
-    "wrong_per_1k": 7.7668,
-    "exact_coverage": 0.0265,
-    "useful_coverage": 0.0624,
-    "ece": 0.0517
+    "precision": 0.8911,
+    "wrong_per_1k": 7.9586,
+    "exact_coverage": 0.0279,
+    "useful_coverage": 0.0645,
+    "ece": 0.054
   },
   {
     "name": "balanced",
     "exact_threshold": 0.8,
     "partial_threshold": 0.7,
     "measured_on": "dev",
-    "precision": 0.8514,
-    "wrong_per_1k": 19.3371,
-    "exact_coverage": 0.0512,
-    "useful_coverage": 0.1031,
-    "ece": 0.0883
+    "precision": 0.8503,
+    "wrong_per_1k": 19.7526,
+    "exact_coverage": 0.0531,
+    "useful_coverage": 0.1048,
+    "ece": 0.0852
   },
   {
     "name": "broad",
     "exact_threshold": 0.5,
     "partial_threshold": 0.6,
     "measured_on": "dev",
-    "precision": 0.7429,
-    "wrong_per_1k": 58.8263,
-    "exact_coverage": 0.1196,
-    "useful_coverage": 0.1561,
-    "ece": 0.0454
+    "precision": 0.7398,
+    "wrong_per_1k": 60.5523,
+    "exact_coverage": 0.1224,
+    "useful_coverage": 0.1587,
+    "ece": 0.0404
   }
 ]

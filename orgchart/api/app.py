@@ -8,6 +8,7 @@ import json
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException, Query
+from fastapi.staticfiles import StaticFiles
 
 from ..evaluation.scorecard import WRONG, _outcome, score
 from ..inference.assemble import assemble
@@ -115,6 +116,8 @@ def _clues(person, boss, x: list[float]) -> list[dict]:
         "boss_is_oldest_twin": "earliest of several look-alike roles (possible ghost)",
         "boss_cannot_manage": "title rarely manages anyone (assistant, contractor)",
         "boss_level_unknown": "boss's title is unreadable",
+        "ceo_over_exec": "C-suite usually reports to the CEO",
+        "ceo_over_unled_head": "no VP or exec in their department, so likely the CEO",
     }
     out = []
     for name, text in labels.items():
@@ -175,3 +178,9 @@ def grade(cid: str, preset: str = Query("strict")) -> dict:
             "scorecard": {k: m[k] for k in ("records", "claims", "wrong", "precision", "wrong_per_1k",
                                             "exact_coverage", "useful_coverage", "attached_to_ghost", "outcomes")},
             "lines": lines}
+
+
+# -- the React app (web/dist, built with `npm run build`), mounted last so /api wins -------------------
+WEB_DIST = Path(__file__).resolve().parents[2] / "web" / "dist"
+if WEB_DIST.exists():
+    app.mount("/", StaticFiles(directory=WEB_DIST, html=True), name="web")
