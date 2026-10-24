@@ -4,6 +4,7 @@ per record."""
 from collections.abc import Callable
 from functools import partial
 
+from .assemble import orgchart
 from .baselines import ceo_only, keyword
 from .data import Company, Prediction
 from .model import score_company
@@ -29,4 +30,8 @@ ENGINES: dict[str, Callable[[Company], list[Prediction]]] = {
     "keyword": keyword,
     "greedy": greedy,
     "greedy_90": partial(greedy, threshold=0.9),
+    # Full engine (exact + partial edges + abstain) at three strictness presets.
+    "orgchart_strict": partial(orgchart, exact_t=0.9, partial_t=0.8),
+    "orgchart_balanced": partial(orgchart, exact_t=0.8, partial_t=0.7),
+    "orgchart_broad": partial(orgchart, exact_t=0.5, partial_t=0.6),
 }

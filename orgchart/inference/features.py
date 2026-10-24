@@ -107,10 +107,30 @@ FEATURES = [
     "same_team", "team_mismatch", "boss_team_unknown",
     "same_city", "city_differs", "city_unknown",
     "boss_started_first", "boss_started_after", "start_unknown", "burst_6m", "log_months_after",
-    "same_employer", "log_same_title_peers", "boss_has_older_twin", "boss_is_newest_twin",
+    "same_employer", "log_same_title_peers", "boss_twin_count_log", "boss_is_oldest_twin",
     "boss_cannot_manage", "boss_level_unknown", "person_level_unknown", "boss_parse_conf", "boss_reports_hint",
 ]
 F = {name: i for i, name in enumerate(FEATURES)}
+
+
+def _is_oldest_twin(p: Person, others: list[Person]) -> float:
+    starts = [t.start for t in others if t.start is not None]
+    return float(p.start is not None and bool(starts) and p.start < min(starts))
+
+
+# Features of the "none of these" option, per person: when should nobody be the boss?
+NONE_FEATURES = ["none_bias", "is_oldest_twin", "twin_count_log", "level_unknown", "is_top_level",
+                 "title_blank", "is_contractor"]
+
+
+def none_features(people: list[Person]) -> dict[str, list[float]]:
+    _, twins, _ = _company_context(people)
+    out = {}
+    for p in people:
+        tw = [t for t in twins.get(_twin_key(p), []) if t is not p]
+        out[p.rec.record_id] = [1.0, _is_oldest_twin(p, tw), math.log1p(len(tw)), float(not p.level_known),
+                                float(p.level <= EXEC), float(not p.rec.title), float("contractor" in p.parsed.flags)]
+    return out
 
 
 @dataclass
@@ -120,12 +140,18 @@ class Pair:
     x: list[float]
 
 
+def _twin_key(p: Person) -> tuple | None:
+    """Same department, level and team. Not title text: a ghost's title is usually spelled
+    differently from the real holder's ("Sales Mgr" vs "Manager - Sales")."""
+    return (p.function, p.level, p.team) if p.level <= MGR and p.function else None
+
+
 def _company_context(people: list[Person]):
     peers = Counter((p.function, p.level, p.parsed.core) for p in people if p.level <= MGR)
-    twins = defaultdict(list)  # same role & team: one is often a ghost (the predecessor)
+    twins = defaultdict(list)  # same role: one is often a ghost (the predecessor who left)
     for p in people:
-        if p.level <= MGR and p.start is not None:
-            twins[(p.function, p.parsed.core, p.team)].append(p.start)
+        if (k := _twin_key(p)) is not None:
+            twins[k].append(p)
     # How many plausible reports each manager-level record has in their own function: a
     # "manager" with nobody below them in their department is suspicious (ghost or stale title).
     by_function_level = Counter((p.function, p.level) for p in people)
@@ -216,10 +242,9 @@ def _features(p: Person, b: Person, prior: float, closest: int | None, peers, tw
         x[F["start_unknown"]] = 1
     x[F["same_employer"]] = float(p.employer is not None and p.employer == b.employer)
     x[F["log_same_title_peers"]] = math.log(peers.get((b.function, b.level, b.parsed.core), 1))
-    tw = twins.get((b.function, b.parsed.core, b.team), [])
-    if len(tw) > 1 and b.start is not None:
-        x[F["boss_has_older_twin"]] = float(b.start > min(tw))
-        x[F["boss_is_newest_twin"]] = float(b.start == max(tw))
+    tw = [t for t in twins.get(_twin_key(b), []) if t is not b]
+    x[F["boss_twin_count_log"]] = math.log1p(len(tw))
+    x[F["boss_is_oldest_twin"]] = _is_oldest_twin(b, tw)
     x[F["boss_cannot_manage"]] = float(not b.can_manage)
     x[F["boss_level_unknown"]] = float(not b.level_known)
     x[F["person_level_unknown"]] = float(not p.level_known)

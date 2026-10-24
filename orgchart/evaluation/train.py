@@ -23,7 +23,8 @@ import numpy as np
 from scipy.optimize import minimize
 
 from ..inference.data import DATA_DIR, load_companies
-from ..inference.features import FEATURES, TIER_A_MAX, TIER_B_MAX, TIER_C_MAX, candidate_pairs, read_company
+from ..inference.features import (FEATURES, NONE_FEATURES, TIER_A_MAX, TIER_B_MAX, TIER_C_MAX, candidate_pairs,
+                                  none_features, read_company)
 from ..inference.model import MODEL_PATH
 from .split import companies_in
 
@@ -58,10 +59,11 @@ def train(seed: int = 0) -> dict:
 
     # 2. Candidate sets and labels.
     rng = random.Random(seed)
-    rows, groups, labels, none_label = [], [], [], []
+    rows, groups, labels, none_label, none_rows = [], [], [], [], []
     recall = Counter()
     for cid, people in read.items():
         sample = {p.rec.record_id for p in people if rng.random() < PERSON_SAMPLE}
+        z = none_features(people)
         by_person: dict[str, list] = {}
         for pair in candidate_pairs(people, prior):
             if pair.person in sample:
@@ -79,19 +81,24 @@ def train(seed: int = 0) -> dict:
                 groups.append(g)
                 labels.append(1.0 if hits and i == hits[0] else 0.0)
             none_label.append(0.0 if hits else 1.0)
+            none_rows.append(z[rid])
     X = np.asarray(rows, dtype=np.float64)
     G = np.asarray(groups, dtype=np.int64)
     Y = np.asarray(labels)
     N = np.asarray(none_label)
+    Z = np.asarray(none_rows, dtype=np.float64)
     n_groups = len(N)
+    k = X.shape[1]
     print(f"train: {len(train_ids)} companies, {n_groups:,} people sampled, {len(X):,} candidate pairs; "
           f"candidate recall {recall['in_candidates'] / recall['answerable']:.1%} ({time.time() - t0:.0f}s)")
 
-    # 3. Conditional logit with a "none" option (weight index -1), L2-regularised.
+    # 3. Conditional logit with a "none" option whose utility depends on the person (Z),
+    #    L2-regularised (biases excluded).
     def objective(theta):
-        w, w_none = theta[:-1], theta[-1]
+        w, v = theta[:k], theta[k:]
+        w_none = Z @ v
         s = X @ w
-        top = np.full(n_groups, w_none)
+        top = w_none.copy()
         np.maximum.at(top, G, s)
         e = np.exp(s - top[G])
         e_none = np.exp(w_none - top)
@@ -100,17 +107,18 @@ def train(seed: int = 0) -> dict:
         logp_pos = np.zeros(n_groups)
         np.add.at(logp_pos, G, Y * (s - top[G]))
         logp_pos += N * (w_none - top)
-        loss = -(logp_pos - np.log(z)).sum() + L2 * (w[1:] @ w[1:])
+        loss = -(logp_pos - np.log(z)).sum() + L2 * (w[1:] @ w[1:] + v[1:] @ v[1:])
         p = e / z[G]
         grad_w = X.T @ (p - Y) + 2 * L2 * np.r_[0, w[1:]]
-        grad_none = (e_none / z - N).sum()
-        return loss / n_groups, np.r_[grad_w, grad_none] / n_groups
+        grad_v = Z.T @ (e_none / z - N) + 2 * L2 * np.r_[0, v[1:]]
+        return loss / n_groups, np.r_[grad_w, grad_v] / n_groups
 
-    res = minimize(objective, np.zeros(X.shape[1] + 1), jac=True, method="L-BFGS-B", options={"maxiter": 500})
-    w, w_none = res.x[:-1], res.x[-1]
+    res = minimize(objective, np.zeros(k + Z.shape[1]), jac=True, method="L-BFGS-B", options={"maxiter": 500})
+    w, v = res.x[:k], res.x[k:]
     print(f"fitted in {time.time() - t0:.0f}s: loss {res.fun:.4f}, converged={res.success}")
 
-    model = {"features": FEATURES, "weights": [round(v, 5) for v in w], "w_none": round(float(w_none), 5),
+    model = {"features": FEATURES, "weights": [round(float(a), 5) for a in w],
+             "none_features": NONE_FEATURES, "none_weights": [round(float(a), 5) for a in v],
              "pair_prior": {f"{a}|{b}": round(v, 5) for (a, b), v in prior.items() if v >= 0.001},
              "tiers": [TIER_A_MAX, TIER_B_MAX, TIER_C_MAX],
              "train": {"companies": len(train_ids), "people": n_groups, "pairs": len(X),
@@ -124,4 +132,6 @@ if __name__ == "__main__":
     print("\nLearned weights (positive = makes this candidate more likely the boss):")
     for name, v in sorted(zip(m["features"], m["weights"]), key=lambda t: -abs(t[1])):
         print(f"  {name:<28} {v:+.2f}")
-    print(f"  {'none of these (bias)':<28} {m['w_none']:+.2f}")
+    print("\n'None of these' weights (positive = this person more likely has no boss among candidates):")
+    for name, v in zip(m["none_features"], m["none_weights"]):
+        print(f"  {name:<28} {v:+.2f}")
