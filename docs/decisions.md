@@ -167,3 +167,30 @@ only touched 51 managers and moved nothing.
 
 **Partial edges are under-confident, not over-confident.** Claims at 0.7-0.8 are
 right 86-90% of the time, so the partial threshold is a safe dial.
+
+## Phase 4: the web app
+
+**One service.** FastAPI serves the API and the built React app from one place,
+so there's one link and one deploy. The model, Gemini title parses and vocabulary
+are committed; the dataset regenerates at build time (about 16s, no API calls).
+
+**The engine stays in Python.** The server scores a company once (cached), then
+assembles the chart at whatever strictness is asked for. Assembly is cheap, so the
+slider is live without duplicating the logic in TypeScript.
+
+**Collapsible tree, not boxes and lines.** Companies have 100-2,000 people; an
+indented tree stays readable at that size and on a phone. Each line shows its kind
+(exact, "reports up to", unplaced) and a confidence colour.
+
+**Strictness is a slider.** Strict, balanced and broad, each labelled with the
+precision and wrong edges per 1,000 measured on dev, so the user picks the
+trade-off knowing what it costs.
+
+**A "grade it" toggle.** The data is synthetic, so the app can mark each line right
+or wrong against the answer key and show the company's scorecard. Reviewers can
+check the confidences for themselves. Off by default; the inference never sees it.
+
+**Per company:** a "why" panel (top candidate bosses with probabilities and the
+clues behind them), people search, an unplaced list with reasons, and plain-English
+questions answered by Gemini from the inferred chart (cached, rate-limited, Lite
+models).
