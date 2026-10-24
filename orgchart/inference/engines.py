@@ -10,6 +10,8 @@ from .data import Company, Prediction
 from .model import score_company
 
 GREEDY_THRESHOLD = 0.5
+# Strictness presets for the full engine: (exact threshold, partial threshold).
+PRESETS = {"strict": (0.9, 0.8), "balanced": (0.8, 0.7), "broad": (0.5, 0.6)}
 
 
 def greedy(company: Company, threshold: float = GREEDY_THRESHOLD) -> list[Prediction]:
@@ -31,7 +33,5 @@ ENGINES: dict[str, Callable[[Company], list[Prediction]]] = {
     "greedy": greedy,
     "greedy_90": partial(greedy, threshold=0.9),
     # Full engine (exact + partial edges + abstain) at three strictness presets.
-    "orgchart_strict": partial(orgchart, exact_t=0.9, partial_t=0.8),
-    "orgchart_balanced": partial(orgchart, exact_t=0.8, partial_t=0.7),
-    "orgchart_broad": partial(orgchart, exact_t=0.5, partial_t=0.6),
+    **{f"orgchart_{name}": partial(orgchart, exact_t=e, partial_t=p) for name, (e, p) in PRESETS.items()},
 }

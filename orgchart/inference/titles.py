@@ -103,7 +103,7 @@ _LEVEL_RULES: list[tuple[re.Pattern, int, float, str]] = [
     (_rx(r"\bavp\b"), HEAD, .7, "avp"),
     (_rx(r"\bgeneral manager\b"), VP, .85, "general manager"),
     (_rx(r"\bexecutive director\b"), VP, .6, "executive director"),
-    (_rx(r"(?<!business )(?<!acquisition )(?<!hr )(?<!talent )(?<!people )\bpartner\b"), VP, .75, "partner"),
+    (_rx(r"(?<!business )(?<!acquisition )(?<!hr )(?<!talent )(?<!people )(?<!resources )(?<!culture )(?<!finance )(?<!learning )\bpartner\b"), VP, .75, "partner"),
     (_rx(r"\bdean\b"), VP, .8, "dean"),
     (_rx(r"\bhead\b"), HEAD, .9, "head"),
     (_rx(r"\b(mine|plant|national \w+) manager\b|\bfinancial controller\b|\bproject director\b"), HEAD, .7,

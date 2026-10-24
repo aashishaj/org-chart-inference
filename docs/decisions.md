@@ -194,3 +194,13 @@ check the confidences for themselves. Off by default; the inference never sees i
 clues behind them), people search, an unplaced list with reasons, and plain-English
 questions answered by Gemini from the inferred chart (cached, rate-limited, Lite
 models).
+
+**One company in memory at a time.** All 600 companies plus the answer key take
+over 1 GB; the free host has 512 MB. The dataset is split into
+data/by_company/<id>/ (same layout as data/, so the same loaders work) and the
+server scores a company on first open (0.2s typical, 2.4s for the largest) and
+keeps the last 24. Peak about 300 MB.
+
+**The app found a parser bug.** "Human Resources Partner" was read as a firm
+partner (VP), so an HR team's reports were placed "up to" an IC. Fixed, tested,
+model retrained; dev numbers unchanged within 0.1 points.

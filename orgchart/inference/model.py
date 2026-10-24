@@ -14,7 +14,7 @@ from functools import cache
 from pathlib import Path
 
 from .data import Company
-from .features import FEATURES, NONE_FEATURES, Person, candidate_pairs, none_features, read_company
+from .features import FEATURES, NONE_FEATURES, Pair, Person, candidate_pairs, none_features, read_company
 
 MODEL_PATH = Path(__file__).with_name("model.json")
 
@@ -39,11 +39,16 @@ def load_model() -> dict:
 
 def score_company(company: Company, model: dict | None = None) -> list[Scored]:
     m = model or load_model()
-    w, v = m["weights"], m["none_weights"]
     people = read_company(company)
+    return score_people(people, candidate_pairs(people, m["pair_prior"]), m)
+
+
+def score_people(people: list[Person], pairs: list[Pair], model: dict | None = None) -> list[Scored]:
+    m = model or load_model()
+    w, v = m["weights"], m["none_weights"]
     none_x = none_features(people)
     by_person: dict[str, list[tuple[str, float]]] = {}
-    for pair in candidate_pairs(people, m["pair_prior"]):
+    for pair in pairs:
         by_person.setdefault(pair.person, []).append((pair.boss, sum(a * b for a, b in zip(w, pair.x))))
     out = []
     for p in people:

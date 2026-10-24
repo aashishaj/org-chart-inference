@@ -2,7 +2,7 @@
 
 import pytest
 
-from orgchart.inference.titles import CEO, EXEC, HEAD, JUNIOR, MGR, MID, SENIOR, SR_MGR, parse_title
+from orgchart.inference.titles import CEO, EXEC, HEAD, JUNIOR, MGR, MID, SENIOR, SR_MGR, VP, parse_title
 
 CASES = [
     # (title, industry, level, function)
@@ -22,6 +22,10 @@ CASES = [
     ("Chf Fin Officer", "", EXEC, "finance"),
     ("General Legal Counsel", "", EXEC, "legal"),
     ("Area Retail Manager", "Retail", SR_MGR, "store_ops"),
+    # "Partner" in HR / finance titles is an IC business partner, not a firm partner.
+    ("Human Resources Partner", "", MID, "hr"),
+    ("People & Culture Partner", "", MID, "hr"),
+    ("Partner", "Professional Services", VP, "consulting"),
     ("Group Product Manager - Platform", "", SR_MGR, "product"),
     # "Manager" titles that manage no one, vs real people managers.
     ("Product Manager", "", MID, "product"),
