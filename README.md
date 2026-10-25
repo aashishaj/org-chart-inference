@@ -6,10 +6,15 @@ reporting line, and leave a line blank when the evidence is weak.
 
 > A wrong edge is worse than no edge.
 
-**Live app:** _link added after the first Render deploy_. Pick a company, slide the
-strictness, click anyone to see why they were placed where they were, turn on
+**Live app:** https://org-chart-inference-kre5.onrender.com. Pick a company, slide
+the strictness, click anyone to see why they were placed where they were, turn on
 "Grade against the answer key" to see every line marked right or wrong, or ask a
-question in plain English.
+question in plain English. It runs on Render's free plan: after 15 minutes idle
+the first visit takes about a minute to wake it, and the first look at one of the
+largest companies (1,900 people) takes up to 40 seconds to score.
+
+Every view is a shareable link, for example
+[Echidna Software, graded](https://org-chart-inference-kre5.onrender.com/?company=C0176&preset=balanced&grade=1).
 
 ## Results
 
