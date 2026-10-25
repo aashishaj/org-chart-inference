@@ -1,26 +1,28 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { api } from './api'
-import type { Chart, CompanySummary, Preset, PresetName } from './api'
+import type { Chart, CompanySummary, Grade, Preset, PresetName } from './api'
 import { CompanyPicker } from './CompanyPicker'
 import { OrgTree, buildTree } from './OrgTree'
 import { PeopleSearch } from './PeopleSearch'
+import { Scorecard } from './Scorecard'
 import { StrictnessSlider } from './StrictnessSlider'
 import { WhyPanel } from './WhyPanel'
 import './App.css'
 
 const PRESETS: PresetName[] = ['strict', 'balanced', 'broad']
 
-// The company and strictness live in the URL, so a chart can be shared as a link.
-function readUrl(): { company: string | null; preset: PresetName } {
+// The company, strictness and grading live in the URL, so a chart can be shared as a link.
+function readUrl(): { company: string | null; preset: PresetName; grade: boolean } {
   const q = new URLSearchParams(window.location.search)
   const preset = q.get('preset') as PresetName
-  return { company: q.get('company'), preset: PRESETS.includes(preset) ? preset : 'strict' }
+  return { company: q.get('company'), preset: PRESETS.includes(preset) ? preset : 'strict', grade: q.get('grade') === '1' }
 }
 
-function writeUrl(company: string | null, preset: PresetName) {
+function writeUrl(company: string | null, preset: PresetName, grade: boolean) {
   const q = new URLSearchParams()
   if (company) q.set('company', company)
   if (preset !== 'strict') q.set('preset', preset)
+  if (grade) q.set('grade', '1')
   window.history.replaceState(null, '', `${window.location.pathname}${q.toString() ? `?${q}` : ''}`)
 }
 
@@ -37,6 +39,8 @@ export default function App() {
   const [selected, setSelected] = useState<string | null>(null)
   const [showUnplaced, setShowUnplaced] = useState(false)
   const [scrollTo, setScrollTo] = useState<string | null>(null)
+  const [grading, setGrading] = useState(initial.grade)
+  const [grade, setGrade] = useState<{ key: string; grade: Grade } | null>(null)
 
   useEffect(() => {
     Promise.all([api.companies(), api.presets()])
@@ -48,7 +52,10 @@ export default function App() {
   }, [])
 
   useEffect(() => {
-    writeUrl(companyId, preset)
+    writeUrl(companyId, preset, grading)
+  }, [companyId, preset, grading])
+
+  useEffect(() => {
     if (!companyId) return
     let stale = false
     setLoading(true)
@@ -61,6 +68,20 @@ export default function App() {
       stale = true
     }
   }, [companyId, preset])
+
+  const gradeKey = `${companyId}/${preset}`
+  useEffect(() => {
+    if (!grading || !companyId || grade?.key === gradeKey) return
+    let stale = false
+    api.grade(companyId, preset)
+      .then((g) => !stale && setGrade({ key: gradeKey, grade: g }))
+      .catch((e) => !stale && setError(String(e)))
+    return () => {
+      stale = true
+    }
+  }, [grading, companyId, preset, gradeKey, grade?.key])
+  // Only once the chart on screen is for the same strictness, so marks never sit on the wrong lines.
+  const graded = grading && grade?.key === gradeKey && chart?.preset.name === preset ? grade.grade : null
 
   const tree = useMemo(() => (chart ? buildTree(chart.people) : null), [chart])
 
@@ -158,7 +179,9 @@ export default function App() {
               </div>
             )}
             <StrictnessSlider presets={presets} value={preset} onChange={setPreset} />
-            {chart && (
+            <Scorecard on={grading} onToggle={() => setGrading((g) => !g)} grade={graded} tree={tree} onGoTo={reveal}
+              preset={presets.find((p) => p.name === preset)} />
+            {chart && !graded && (
               <dl className="counts">
                 <div><dt>Direct lines</dt><dd>{chart.counts.exact}</dd></div>
                 <div><dt>"Reports up to"</dt><dd>{chart.counts.partial}</dd></div>
@@ -183,14 +206,14 @@ export default function App() {
             </div>
             {tree ? (
               <OrgTree tree={tree} expanded={expanded} selected={selected} onToggle={toggle} onSelect={setSelected}
-                showUnplaced={showUnplaced} onToggleUnplaced={() => setShowUnplaced((s) => !s)} />
+                showUnplaced={showUnplaced} onToggleUnplaced={() => setShowUnplaced((s) => !s)} grade={graded?.lines} />
             ) : (
               !error && <p className="muted">Inferring the org chart…</p>
             )}
           </section>
           {person && companyId && (
             <WhyPanel companyId={companyId} person={person} preset={preset} nameOf={nameOf} onGoTo={reveal}
-              onClose={closeWhy} />
+              onClose={closeWhy} line={graded?.lines[person.id]} />
           )}
         </main>
       )}

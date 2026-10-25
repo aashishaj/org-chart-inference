@@ -70,6 +70,7 @@ def test_grade_matches_the_chart(client, cid):
     claims = sum(1 for p in chart if p["manager_id"])
     assert g["scorecard"]["claims"] == claims
     assert g["scorecard"]["wrong"] == sum(1 for line in g["lines"].values() if line["wrong"])
+    assert g["split"] in ("train", "dev", "test")
 
 
 def test_unknown_company_is_404(client):

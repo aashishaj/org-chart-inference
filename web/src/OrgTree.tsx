@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import type { ChartPerson } from './api'
+import type { ChartPerson, GradeLine } from './api'
 
 const LEVEL_ORDER = ['CEO', 'C-suite', 'VP', 'Head / Director', 'Senior Manager', 'Manager', 'Senior IC', 'IC', 'Junior']
 const rank = (p: ChartPerson) => (p.level ? LEVEL_ORDER.indexOf(p.level) : LEVEL_ORDER.length)
@@ -48,6 +48,29 @@ export function buildTree(people: ChartPerson[]): Tree {
   }
 }
 
+// What the answer key says about a line, as a small mark next to it.
+const MARK: Partial<Record<GradeLine['outcome'], { tone: string; text: string; title: string }>> = {
+  exact_correct: { tone: 'ok', text: '✓', title: 'Right: this is their direct manager' },
+  partial_correct: { tone: 'ok', text: '✓', title: 'Right: they do report somewhere under this person' },
+  partial_to_top: { tone: 'weak', text: '✓', title: 'True, but only says they sit under the top of their chain' },
+  exact_wrong: { tone: 'bad', text: '✗', title: 'Wrong: not their manager' },
+  partial_wrong: { tone: 'bad', text: '✗', title: 'Wrong: they are not under this person' },
+  false_claim: { tone: 'bad', text: '✗', title: 'Wrong: they have no boss in the data' },
+  correct_none: { tone: 'ok', text: '✓', title: 'Rightly left out: they have no boss in the data' },
+}
+const KIND: Record<string, string> = { ghost: 'stale profile', duplicate: 'duplicate' }
+
+function GradeMark({ line }: { line?: GradeLine }) {
+  if (!line) return null
+  const m = MARK[line.outcome]
+  return (
+    <>
+      {KIND[line.kind] && <span className="kind-chip">{KIND[line.kind]}</span>}
+      {m && <span className={`mark ${m.tone}`} title={m.title}>{m.text}</span>}
+    </>
+  )
+}
+
 export function confidenceBand(c: number): 'high' | 'mid' | 'low' {
   return c >= 0.9 ? 'high' : c >= 0.75 ? 'mid' : 'low'
 }
@@ -59,18 +82,20 @@ interface NodeProps {
   selected: string | null
   onToggle: (id: string) => void
   onSelect: (id: string) => void
+  grade?: Record<string, GradeLine>
   depth: number
 }
 
-const Node = memo(function Node({ person, tree, expanded, selected, onToggle, onSelect, depth }: NodeProps) {
+const Node = memo(function Node({ person, tree, expanded, selected, onToggle, onSelect, grade, depth }: NodeProps) {
   const kids = tree.children.get(person.id) ?? []
   const open = expanded.has(person.id)
   const placed = person.placement === 'exact' || person.placement === 'partial'
+  const line = grade?.[person.id]
   return (
     <li className={`node ${person.placement}`}>
       <div
         id={`p-${person.id}`}
-        className={`row${selected === person.id ? ' selected' : ''}`}
+        className={`row${selected === person.id ? ' selected' : ''}${line?.wrong ? ' graded-wrong' : ''}`}
         style={{ paddingLeft: `${depth * 1.25}rem` }}
         onClick={() => onSelect(person.id)}
       >
@@ -105,12 +130,13 @@ const Node = memo(function Node({ person, tree, expanded, selected, onToggle, on
             {(person.confidence * 100).toFixed(0)}%
           </span>
         )}
+        {grade && person.placement !== 'root' && <GradeMark line={line} />}
       </div>
       {open && kids.length > 0 && (
         <ul>
           {kids.map((k) => (
             <Node key={k.id} person={k} tree={tree} expanded={expanded} selected={selected}
-              onToggle={onToggle} onSelect={onSelect} depth={depth + 1} />
+              onToggle={onToggle} onSelect={onSelect} grade={grade} depth={depth + 1} />
           ))}
         </ul>
       )}
@@ -135,10 +161,11 @@ interface Props {
   onSelect: (id: string) => void
   showUnplaced: boolean
   onToggleUnplaced: () => void
+  grade?: Record<string, GradeLine>
 }
 
-export function OrgTree({ tree, expanded, selected, onToggle, onSelect, showUnplaced, onToggleUnplaced }: Props) {
-  const nodeProps = { tree, expanded, selected, onToggle, onSelect, depth: 0 }
+export function OrgTree({ tree, expanded, selected, onToggle, onSelect, showUnplaced, onToggleUnplaced, grade }: Props) {
+  const nodeProps = { tree, expanded, selected, onToggle, onSelect, grade, depth: 0 }
   return (
     <div className="tree">
       <ul className="tree-root">
@@ -169,6 +196,8 @@ export function OrgTree({ tree, expanded, selected, onToggle, onSelect, showUnpl
               <ul className="unplaced-list">
                 {members.map((p) => {
                   const guess = p.best_guess_id ? tree.byId.get(p.best_guess_id) : undefined
+                  const line = grade?.[p.id]
+                  const guessRight = line?.correct_manager ? line.correct_manager.id === p.best_guess_id : undefined
                   return (
                     <li key={p.id} id={`p-${p.id}`} className={`row${selected === p.id ? ' selected' : ''}`}
                       onClick={() => onSelect(p.id)}>
@@ -180,8 +209,16 @@ export function OrgTree({ tree, expanded, selected, onToggle, onSelect, showUnpl
                       {guess && p.best_guess_p !== undefined && (
                         <span className="reason" title={p.reason}>
                           best guess {guess.name}, {Math.round(p.best_guess_p * 100)}%
+                          {line?.outcome === 'abstain' && (
+                            <span className={`mark ${guessRight ? 'ok' : 'bad'}`}
+                              title={guessRight ? 'The best guess was right' : `Really ${line.correct_manager?.name}`}>
+                              {guessRight ? '✓' : '✗'}
+                            </span>
+                          )}
                         </span>
                       )}
+                      {line?.outcome === 'correct_none' && <GradeMark line={line} />}
+                      {line?.outcome === 'abstain' && KIND[line.kind] && <span className="kind-chip">{KIND[line.kind]}</span>}
                     </li>
                   )
                 })}

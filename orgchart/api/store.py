@@ -17,6 +17,7 @@ from functools import cache, lru_cache
 from pathlib import Path
 
 from ..evaluation.scorecard import Truth, load_truth
+from ..evaluation.split import company_split
 from ..inference.assemble import ancestor_probabilities
 from ..inference.data import DATA_DIR, Company, load_companies
 from ..inference.features import Pair, Person, candidate_pairs, read_company
@@ -49,11 +50,12 @@ def split(data_dir: Path = DATA_DIR, out_dir: Path = SPLIT_DIR) -> int:
         for name in ("companies.csv", "people.csv", "true_tree.csv"):
             files[f"truth/{name}"] = read(data_dir / "truth" / name)
     header, companies = files["companies.csv"]
+    splits = company_split(data_dir)
     index = []
     for cid, (row,) in companies.items():
         for name, (fields, by) in files.items():
             _write(out_dir / cid / name, fields, by.get(cid, []))
-        index.append({**row, "records": len(files["people.csv"][1][cid])})
+        index.append({**row, "records": len(files["people.csv"][1][cid]), "split": splits[cid]})
     (out_dir / "index.json").write_text(json.dumps(index))
     return len(index)
 

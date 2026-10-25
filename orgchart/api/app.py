@@ -178,7 +178,8 @@ def grade(cid: str, preset: str = Query("strict")) -> dict:
                               "kind": truth.kind[p.record_id],
                               "correct_manager": _brief(v, correct) if correct else None}
     m = score(preds, truth)
-    return {"mess_level": truth.mess_level[cid],
+    split = next(c.get("split") for c in company_index() if c["company_id"] == cid)
+    return {"mess_level": truth.mess_level[cid], "split": split,
             "scorecard": {k: m[k] for k in ("records", "claims", "wrong", "precision", "wrong_per_1k",
                                             "exact_coverage", "useful_coverage", "attached_to_ghost", "outcomes")},
             "lines": lines}

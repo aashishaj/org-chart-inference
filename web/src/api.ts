@@ -73,6 +73,35 @@ export interface Why {
   reports_up_to: (PersonBrief & { probability: number })[]
 }
 
+export type Outcome =
+  | 'exact_correct' | 'exact_wrong' | 'partial_correct' | 'partial_to_top' | 'partial_wrong'
+  | 'false_claim' | 'abstain' | 'correct_none'
+
+export interface GradeLine {
+  outcome: Outcome
+  wrong: boolean
+  levels_above_manager: number | null
+  kind: 'employee' | 'ghost' | 'duplicate'
+  correct_manager: PersonBrief | null
+}
+
+export interface Grade {
+  mess_level: string
+  split: 'train' | 'dev' | 'test'
+  scorecard: {
+    records: number
+    claims: number
+    wrong: number
+    precision: number
+    wrong_per_1k: number
+    exact_coverage: number
+    useful_coverage: number
+    attached_to_ghost: number
+    outcomes: Partial<Record<Outcome, number>>
+  }
+  lines: Record<string, GradeLine>
+}
+
 async function get<T>(path: string, params: Record<string, string> = {}): Promise<T> {
   const qs = new URLSearchParams(params).toString()
   const res = await fetch(`/api${path}${qs ? `?${qs}` : ''}`)
@@ -86,4 +115,5 @@ export const api = {
   chart: (id: string, preset: PresetName) => get<Chart>(`/companies/${id}/chart`, { preset }),
   why: (id: string, person: string, preset: PresetName) =>
     get<Why>(`/companies/${id}/people/${person}/why`, { preset }),
+  grade: (id: string, preset: PresetName) => get<Grade>(`/companies/${id}/grade`, { preset }),
 }

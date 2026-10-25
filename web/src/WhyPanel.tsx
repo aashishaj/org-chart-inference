@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
+import type { ReactNode } from 'react'
 import { api } from './api'
-import type { ChartPerson, PresetName, Why } from './api'
+import type { ChartPerson, GradeLine, PresetName, Why } from './api'
 import { confidenceBand } from './OrgTree'
 
 interface Props {
@@ -10,6 +11,7 @@ interface Props {
   nameOf: (id: string) => string | undefined
   onGoTo: (id: string) => void
   onClose: () => void
+  line?: GradeLine
 }
 
 const pct = (x: number) => `${Math.round(x * 100)}%`
@@ -50,7 +52,57 @@ function Decision({ person, why, onGoTo }: { person: ChartPerson; why: Why; onGo
   )
 }
 
-export function WhyPanel({ companyId, person, preset, nameOf, onGoTo, onClose }: Props) {
+// The answer key's verdict on this person, in a sentence.
+function AnswerKey({ line, why, top, onGoTo }: { line: GradeLine; why: Why; top: boolean; onGoTo: (id: string) => void }) {
+  const real = line.correct_manager
+  const realLink = real && <button className="link" onClick={() => onGoTo(real.id)}>{real.name}</button>
+  const ours = why.decision.manager?.name
+  const given = real && why.candidates.find((c) => c.id === real.id)
+  const gave = real && (given ? ` We gave them ${pct(given.probability)}.` : ' They weren\'t among our candidates.')
+  const noBoss = line.kind === 'ghost' ? 'this is a stale profile of someone who has left' : 'their manager isn\'t in the data'
+  const levels = (n: number) => `${n} level${n === 1 ? '' : 's'}`
+  let tone = 'ok'
+  let text: ReactNode
+  switch (line.outcome) {
+    case 'exact_correct':
+      text = <>Right: {ours} is their direct manager.</>
+      break
+    case 'partial_correct':
+      text = line.levels_above_manager
+        ? <>Right: {ours} is {levels(line.levels_above_manager)} above their direct manager, {realLink}.</>
+        : <>Right, and closer than we claimed: {ours} is their direct manager.</>
+      break
+    case 'partial_to_top':
+      tone = 'weak'
+      text = <>True, but not much use: {ours} is the top of their chain. Their direct manager is {realLink}.</>
+      break
+    case 'exact_wrong':
+    case 'partial_wrong':
+      tone = 'bad'
+      text = <>Wrong: their real manager is {realLink}.{gave}</>
+      break
+    case 'false_claim':
+      tone = 'bad'
+      text = <>Wrong: {noBoss}, so nobody here manages them.</>
+      break
+    case 'correct_none':
+      text = top ? <>Right: they're the top of the company.</> : <>Rightly left out: {noBoss}.</>
+      break
+    case 'abstain':
+      tone = 'none'
+      text = <>Left out. Their real manager is {realLink}.{gave}</>
+      break
+  }
+  return (
+    <section className={`answer-key ${tone}`}>
+      <h3>Answer key</h3>
+      <p>{text}</p>
+      {line.kind === 'duplicate' && <p className="muted small">This record is a second profile of someone else in the data.</p>}
+    </section>
+  )
+}
+
+export function WhyPanel({ companyId, person, preset, nameOf, onGoTo, onClose, line }: Props) {
   const [why, setWhy] = useState<Why | null>(null)
   const [error, setError] = useState<string | null>(null)
 
@@ -94,6 +146,7 @@ export function WhyPanel({ companyId, person, preset, nameOf, onGoTo, onClose }:
       {loaded && r && (
         <>
           <Decision person={person} why={loaded} onGoTo={onGoTo} />
+          {line && <AnswerKey line={line} why={loaded} top={person.placement === 'root'} onGoTo={onGoTo} />}
 
           <section>
             <h3>What we read from their profile</h3>

@@ -216,3 +216,13 @@ execs could own each), shown as "teams we couldn't attach" rather than guessed.
 tree (direct reports, then "reports up to", senior first), confidence pills, the
 strictness slider with measured costs, and the company and preset in the URL so a
 chart can be shared as a link. FastAPI serves the build, so it's one service.
+
+**Grade it, in the app.** The data is synthetic, so the answer key is shown, not
+hidden: a toggle marks every line right or wrong, opens a per-company scorecard
+(lines right against the average for that strictness, each kind of mistake, and
+how often our best guess would have been right for the people we left out), lists
+the wrong lines, and gives each person's verdict in the why panel. The scorecard
+says which split the company is in, because a training company should score better
+than average and the reader should know that. On Echidna Software (messy, training,
+balanced) it's 27 of 40 lines right, and best guesses for the 584 left out would
+have been right only 15% of the time: the case for abstaining, visible per company.
