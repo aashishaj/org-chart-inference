@@ -76,3 +76,9 @@ def test_grade_matches_the_chart(client, cid):
 def test_unknown_company_is_404(client):
     assert client.get("/api/companies/NOPE/chart").status_code == 404
     assert client.get("/api/companies/NOPE/grade").status_code == 404
+
+
+def test_ask_is_off_without_a_key(client, cid, monkeypatch):
+    monkeypatch.delenv("GEMINI_API_KEY", raising=False)
+    assert client.get("/api/ask").json() == {"enabled": False}
+    assert client.post(f"/api/companies/{cid}/ask", json={"question": "Who leads sales?"}).status_code == 503

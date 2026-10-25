@@ -226,3 +226,16 @@ says which split the company is in, because a training company should score bett
 than average and the reader should know that. On Echidna Software (messy, training,
 balanced) it's 27 of 40 lines right, and best guesses for the 584 left out would
 have been right only 15% of the time: the case for abstaining, visible per company.
+
+**Ask in plain English: Gemini looks things up, it doesn't know them.** Gemini gets
+four lookup tools over the chart on screen (find people, one person's lines and
+reports, everyone under someone, a company overview with the biggest teams) and must
+answer from what they return, with each line's confidence, "somewhere under" kept
+distinct from "reports to", and unplaced people named only as guesses. It never sees
+the answer key or the whole company at once. It cites people as [[id|Name]]; the
+server unlinks any id no tool returned, so an invented person can't become a link,
+and the page shows the lookups it made ("how it found this"). Lite model first with
+the usual fallbacks, 25s per call, at most 6 rounds; answers cached per company,
+strictness and question; 8 questions per visitor per 10 minutes and 300 a day,
+because the hosted app spends one key. Without a key the box simply doesn't appear.
+Typical answer: 2-4 seconds, one or two lookups.

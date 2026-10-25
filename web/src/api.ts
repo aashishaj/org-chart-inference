@@ -102,10 +102,36 @@ export interface Grade {
   lines: Record<string, GradeLine>
 }
 
+export interface Answer {
+  answer: string
+  trail: { tool: string; args: Record<string, string> }[]
+  model: string | null
+  cached: boolean
+}
+
 async function get<T>(path: string, params: Record<string, string> = {}): Promise<T> {
   const qs = new URLSearchParams(params).toString()
   const res = await fetch(`/api${path}${qs ? `?${qs}` : ''}`)
   if (!res.ok) throw new Error(`${res.status} ${await res.text()}`)
+  return res.json() as Promise<T>
+}
+
+async function post<T>(path: string, body: unknown): Promise<T> {
+  const res = await fetch(`/api${path}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  })
+  if (!res.ok) {
+    const text = await res.text()
+    let detail = text
+    try {
+      detail = JSON.parse(text).detail ?? text
+    } catch {
+      // not JSON: keep the text
+    }
+    throw new Error(String(detail))
+  }
   return res.json() as Promise<T>
 }
 
@@ -115,5 +141,7 @@ export const api = {
   chart: (id: string, preset: PresetName) => get<Chart>(`/companies/${id}/chart`, { preset }),
   why: (id: string, person: string, preset: PresetName) =>
     get<Why>(`/companies/${id}/people/${person}/why`, { preset }),
+  askEnabled: () => get<{ enabled: boolean }>('/ask'),
+  ask: (id: string, question: string, preset: PresetName) => post<Answer>(`/companies/${id}/ask`, { question, preset }),
   grade: (id: string, preset: PresetName) => get<Grade>(`/companies/${id}/grade`, { preset }),
 }

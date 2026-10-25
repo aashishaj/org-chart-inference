@@ -7,7 +7,8 @@ was drawn, and (since the data is synthetic) a grade against the answer key.
 import json
 from pathlib import Path
 
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, HTTPException, Query, Request
+from pydantic import BaseModel
 from fastapi.staticfiles import StaticFiles
 
 from ..evaluation.scorecard import WRONG, _outcome, score
@@ -16,6 +17,7 @@ from ..inference.engines import PRESETS
 from ..inference.features import FEATURES
 from ..inference.model import load_model
 from ..inference.titles import CEO
+from . import ask as asking
 from .store import CompanyView, answer_key, company_ids, company_index, view
 
 LEVELS = ["CEO", "C-suite", "VP", "Head / Director", "Senior Manager", "Manager", "Senior IC", "IC", "Junior"]
@@ -183,6 +185,40 @@ def grade(cid: str, preset: str = Query("strict")) -> dict:
             "scorecard": {k: m[k] for k in ("records", "claims", "wrong", "precision", "wrong_per_1k",
                                             "exact_coverage", "useful_coverage", "attached_to_ghost", "outcomes")},
             "lines": lines}
+
+
+# -- ask in plain English ------------------------------------------------------------------------------
+class Question(BaseModel):
+    question: str
+    preset: str = "strict"
+
+
+@app.get("/api/ask")
+def ask_status() -> dict:
+    return {"enabled": asking.enabled()}
+
+
+@app.post("/api/companies/{cid}/ask")
+def ask(cid: str, q: Question, request: Request) -> dict:
+    if not asking.enabled():
+        raise HTTPException(503, "Asking questions is turned off on this server (no Gemini key).")
+    question = q.question.strip()
+    if not question or len(question) > asking.MAX_QUESTION:
+        raise HTTPException(400, f"Ask a question of 1 to {asking.MAX_QUESTION} characters.")
+    data = chart(cid, q.preset)
+    key = asking.cache_key(cid, q.preset, question)
+    if hit := asking.cached(key):
+        return {**hit, "cached": True}
+    visitor = request.headers.get("x-forwarded-for", "").split(",")[0].strip() or (request.client and request.client.host) or "?"
+    if refusal := asking.allow(visitor):
+        raise HTTPException(429, refusal)
+    board = asking.Chart(data["company"], {p["id"]: p for p in data["people"]})
+    try:
+        result = asking.answer(question, board, q.preset)
+    except asking.Unavailable as e:
+        raise HTTPException(503, str(e))
+    asking.remember(key, result)
+    return {**result, "cached": False}
 
 
 # -- the React app (web/dist, built with `npm run build`), mounted last so /api wins -------------------

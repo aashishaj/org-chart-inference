@@ -964,3 +964,90 @@
 .answer-key .small {
   margin-top: 0.4rem;
 }
+
+/* -- ask in plain English ---------------------------------------------------------------- */
+.ask {
+  margin-bottom: 1rem;
+  padding: 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+
+.ask-form {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ask-spark {
+  color: var(--accent);
+}
+
+.ask-form input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+}
+
+.ask-form input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: -1px;
+}
+
+.ask-form .primary {
+  flex: none;
+  margin: 0;
+  padding: 0.5rem 0.9rem;
+}
+
+.ask-form .primary:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.ask-examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.6rem;
+}
+
+.ask-examples button {
+  padding: 0.2rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.82rem;
+}
+
+.ask-examples button:hover {
+  border-color: var(--accent);
+}
+
+.ask-answer {
+  margin-top: 0.7rem;
+}
+
+.ask-text p,
+.ask-text ul {
+  margin: 0 0 0.5rem;
+}
+
+.ask-text ul {
+  padding-left: 1.2rem;
+}
+
+.ask-answer > .small {
+  margin: 0.3rem 0 0;
+}
+
+.ask .error {
+  margin: 0.6rem 0 0;
+}

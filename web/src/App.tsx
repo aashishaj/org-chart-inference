@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { api } from './api'
 import type { Chart, CompanySummary, Grade, Preset, PresetName } from './api'
+import { AskBox } from './AskBox'
 import { CompanyPicker } from './CompanyPicker'
 import { OrgTree, buildTree } from './OrgTree'
 import { PeopleSearch } from './PeopleSearch'
@@ -39,10 +40,12 @@ export default function App() {
   const [selected, setSelected] = useState<string | null>(null)
   const [showUnplaced, setShowUnplaced] = useState(false)
   const [scrollTo, setScrollTo] = useState<string | null>(null)
+  const [askOn, setAskOn] = useState(false)
   const [grading, setGrading] = useState(initial.grade)
   const [grade, setGrade] = useState<{ key: string; grade: Grade } | null>(null)
 
   useEffect(() => {
+    api.askEnabled().then((a) => setAskOn(a.enabled)).catch(() => setAskOn(false))
     Promise.all([api.companies(), api.presets()])
       .then(([c, p]) => {
         setCompanies(c)
@@ -204,6 +207,10 @@ export default function App() {
               {chart && <PeopleSearch people={chart.people} onPick={reveal} />}
               {loading && <span className="muted">Inferring…</span>}
             </div>
+            {askOn && chart && companyId && (
+              <AskBox key={`${companyId}/${preset}`} companyId={companyId} preset={preset} people={chart.people}
+                nameOf={nameOf} onGoTo={reveal} />
+            )}
             {tree ? (
               <OrgTree tree={tree} expanded={expanded} selected={selected} onToggle={toggle} onSelect={setSelected}
                 showUnplaced={showUnplaced} onToggleUnplaced={() => setShowUnplaced((s) => !s)} grade={graded?.lines} />
