@@ -80,7 +80,8 @@ def chart(cid: str, preset: str = Query("strict")) -> dict:
             "location": r.location, "start_date": r.start_date,
             "level": LEVELS[person.level] if person.level_known else None,
             "function": person.function, "manager_id": p.manager_id, "placement": placement,
-            "confidence": round(p.confidence, 3), "reason": _unplaced_reason(s) if placement == "unplaced" else p.reason,
+            "confidence": round(p.confidence, 3),
+            **(_unplaced(s) if placement == "unplaced" else {"reason": p.reason}),
         })
     c = v.company
     return {"company": {"company_id": c.company_id, "name": c.name, "industry": c.industry,
@@ -88,13 +89,16 @@ def chart(cid: str, preset: str = Query("strict")) -> dict:
             "preset": PRESET_STATS[preset], "counts": counts, "people": people}
 
 
-def _unplaced_reason(s) -> str:
+def _unplaced(s) -> dict:
+    """Why someone wasn't placed, as a code the app groups by, plus our best guess."""
     if not s.options:
-        return "no candidate bosses (title too senior or unreadable)"
-    if s.p_none >= s.options[0][1] and s.p_none >= 0.5:
-        return "probably no boss among these (possible ghost or stale profile)"
-    boss_p = s.options[0][1]
-    return f"too uncertain (best guess {boss_p:.0%})"
+        return {"reason_code": "no_candidates", "reason": "no one in the data looks senior enough to be their boss"}
+    boss, boss_p = s.options[0]
+    guess = {"best_guess_id": boss, "best_guess_p": round(boss_p, 3)}
+    if s.p_none >= boss_p and s.p_none >= 0.5:
+        return {"reason_code": "ghost_like", **guess,
+                "reason": f"probably no boss here ({s.p_none:.0%}): possibly a stale profile or someone who left"}
+    return {"reason_code": "uncertain", **guess, "reason": f"too uncertain: best guess only {boss_p:.0%}"}
 
 
 # -- why --------------------------------------------------------------------------------------------
@@ -102,6 +106,8 @@ _F = {name: i for i, name in enumerate(FEATURES)}
 
 
 def _clues(person, boss, x: list[float]) -> list[dict]:
+    """Evidence a person can check (team, office, dates, ex-colleagues, ghost signs). Level-gap
+    and exec weights are left out: they offset each other and read as nonsense on their own."""
     w = load_model()["weights"]
     labels = {
         "same_team": f"same team ({person.team})", "team_mismatch": f"different team ({person.team} vs {boss.team})",
@@ -110,8 +116,6 @@ def _clues(person, boss, x: list[float]) -> list[dict]:
         "burst_6m": "they joined within 6 months of this boss", "same_employer": f"both came from {person.employer}",
         "closest_level_in_function": "nearest manager level in the department",
         "dept_leak": "their department field names this boss's department",
-        "gap1": "one level above", "gap2": "two levels above", "gap3": "three levels above",
-        "gap4plus": "four or more levels above", "boss_exec": "an executive", "boss_ceo": "the CEO",
         "boss_is_older_echo": "looks like an old profile of a current role (possible ghost)",
         "boss_is_oldest_twin": "earliest of several look-alike roles (possible ghost)",
         "boss_cannot_manage": "title rarely manages anyone (assistant, contractor)",

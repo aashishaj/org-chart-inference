@@ -184,8 +184,7 @@
 
 .slider,
 .counts,
-.legend,
-.person-card {
+.legend {
   padding: 0.9rem 1rem;
   background: var(--surface);
   border: 1px solid var(--border);
@@ -288,34 +287,10 @@
   border-radius: 50%;
 }
 
-.person-card h2 {
-  font-size: 1.05rem;
-}
 
-.person-card > p {
-  margin: 0.15rem 0 0.6rem;
-  color: var(--muted);
-}
 
-.person-card dl {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.3rem 0.75rem;
-  margin: 0;
-  font-size: 0.88rem;
-}
 
-.person-card dt {
-  color: var(--muted);
-}
 
-.person-card dd {
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.4rem;
-}
 
 .link {
   padding: 0;
@@ -527,5 +502,269 @@
 
   .reason {
     max-width: 55%;
+  }
+}
+
+/* -- people search ------------------------------------------------------------------ */
+.people-search {
+  position: relative;
+  flex: 1;
+  max-width: 24rem;
+  margin-left: auto;
+}
+
+.people-search input {
+  width: 100%;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface-2);
+  font-size: 0.85rem;
+}
+
+.people-search input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: -1px;
+}
+
+.people-search .picker-list {
+  z-index: 5;
+}
+
+/* -- not placed, grouped ------------------------------------------------------------ */
+.unplaced-group {
+  margin: 0.75rem 0 0 0.5rem;
+}
+
+.unplaced-group h4 {
+  margin: 0;
+  font-size: 0.88rem;
+}
+
+/* -- why panel ------------------------------------------------------------------------ */
+.why {
+  position: fixed;
+  z-index: 20;
+  top: 3.6rem;
+  right: 0;
+  bottom: 0;
+  width: min(28rem, 100vw);
+  overflow-y: auto;
+  padding: 1rem 1.1rem 2rem;
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  box-shadow: -8px 0 24px rgb(0 0 0 / 0.1);
+}
+
+@media (min-width: 1280px) {
+  .layout.with-why {
+    padding-right: 29.25rem;
+  }
+}
+
+.why-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.why-head h2 {
+  font-size: 1.15rem;
+}
+
+.why-head p {
+  margin: 0.2rem 0 0;
+}
+
+.close {
+  flex: none;
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 6px;
+  background: var(--surface-2);
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.why section {
+  margin-top: 1.1rem;
+}
+
+.why h3 {
+  margin-bottom: 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.decision {
+  margin: 0.9rem 0 0;
+  padding: 0.7rem 0.8rem;
+  border-radius: var(--radius);
+  background: var(--accent-soft);
+}
+
+.decision .conf {
+  margin-left: 0.3rem;
+  vertical-align: 0.1em;
+}
+
+.decision.none {
+  background: var(--surface-2);
+}
+
+.small-block {
+  display: block;
+  width: 100%;
+  font-size: 0.82rem;
+  margin-top: 0.2rem;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.3rem 0.9rem;
+  margin: 0;
+  font-size: 0.88rem;
+}
+
+.facts dt {
+  color: var(--muted);
+}
+
+.facts dd {
+  margin: 0;
+}
+
+.chip {
+  display: inline-block;
+  margin-left: 0.4rem;
+  padding: 0 0.45rem;
+  border-radius: 999px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.candidates {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.cand-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.cand-name {
+  font-weight: 500;
+}
+
+.cand-p {
+  margin-left: auto;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.cand-title {
+  font-size: 0.82rem;
+}
+
+.bar {
+  display: block;
+  height: 0.35rem;
+  margin: 0.3rem 0;
+  border-radius: 999px;
+  background: var(--surface-2);
+  overflow: hidden;
+}
+
+.bar-fill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+}
+
+.bar-fill.high {
+  background: var(--high);
+}
+
+.bar-fill.mid {
+  background: var(--mid);
+}
+
+.bar-fill.low,
+.bar-fill.none {
+  background: var(--low);
+}
+
+.clues {
+  margin: 0.3rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.clues li {
+  padding: 0.05rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+}
+
+.clues .for {
+  background: color-mix(in srgb, var(--high) 15%, transparent);
+  color: var(--high);
+}
+
+.clues .against {
+  background: var(--danger-soft);
+  color: var(--danger);
+}
+
+.ups {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.88rem;
+}
+
+.ups li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  padding: 0.2rem 0;
+}
+
+@media (max-width: 860px) {
+  .why {
+    top: auto;
+    left: 0;
+    width: 100%;
+    max-height: 78vh;
+    border-left: 0;
+    border-top: 1px solid var(--border);
+    border-radius: 14px 14px 0 0;
+    box-shadow: 0 -8px 24px rgb(0 0 0 / 0.18);
+  }
+
+  .chart-toolbar {
+    flex-wrap: wrap;
+  }
+
+  .people-search {
+    max-width: none;
+    flex-basis: 100%;
   }
 }

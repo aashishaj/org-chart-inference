@@ -69,6 +69,7 @@ const Node = memo(function Node({ person, tree, expanded, selected, onToggle, on
   return (
     <li className={`node ${person.placement}`}>
       <div
+        id={`p-${person.id}`}
         className={`row${selected === person.id ? ' selected' : ''}`}
         style={{ paddingLeft: `${depth * 1.25}rem` }}
         onClick={() => onSelect(person.id)}
@@ -117,6 +118,15 @@ const Node = memo(function Node({ person, tree, expanded, selected, onToggle, on
   )
 })
 
+const UNPLACED_GROUPS = [
+  { code: 'uncertain', title: 'Not sure enough',
+    blurb: 'Our best guess is below this strictness setting, usually because several people fit. Sorted by best guess; a looser setting places the top ones.' },
+  { code: 'ghost_like', title: 'Probably no boss in the data',
+    blurb: 'Looks like a stale profile (someone who left) or their boss is missing from the data.' },
+  { code: 'no_candidates', title: 'No possible boss',
+    blurb: 'Nobody in the data reads as more senior: often a blank or unreadable title.' },
+] as const
+
 interface Props {
   tree: Tree
   expanded: Set<string>
@@ -148,20 +158,37 @@ export function OrgTree({ tree, expanded, selected, onToggle, onSelect, showUnpl
           {showUnplaced ? '▾' : '▸'} Not placed <span className="muted">({tree.unplaced.length})</span>
         </button>
         <p className="muted small">Not sure enough to draw a line. A wrong line is worse than no line.</p>
-        {showUnplaced && (
-          <ul className="unplaced-list">
-            {tree.unplaced.map((p) => (
-              <li key={p.id} className={`row${selected === p.id ? ' selected' : ''}`} onClick={() => onSelect(p.id)}>
-                <span className="toggle-spacer" />
-                <span className="who">
-                  <span className="name">{p.name}</span>
-                  <span className="title">{p.title || <em>no title</em>}</span>
-                </span>
-                <span className="reason">{p.reason}</span>
-              </li>
-            ))}
-          </ul>
-        )}
+        {showUnplaced && UNPLACED_GROUPS.map((g) => {
+          const members = tree.unplaced.filter((p) => (p.reason_code ?? 'uncertain') === g.code)
+            .sort((a, b) => (b.best_guess_p ?? 0) - (a.best_guess_p ?? 0))
+          if (!members.length) return null
+          return (
+            <div key={g.code} className="unplaced-group">
+              <h4>{g.title} <span className="muted">({members.length})</span></h4>
+              <p className="muted small">{g.blurb}</p>
+              <ul className="unplaced-list">
+                {members.map((p) => {
+                  const guess = p.best_guess_id ? tree.byId.get(p.best_guess_id) : undefined
+                  return (
+                    <li key={p.id} id={`p-${p.id}`} className={`row${selected === p.id ? ' selected' : ''}`}
+                      onClick={() => onSelect(p.id)}>
+                      <span className="toggle-spacer" />
+                      <span className="who">
+                        <span className="name">{p.name}</span>
+                        <span className="title">{p.title || <em>no title</em>}</span>
+                      </span>
+                      {guess && p.best_guess_p !== undefined && (
+                        <span className="reason" title={p.reason}>
+                          best guess {guess.name}, {Math.round(p.best_guess_p * 100)}%
+                        </span>
+                      )}
+                    </li>
+                  )
+                })}
+              </ul>
+            </div>
+          )
+        })}
       </section>
     </div>
   )

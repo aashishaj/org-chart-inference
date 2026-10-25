@@ -38,6 +38,9 @@ export interface ChartPerson {
   placement: Placement
   confidence: number
   reason: string
+  reason_code?: 'ghost_like' | 'uncertain' | 'no_candidates'
+  best_guess_id?: string
+  best_guess_p?: number
 }
 
 export interface Chart {
@@ -45,6 +48,29 @@ export interface Chart {
   preset: Preset
   counts: Record<Placement, number>
   people: ChartPerson[]
+}
+
+export interface PersonBrief {
+  id: string
+  name: string
+  title: string
+}
+
+export interface Why {
+  person: PersonBrief & { department: string; location: string; start_date: string; prev_employer: string }
+  read_as: {
+    level: string | null
+    department: string | null
+    team: string | null
+    office: string | null
+    confidence: number
+    rule: string
+    flags: string[]
+  }
+  decision: { kind: 'exact' | 'partial' | 'none'; manager: PersonBrief | null; confidence: number; reason: string }
+  candidates: (PersonBrief & { probability: number; clues: { clue: string; effect: number }[] })[]
+  probability_no_boss_here: number
+  reports_up_to: (PersonBrief & { probability: number })[]
 }
 
 async function get<T>(path: string, params: Record<string, string> = {}): Promise<T> {
@@ -58,4 +84,6 @@ export const api = {
   presets: () => get<Preset[]>('/presets'),
   companies: () => get<CompanySummary[]>('/companies'),
   chart: (id: string, preset: PresetName) => get<Chart>(`/companies/${id}/chart`, { preset }),
+  why: (id: string, person: string, preset: PresetName) =>
+    get<Why>(`/companies/${id}/people/${person}/why`, { preset }),
 }

@@ -2,8 +2,10 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { api } from './api'
 import type { Chart, CompanySummary, Preset, PresetName } from './api'
 import { CompanyPicker } from './CompanyPicker'
-import { OrgTree, buildTree, confidenceBand } from './OrgTree'
+import { OrgTree, buildTree } from './OrgTree'
+import { PeopleSearch } from './PeopleSearch'
 import { StrictnessSlider } from './StrictnessSlider'
+import { WhyPanel } from './WhyPanel'
 import './App.css'
 
 const PRESETS: PresetName[] = ['strict', 'balanced', 'broad']
@@ -34,6 +36,7 @@ export default function App() {
   const [expanded, setExpanded] = useState<Set<string>>(new Set())
   const [selected, setSelected] = useState<string | null>(null)
   const [showUnplaced, setShowUnplaced] = useState(false)
+  const [scrollTo, setScrollTo] = useState<string | null>(null)
 
   useEffect(() => {
     Promise.all([api.companies(), api.presets()])
@@ -93,7 +96,28 @@ export default function App() {
 
   const current = companies.find((c) => c.company_id === companyId) ?? chart?.company ?? null
   const person = selected && tree ? tree.byId.get(selected) : undefined
-  const manager = person?.manager_id && tree ? tree.byId.get(person.manager_id) : undefined
+
+  // Select someone and make sure they're visible: open their chain of managers (or the
+  // not-placed list) and scroll to them.
+  const reveal = useCallback((id: string) => {
+    if (!tree) return
+    const chain: string[] = []
+    for (let cur = tree.byId.get(id); cur?.manager_id; cur = tree.byId.get(cur.manager_id)) chain.push(cur.manager_id)
+    const top = tree.byId.get(chain.length ? chain[chain.length - 1] : id)
+    if (top && top.placement !== 'root' && !tree.size.get(top.id)) setShowUnplaced(true)
+    setExpanded((prev) => new Set([...prev, ...chain]))
+    setSelected(id)
+    setScrollTo(id)
+  }, [tree])
+
+  useEffect(() => {
+    if (!scrollTo) return
+    document.getElementById(`p-${scrollTo}`)?.scrollIntoView({ block: 'center', behavior: 'smooth' })
+    setScrollTo(null)
+  }, [scrollTo, expanded, showUnplaced])
+
+  const closeWhy = useCallback(() => setSelected(null), [])
+  const nameOf = useCallback((id: string) => tree?.byId.get(id)?.name, [tree])
 
   return (
     <div className="app">
@@ -123,7 +147,7 @@ export default function App() {
       )}
 
       {companyId && (
-        <main className="layout">
+        <main className={`layout${person ? ' with-why' : ''}`}>
           <aside className="controls">
             {current && (
               <div className="company-card">
@@ -148,36 +172,13 @@ export default function App() {
               <span><i className="conf low" /> below 75%</span>
               <span><span className="partial-tag">up to</span> somewhere above, not direct</span>
             </div>
-            {person && (
-              <div className="person-card">
-                <h2>{person.name}</h2>
-                <p>{person.title || <em>no title</em>}</p>
-                <dl>
-                  {person.department && <><dt>Department</dt><dd>{person.department}</dd></>}
-                  {person.location && <><dt>Office</dt><dd>{person.location}</dd></>}
-                  {person.start_date && <><dt>Started</dt><dd>{person.start_date}</dd></>}
-                  <dt>Read as</dt>
-                  <dd>{[person.level, person.function?.replace('_', ' ')].filter(Boolean).join(', ') || 'unreadable'}</dd>
-                  <dt>{person.placement === 'partial' ? 'Reports up to' : 'Manager'}</dt>
-                  <dd>
-                    {manager ? (
-                      <button className="link" onClick={() => setSelected(manager.id)}>
-                        {manager.name}, {manager.title}
-                      </button>
-                    ) : person.placement === 'root' ? 'Top of the company' : <span className="muted">{person.reason}</span>}
-                    {manager && (
-                      <span className={`conf ${confidenceBand(person.confidence)}`}>{(person.confidence * 100).toFixed(0)}%</span>
-                    )}
-                  </dd>
-                </dl>
-              </div>
-            )}
           </aside>
 
           <section className="chart" aria-busy={loading}>
             <div className="chart-toolbar">
               <button onClick={expandAll} disabled={!tree}>Expand all</button>
               <button onClick={collapseAll} disabled={!tree}>Collapse</button>
+              {chart && <PeopleSearch people={chart.people} onPick={reveal} />}
               {loading && <span className="muted">Inferring…</span>}
             </div>
             {tree ? (
@@ -187,6 +188,10 @@ export default function App() {
               !error && <p className="muted">Inferring the org chart…</p>
             )}
           </section>
+          {person && companyId && (
+            <WhyPanel companyId={companyId} person={person} preset={preset} nameOf={nameOf} onGoTo={reveal}
+              onClose={closeWhy} />
+          )}
         </main>
       )}
     </div>
