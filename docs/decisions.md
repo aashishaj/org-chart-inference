@@ -87,9 +87,13 @@ anything from `orgchart/generator` (templates, vocabulary, team lists). A test
 enforces it. Otherwise the parser would "know" the generator's vocabulary and
 every score would be inflated.
 
-**Honest splits.** Companies are split 360 train / 120 calibration / 120 test.
-Weights are learned on train, confidences calibrated on calibration, and every
-reported number comes from test companies the model never saw.
+**Honest splits.** Companies are split 360 train / 120 dev / 120 test, by
+company and stratified by industry. Weights are learned on train, every design
+choice and threshold was tuned on dev, and the final numbers come from test
+companies, scored once at the end. (The plan had a separate calibration split; the
+conditional logit's boss probabilities came out within ~4 points on dev (ECE 3.6%),
+slightly over-confident only above 90%, where claims are right 89% of the time, so
+it wasn't needed.)
 
 **Title parser: rules first, Gemini for the tail.** Normalise (strip fluff,
 emojis, expand abbreviations), then keyword rules for seniority, department,
@@ -100,9 +104,11 @@ engine is built on it.
 **Inference: learned pairwise scores, assembled as a tree.** Candidate bosses are
 more senior records in a compatible department. Each pair gets interpretable
 features (level gap, department and team match, office, start-date order, shared
-previous employer, department-field leak, ghost signals). A logistic regression
-combines them; a maximum spanning arborescence picks everyone's manager jointly
-so the result is a consistent tree.
+previous employer, department-field leak, ghost signals). A conditional logit
+(softmax over each person's candidates plus a "none of these" option) turns them
+into probabilities. Because bosses are always more senior, the result is a tree by
+construction. (The plan was a maximum spanning arborescence; it wasn't needed, and
+per-person probabilities are what the confidence and partial edges are built on.)
 
 **Three kinds of answer.** An exact edge with a confidence; a *partial edge*
 ("reports up to Tom, Senior EM"), used when the person is one of several
@@ -110,10 +116,10 @@ managers' reports and Tom sits above all of them, a true statement that answers
 the economic-buyer question; or abstain. Partial edges are scored as ancestor
 claims.
 
-**Gemini as industry knowledge, for department heads only.** One prompt per
-industry asks who each department head typically reports to (e.g. Head of
-Security at a bank). Used as a prior feature for top-level lines; it draws on
-Gemini's own knowledge, not on our generator.
+**Gemini as industry knowledge, for department heads only (planned, not built).**
+One prompt per industry would ask who each department head typically reports to.
+The department-pair prior learned on train and the two "CEO over" features (Phase
+4) covered most of the gap, so time went to the app instead.
 
 **Gemini only where the rules are unsure.** Rule confidence below 0.7 is where the
 rules are 0-57% right; above it they're 89-92% right. Routing only that tail sent
@@ -198,8 +204,12 @@ models).
 **One company in memory at a time.** All 600 companies plus the answer key take
 over 1 GB; the free host has 512 MB. The dataset is split into
 data/by_company/<id>/ (same layout as data/, so the same loaders work) and the
-server scores a company on first open (0.2s typical, 2.4s for the largest) and
-keeps the last 24. Peak about 300 MB.
+server scores a company on first open (0.2s typical, 2.4s for the largest).
+Deploying showed the cache was sized wrongly: 24 *companies* is 1 GB if they're the
+largest. It now keeps companies up to 4,000 records in total, and each pair's
+features are a packed float array instead of a list of Python floats (133 MB -> 61 MB
+while scoring the largest company; identical numbers). Worst case, the 12 largest
+companies opened back to back: 1.07 GB -> 294 MB.
 
 **The app found a parser bug.** "Human Resources Partner" was read as a firm
 partner (VP), so an HR team's reports were placed "up to" an IC. Fixed, tested,

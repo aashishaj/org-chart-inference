@@ -15,13 +15,11 @@ def client(tmp_path_factory):
     store.split(data, split_dir)
     mp = pytest.MonkeyPatch()
     mp.setattr(store, "SPLIT_DIR", split_dir)
-    for f in (store.company_index, store.company_ids, store.view, store.answer_key):
-        f.cache_clear()
+    store.clear_caches()
     from orgchart.api.app import app
     yield TestClient(app)
     mp.undo()
-    for f in (store.company_index, store.company_ids, store.view, store.answer_key):
-        f.cache_clear()
+    store.clear_caches()
 
 
 @pytest.fixture(scope="module")
@@ -82,3 +80,11 @@ def test_ask_is_off_without_a_key(client, cid, monkeypatch):
     monkeypatch.delenv("GEMINI_API_KEY", raising=False)
     assert client.get("/api/ask").json() == {"enabled": False}
     assert client.post(f"/api/companies/{cid}/ask", json={"question": "Who leads sales?"}).status_code == 503
+
+
+def test_cache_keeps_companies_within_the_record_budget(client, monkeypatch):
+    ids = [c["company_id"] for c in client.get("/api/companies").json()]
+    monkeypatch.setattr(store, "CACHE_RECORDS", 1)
+    for cid in ids:
+        client.get(f"/api/companies/{cid}/chart")
+    assert list(store._views) == [ids[-1]]  # always keeps the one being served

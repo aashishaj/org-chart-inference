@@ -9,6 +9,7 @@ model weights) are loaded from model.json, written by orgchart/evaluation/train.
 
 import math
 import re
+from array import array
 from collections import Counter, defaultdict
 from dataclasses import dataclass
 
@@ -157,7 +158,7 @@ def none_features(people: list[Person]) -> dict[str, list[float]]:
 class Pair:
     person: str
     boss: str
-    x: list[float]
+    x: array  # of float, indexed like FEATURES
 
 
 def _twin_key(p: Person) -> tuple | None:
@@ -242,7 +243,7 @@ def candidate_pairs(people: list[Person], pair_prior: dict[tuple[str, str], floa
 
 
 def _features(p: Person, b: Person, prior: float, closest: int | None, peers, twins, by_fl,
-              echoes: set[str], unled: bool) -> list[float]:
+              echoes: set[str], unled: bool) -> array:
     x = [0.0] * len(FEATURES)
     gap = p.level - b.level
     x[F["bias"]] = 1
@@ -288,4 +289,4 @@ def _features(p: Person, b: Person, prior: float, closest: int | None, peers, tw
     ceo = b.level == CEO and b.level_known
     x[F["ceo_over_exec"]] = float(ceo and p.level == EXEC and p.level_known)
     x[F["ceo_over_unled_head"]] = float(ceo and p.level in (VP, HEAD) and p.level_known and unled)
-    return x
+    return array("d", x)  # packed: a big company has ~140k pairs, and a list of floats is ~3x the size

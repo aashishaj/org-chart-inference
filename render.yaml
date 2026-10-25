@@ -1,0 +1,11 @@
+# Render Blueprint: New > Blueprint, pick this repo, then paste GEMINI_API_KEY when asked.
+services:
+  - type: web
+    name: org-chart-inference
+    runtime: docker
+    plan: free
+    region: singapore          # closest to the (Australian) companies' users
+    healthCheckPath: /api/presets
+    envVars:
+      - key: GEMINI_API_KEY    # optional; without it the "ask" box is hidden
+        sync: false

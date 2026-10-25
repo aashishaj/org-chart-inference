@@ -1,0 +1,10 @@
+.env
+.venv
+.cache
+.claude
+.git
+data
+runs
+web/node_modules
+web/dist
+**/__pycache__
